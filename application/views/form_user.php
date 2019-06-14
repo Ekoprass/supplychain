@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>ARSIP SURAT PT. PAL INDONESIA</title>
+    <title>ARSIP SURAT PT.PAL INDONESIA</title>
     <meta name="description" content="Ela Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -347,7 +347,7 @@
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-header">
-                                <strong> Form User </strong>
+                                <strong> FORM USER </strong>
                             </div>
                             <div class="card-body card-block">
                                 <form action="#" method="post" enctype="multipart/form-data" class="form-horizontal">
@@ -358,20 +358,32 @@
                                         </div>
                                     </div> -->
                                     <div class="row form-group"> <!-- Text input diganti no.petugas -->
-                                        <div class="col col-md-3"><label for="text-input" class=" form-control-label">No. Petugas</label></div>
-                                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" placeholder="Masukkan nomer" class="form-control"><!-- <small class="form-text text-muted">This is a help text</small> --></div>
+                                        <div class="col col-md-9"><label for="no_petugas-input" class=" form-control-label">No. Petugas</label></div>
+                                        <div class="col-12 col-md-12"><input type="text" id="no_petugas-input" name="no_petugas" placeholder="Masukkan nomer" class="form-control"><!-- <small class="form-text text-muted">This is a help text</small> --></div>
                                     </div>
                                     <div class="row form-group"> <!-- Email diganti petugas -->
-                                        <div class="col col-md-3"><label for="email-input" class=" form-control-label">Nama Petugas</label></div>
-                                        <div class="col-12 col-md-9"><input type="email" id="email-input" name="email-input" placeholder="Masukkan nama" class="form-control"><!-- <small class="help-block form-text">Please enter your email</small> --></div>
+                                        <div class="col col-md-9"><label for="petugas-input" class=" form-control-label">Nama Petugas</label></div>
+                                        <div class="col-12 col-md-12"><input type="text" id="petugas-input" name="nama_petugas" placeholder="Masukkan nama" class="form-control"><!-- <small class="help-block form-text">Please enter your email</small> --></div>
                                     </div>
                                   	<div class="row form-group"> <!-- Email diganti username -->
-                                        <div class="col col-md-3"><label for="email-input" class=" form-control-label">Username</label></div>
-                                        <div class="col-12 col-md-9"><input type="email" id="email-input" name="email-input" placeholder="Masukkan username" class="form-control"><!-- <small class="help-block form-text">Please enter your email</small> --></div>
+                                        <div class="col col-md-9"><label for="username-input" class=" form-control-label">Username</label></div>
+                                        <div class="col-12 col-md-12"><input type="text" id="username-input" name="username" placeholder="Masukkan username" class="form-control"><!-- <small class="help-block form-text">Please enter your email</small> --></div>
                                     </div>
                                     <div class="row form-group">
-                                        <div class="col col-md-3"><label for="password-input" class=" form-control-label">Password</label></div>
-                                        <div class="col-12 col-md-9"><input type="password" id="password-input" name="password-input" placeholder="Masukkan password" class="form-control"><!-- <small class="help-block form-text">Please enter a complex password</small> --></div>
+                                        <div class="col col-md-9"><label for="password-input" class=" form-control-label">Password</label></div>
+                                        <div class="col-12 col-md-12"><input type="password" id="password-input" name="password" placeholder="Masukkan password" class="form-control"><!-- <small class="help-block form-text">Please enter a complex password</small> --></div>
+                                    </div>
+                                    <div class="row form-group"> <!-- Email diganti username -->
+                                        <div class="col col-md-3"><label for="akses-input" class=" form-control-label">Hak Akses</label></div>
+                                        <div class="col col-md-9">
+                                            <div class="form-check-inline form-check">
+                                                <label for="inline-checkbox1" class="form-check-label ">
+                                                    <input type="checkbox" id="inline-checkbox1" name="inline-checkbox1" value="1" class="form-check-input">Petugas
+                                                </label> &nbsp; &nbsp;
+                                                <label for="inline-checkbox2" class="form-check-label ">
+                                                    <input type="checkbox" id="inline-checkbox2" name="inline-checkbox2" value="2" class="form-check-input">Admin
+                                                </label>
+                                            </div>
                                     </div>
                                     <!-- <div class="row form-group">
                                         <div class="col col-md-3"><label for="disabled-input" class=" form-control-label">Disabled Input</label></div>
@@ -444,7 +456,7 @@
                                             </select>
                                         </div>
                                     </div> -->
-                                    <div class="row form-group">
+                                   <!--  <div class="row form-group">
                                         <div class="col col-md-3"><label class=" form-control-label">Hak Akses</label></div>
                                         <div class="col col-md-9">
                                             <div class="form-check">
@@ -457,7 +469,7 @@
                                                     <label for="radio2" class="form-check-label ">
                                                         <input type="radio" id="radio2" name="radios" value="option2" class="form-check-input">2
                                                     </label>
-                                                </div>
+                                                </div> -->
                                                 <!-- <div class="radio">
                                                     <label for="radio3" class="form-check-label ">
                                                         <input type="radio" id="radio3" name="radios" value="option3" class="form-check-input">Option 3
@@ -532,7 +544,12 @@
                             </div> -->
                             <!-- <div class="card-footer"> -->
                                 <button type="submit" class="btn btn-primary btn-sm">
-                                    <i class="fa fa-dot-circle-o"></i> Submit
+                                    <i class="fa fa-dot-circle-o"></i> TAMBAH
+                                </button>
+
+                                <button type="edit" class="btn btn-primary btn-sm">
+                                    <i class="fa fa-bars"></i>
+                                EDIT
                                 </button>
 
                             <!-- <div class="form-actions form-group"><button type="submit" class="btn btn-success btn-sm">Submit</button></div> -->
@@ -540,7 +557,7 @@
 
 
                                 <button type="reset" class="btn btn-danger btn-sm">
-                                    <i class="fa fa-ban"></i> Reset
+                                    <i class="fa fa-ban"></i> HAPUS
                                 </button>
                             <!-- </div> -->
                         </div>
@@ -1062,7 +1079,7 @@
         <div class="footer-inner bg-white">
             <div class="row">
                 <div class="col-sm-6">
-                    Copyright &copy; 2018 Ela Admin
+                    Copyright &copy; 2019 PT.PAL INDONESIA
                 </div>
                 <div class="col-sm-6 text-right">
                     Designed by <a href="https://colorlib.com">Colorlib</a>
