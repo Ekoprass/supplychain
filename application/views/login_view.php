@@ -37,10 +37,10 @@
     <div class="sufee-login d-flex align-content-center flex-wrap">
         <div class="container">
             <div class="login-content col-2">
-                <div class="login-logo">
-                    <img class="align-content" src="<?php echo base_url() ?>assets/images/LOGOPAL.png" alt="">
-                </div>
                 <div class="login-form">
+                    <div class="login-logo">
+                        <img class="align-content" src="<?php echo base_url() ?>assets/images/LOGOPAL.png" alt="">
+                    </div>
                     <?php echo form_open('login/CekLogin'); ?>
                     <?php echo validation_errors(); ?>
                         <div class="form-group">
