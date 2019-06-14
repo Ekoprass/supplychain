@@ -26,11 +26,17 @@
 
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
 </head>
-<body class="bg-dark">
+<body style="background-image:url('<?php echo base_url() ?>assets/images/bc.jpeg'); background-repeat: no-repeat;
+  background-size: cover; ">
+  <div style=" background-color: #1d1e4285; width: 100%; height: 100%;  position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;"> 
 
     <div class="sufee-login d-flex align-content-center flex-wrap">
         <div class="container">
-            <div class="login-content">
+            <div class="login-content col-2">
                 <div class="login-logo">
                     <img class="align-content" src="<?php echo base_url() ?>assets/images/LOGOPAL.png" alt="">
                 </div>
@@ -50,7 +56,7 @@
                                 <input type="checkbox"> Ingat Saya
                             </label>
                         </div>
-                        <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">LOGIN</button>
+                        <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">LOGIN</button>
                         <div class="register-link m-t-15 text-center">
                             <p hidden>Lupa Password ? <a href="#"> Lapor</a></p>
                         </div>
@@ -59,6 +65,7 @@
             </div>
         </div>
     </div>
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
