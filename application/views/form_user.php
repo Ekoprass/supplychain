@@ -547,7 +547,7 @@
                                     <i class="fa fa-dot-circle-o"></i> TAMBAH
                                 </button>
 
-                                <button type="edit" class="btn btn-primary btn-sm">
+                                <button type="edit" class="btn btn-success btn-sm">
                                     <i class="fa fa-bars"></i>
                                 EDIT
                                 </button>
