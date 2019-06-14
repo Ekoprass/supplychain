@@ -23,20 +23,19 @@ class User extends CI_Controller {
 		$this->form_validation->set_rules('hak_akses', 'Hak_akses', 'trim|required');
 
 		if ($this->form_validation->run()==FALSE)
-		{
-			echo "Sukses menambahkan data !!!";
-			$this->load->view('tambah_member_view');
-		}
+			{
+				echo "Sukses menambahkan data !!!";
+				$this->load->view('tambah_member_view');
+			}
 		
-			else
+		else
 			{
 				$this->member_model->insertMember();
 				$this->load->view('tambah_member_data');
 
 			}
-		}
-		//echo anchor('url', 'linkname');
 	}
+		//echo anchor('url', 'linkname');
 
 	public function edit($no_petugas)
 	{
@@ -53,7 +52,7 @@ class User extends CI_Controller {
 
 		if ($this->form_validation->run()==FALSE)
 		{
-			$this->load->view('user_view',$data);
+			$this->load->view('User_view',$data);
 		}
 		else
 		{
@@ -65,11 +64,10 @@ class User extends CI_Controller {
 	public function hapus($no_petugas)
 	{
 		$this->load->helper('url');
-		$this->load->model('Model File');
+		$this->load->model('User_model');
 		$this->model->delete($id);
 		redirect('User');
 	};
-	}
 }
 
 /* End of file user.php */
