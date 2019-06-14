@@ -12,20 +12,20 @@ public function __construct()
 	public function index()
 	{
 		 
-					$session_data=$arraydata = array('akses'  => '2');
-					// $id_user=$session_data['id_user'];
-					$data['akses']=$session_data['akses'];
-					
-					$akses=$session_data['akses'];
-					// $data['usr']="user";
-					// $data['user']=$this->user_model->getDataUserByID($id_user);
-					$data['menus'] = $this->Menus->getMenuUser($akses);
-					
-					$this->load->view('dashboard',$data);
+		$session_data=$this->session->userdata('logged_in');
+		// $id_user=$session_data['id_user'];
+		// $data['akses']=$session_data['hak_akses'];
+		$akses=$session_data['hak_akses'];
+		// $data['usr']="user";
+		// $data['user']=$this->user_model->getDataUserByID($id_user);
+		$data['menus'] = $this->Menus->getMenuUser($akses);
+		
+		$this->load->view('dashboard',$data);
 	}
 
 }
 
 /* End of file Home.php */
 /* Location: ./application/controllers/Home.php */
+
  ?>
