@@ -4,9 +4,13 @@ class Rak extends CI_Controller{
     parent::__construct();
     $this->load->library('datatables');
     $this->load->model('Rak_model');
+    $this->load->model('Menus');
   }
   function index(){
-    $this->load->view('Rak_view');
+    $session_data=$this->session->userdata('logged_in');
+    $akses=$session_data['hak_akses'];
+    $data['menus'] = $this->Menus->getMenuUser($akses);
+    $this->load->view('Rak_view',$data);
   }
 
   function get_guest_json() { //data data produk by JSON object

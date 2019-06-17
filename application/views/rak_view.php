@@ -1,31 +1,26 @@
-<html lang="id">
-<head>
-	<meta charset="utf-8">
-	<title>RAK</title>
-  <link href="<?php echo base_url().'assets/css/bootstrap.css'?>" rel="stylesheet" type="text/css"/>
-	<link href="<?php echo base_url().'assets/css/jquery.datatables.min.css'?>" rel="stylesheet" type="text/css"/>
-  <link href="<?php echo base_url().'assets/css/dataTables.bootstrap.css'?>" rel="stylesheet" type="text/css"/>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
-</head>
-<body>
-  <div class="container">
-    <h2>RAK</h2>
-		<button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add New</button>
-    <table class="table table-striped" id="mytable">
-      <thead>
-        <tr>
-          <th>Kode Rak</th>
-          <th>Nama Rak</th>
-          <!-- <th>Product Code</th>
-          <th>Product Name</th>
-          <th>Price</th>
-          <th>Category</th>-->
-          <th>Action</th>
-        </tr>
-      </thead>
-    </table>
-  </div>
+<?php $this->view('template.php'); ?>
+<div class="content">
+    <div class="animated fadeIn">
+       <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header">
+                   <h2>Data Rak</h2>
+              </div>
+              <div class="card-body card-block">
+          		<button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add New</button>
+              <table class="table table-striped" id="mytable">
+                <thead>
+                  <tr>
+                    <th>Kode Rak</th>
+                    <th>Nama Rak</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+        </div>
 
 	<!-- Modal Add Produk-->
 	  <form id="add-row-form" action="<?php echo base_url().'index.php/rak/simpan'?>" method="post">
@@ -100,18 +95,20 @@
  	        </div>
  	     </div>
  	 </form>
-
+  </div></div></div>
+<?php $this->view('footer.php'); ?>
 <script src="<?php echo base_url().'assets/js/jquery-2.1.4.min.js'?>"></script>
 <script src="<?php echo base_url().'assets/js/bootstrap.js'?>"></script>
 <script src="<?php echo base_url().'assets/js/jquery.datatables.min.js'?>"></script>
 <script src="<?php echo base_url().'assets/js/dataTables.bootstrap.js'?>"></script>
 <!-- Specific Page Vendor -->
-<script src="assets/vendor/select2/select2.js"></script>
-<script src="assets/vendor/jquery-datatables/media/js/jquery.dataTables.js"></script>
-<script src="assets/vendor/jquery-datatables-bs3/assets/js/datatables.js"></script>
+<script src="<?php echo base_url()?>assets/select2/select2.js"></script>
+<script src="<?php echo base_url()?>assets/jquery-datatables/media/js/jquery.dataTables.js"></script>
+<script src="<?php echo base_url()?>assets/jquery-datatables-bs3/assets/js/datatables.js"></script>
 
 <!-- Examples -->
-<script src="assets/javascripts/tables/examples.datatables.editable.js"></script>
+<script src="<?php echo base_url()?>assets/javascripts/tables/examples.datatables.editable.js"></script>
+
 
 <script>
 	$(document).ready(function(){
