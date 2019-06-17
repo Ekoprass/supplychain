@@ -11,7 +11,7 @@
  Target Server Version : 100134
  File Encoding         : 65001
 
- Date: 14/06/2019 15:06:52
+ Date: 17/06/2019 09:57:35
 */
 
 SET NAMES utf8mb4;
@@ -44,6 +44,11 @@ CREATE TABLE `jurubeli`  (
   `nama_jurubeli` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`kd_jurubeli`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of jurubeli
+-- ----------------------------
+INSERT INTO `jurubeli` VALUES ('12', 'Bagong');
 
 -- ----------------------------
 -- Table structure for menus
