@@ -73,34 +73,10 @@
  	        </div>
  	     </div>
  	 </form>
-<<<<<<< HEAD
+
 </div></div></div>
 <?php $this->view('footer.php'); ?>
-=======
 
-	 <!-- Modal Hapus Produk-->
- 	  <!-- <form id="add-row-form" action="<?php echo base_url().'index.php/vendor/delete'?>" method="post">
- 	     <div class="modal fade" id="ModalHapus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
- 	        <div class="modal-dialog">
- 	           <div class="modal-content">
- 	               <div class="modal-header">
- 	                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
- 	                   <h4 class="modal-title" id="myModalLabel">Hapus</h4>
- 	               </div>
- 	               <div class="modal-body">
- 	                       <input type="hidden" name="Kode" class="form-control" placeholder="Kode Vendor" required>
-												 <strong>Anda yakin mau menghapus record ini?</strong>
- 	               </div>
- 	               <div class="modal-footer">
- 	                   	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
- 	                  	<button type="submit" id="add-row" class="btn btn-success">Hapus</button>
- 	               </div>
- 	      			</div>
- 	        </div>
- 	     </div>
- 	 </form> -->
-
->>>>>>> 38adb221431c1773b8eba17c7d189376be9a79b6
 <script src="<?php echo base_url().'assets/js/jquery-2.1.4.min.js'?>"></script>
 <script src="<?php echo base_url().'assets/js/bootstrap.js'?>"></script>
 <script src="<?php echo base_url().'assets/js/jquery.datatables.min.js'?>"></script>
