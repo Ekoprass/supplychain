@@ -55,7 +55,7 @@
 
     	 <!-- Modal Update Produk-->
      	  <form id="add-row-form" action="<?php echo base_url().'index.php/jurubeli/update'?>" method="post">
-     	     <div class="modal" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+     	     <div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
      	        <div class="modal-dialog">
      	           <div class="modal-content">
      	               <div class="modal-header">
