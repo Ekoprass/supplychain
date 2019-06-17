@@ -70,16 +70,16 @@
     <!-- Left Panel -->
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
-            <div id="main-menu" class="main-menu collapse navbar-collapse">
+            <div id="main-menu" class="main-menu collapse navbar-collapse menu">
                 <ul class="nav navbar-nav">
                    
                <?php foreach ($menus as $key ) { 
                         if ($key['parent']==0) {?>
-                        <li class="menu-title"><?php echo $key['menu']; ?></li>
+                        <li id="<?php echo $key['url']; ?>" class="menu-title"><?php echo $key['menu']; ?></li>
                     <?php }
                         if ($key['parent']>0) {?>
                      <li>
-                        <a href="widgets.html"> <i class="menu-icon fa <?php echo $key['icon']; ?>"></i><?php echo $key['menu']; ?></a>
+                        <a class="klik_menu" id="<?php echo $key['url']; ?>"> <i class="menu-icon fa <?php echo $key['icon']; ?>"></i><?php echo $key['menu']; ?></a>
                     </li>
                 <?php }} ?>
                   
@@ -124,39 +124,15 @@
         </header>
         <!-- /#header -->
         <!-- Content -->
-        <div class="content">
-            <!-- Animated -->
-            <div class="animated fadeIn">
-                <!-- Widgets  -->
-                
-                <!-- /Widgets -->
-                <!--  Traffic  -->
-                
-                <!--  /Traffic -->
-                <div class="clearfix"></div>
-                <!-- Orders -->
-                
-                <!-- /.orders -->
-                <!-- To Do and Live Chat -->
-                <div class="row">
-                
-                <!-- /To Do and Live Chat -->
-                <!-- Calender Chart Weather  -->
-                
-                <!-- /Calender Chart Weather -->
-                <!-- Modal - Calendar - Add New Event -->
-               
-                <!-- /#event-modal -->
-                <!-- Modal - Calendar - Add Category -->
-                
-            <!-- /#add-category -->
-            </div>
-            <!-- .animated -->
-        </div>
-        <!-- /.content -->
-        <div class="clearfix"></div>
-        <!-- Footer -->
-        <footer class="site-footer">
+
+    <div class="badan">
+ 
+ 
+ 
+    </div>
+       <div class="clearfix"></div>
+   
+    <footer class="site-footer">
             <div class="footer-inner bg-white">
                 <div class="row">
                     <div class="col-sm-6">
@@ -196,6 +172,7 @@
     <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
     <script src="<?php echo base_url() ?>assets/js/init/fullcalendar-init.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/jquery-1.2.3.pack.js"></script>
 
     <!--Local Stuff-->
     <script>
@@ -389,5 +366,26 @@
             // Bar Chart #flotBarChart End
         });
     </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+        $('.klik_menu').click(function(){
+            var menu = $(this).attr('id');
+            if(menu == "home"){
+                $('.badan').load('home.php');                       
+            }else if(menu == "InputArsip"){
+                $('.badan').load('<?php echo site_url('') ?>/InputArsip');                        
+            }else if(menu == "tutorial"){
+                $('.badan').load('tutorial.php');                       
+            }else if(menu == "sosmed"){
+                $('.badan').load('sosmed.php');                     
+            }
+        });
+ 
+ 
+        // halaman yang di load default pertama kali
+        $('.badan').load('home.php');                       
+ 
+    });
+</script>
 </body>
 </html>

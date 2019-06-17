@@ -66,7 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</style>
 </head>
 <body>
-
+<?php $this->view('template.php'); ?>
 <div id="container">
 	<h1>Welcome to CodeIgniter!</h1>
 
@@ -84,6 +84,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
 </div>
-
+<?php $this->view('footer.php'); ?>
 </body>
 </html>

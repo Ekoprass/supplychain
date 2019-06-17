@@ -19,7 +19,7 @@ class Home extends CI_Controller {
 		$akses=$session_data['hak_akses'];
 		$data['menus'] = $this->Menus->getMenuUser($akses);
 		
-		$this->load->view('dashboard',$data);
+		$this->load->view('welcome_message',$data);
 	}
 
 }

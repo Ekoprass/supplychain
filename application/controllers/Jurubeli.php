@@ -2,16 +2,20 @@
 class Jurubeli extends CI_Controller{
   function __construct(){
     parent::__construct();
-    $this->load->library('datatables');
-    $this->load->model('jurubeli_model');
+    $this->load->library('Datatables');
+    $this->load->model('Jurubeli_model');
+    $this->load->model('Menus');
   }
   function index(){
-    $this->load->view('jurubeli_view');
+    $session_data=$this->session->userdata('logged_in');
+    $akses=$session_data['hak_akses'];
+    $data['menus'] = $this->Menus->getMenuUser($akses);
+    $this->load->view('jurubeli_view',$data);
   }
 
   function get_guest_json() { //data data produk by JSON object
     header('Content-Type: application/json');
-    echo $this->jurubeli_model->get_all_jb();
+    echo $this->Jurubeli_model->get_all_jb();
   }
 
 
