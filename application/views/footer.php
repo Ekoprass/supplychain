@@ -1,4 +1,4 @@
-    <div class="clearfix" style="height: 1000px"></div>
+    <div class="clearfix" style="height: 1100px"></div>
 
     <footer class="site-footer">
             <div class="footer-inner bg-white">
@@ -34,8 +34,7 @@
     <script src="https://cdn.jsdelivr.net/npm/flot-pie@1.0.0/src/jquery.flot.pie.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flot-spline@0.0.1/js/jquery.flot.spline.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/simpleweather@3.1.0/jquery.simpleWeather.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/js/init/weather-init.js"></script>
+   
 
     <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>

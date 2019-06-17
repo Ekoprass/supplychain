@@ -14,10 +14,6 @@
                         <tr>
                           <th>Kode Juru Beli</th>
                           <th>Juru Beli</th>
-                          <!-- <th>Product Code</th>
-                          <th>Product Name</th>
-                          <th>Price</th>
-                          <th>Category</th>-->
                           <th>Action</th>
                         </tr>
                       </thead>
