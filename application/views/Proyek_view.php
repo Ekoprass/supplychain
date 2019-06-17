@@ -5,7 +5,7 @@
           <div class="col-lg-12">
             <div class="card">
               <div class="card-header">
-                   <h2>DATA PROYEK</h2>
+                   <h2>Data Vendor</h2>
               </div>
               <div class="card-body card-block">
             		<button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add New</button>

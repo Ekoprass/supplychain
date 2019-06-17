@@ -26,7 +26,7 @@ class User extends CI_Controller{
       'no_petugas'      => $this->input->post('Nomer'),
       'nama_petugas'    => $this->input->post('Nama'),
       'username'		=> $this->input->post('Username'),
-      'password'		=> md5($this->input->post('Password')),
+      'password'		=> $this->input->post('Password'),
       'hak_akses'		=> $this->input->post('hak_akses'),
     );
     $this->db->insert('petugas', $data);
@@ -39,7 +39,7 @@ class User extends CI_Controller{
       // 'kd_jurubeli'     => $this->input->post('Kode')
       'nama_petugas'     => $this->input->post('Nama'),
       'username'		 => $this->input->post('Username'),
-      'password'		 => md5($this->input->post('Password')),
+      'password'		 => $this->input->post('Password'),
       'hak_akses'		 => $this->input->post('hak_akses'),
     );
     $this->db->where('no_petugas',$Nomer);

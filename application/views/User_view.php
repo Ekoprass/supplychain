@@ -52,12 +52,20 @@
                            <div class="form-group">
                                <input type="text" name="Password" class="form-control" placeholder="Masukkan Password" required>
                            </div>
-                           <div class="form-group">
+                           <!-- <div class="form-group">
                                <input type="text" name="hak_akses" class="form-control" placeholder="Ketik : 1 untuk user, 2 untuk admin" required>
-                           </div>
+                           </div> -->
+                            <div class="form-check-inline form-check">
+                                                <label for="inline-checkbox1" class="form-check-label ">
+                                                    <input type="checkbox" id="inline-checkbox1" name="hak_akses" value="1" class="form-check-input">Petugas
+                                                </label> &nbsp; &nbsp;
+                                                <label for="inline-checkbox2" class="form-check-label ">
+                                                    <input type="checkbox" id="inline-checkbox2" name="hak_akses" value="2" class="form-check-input">Admin
+                                                </label>
+                            </div>
                        </div>
                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">TUTUP</button>
+                            <!-- <button type="button" class="btn btn-default" data-dismiss="modal">TUTUP</button> -->
                             <button type="submit" id="add-row" class="btn btn-success">SIMPAN</button>
                        </div>
                     </div>
@@ -87,12 +95,20 @@
                            <div class="form-group">
                                <input type="text" name="Password" class="form-control" placeholder="Masukkan Password" required>
                            </div>
-                           <div class="form-group">
+                           <!-- <div class="form-group">
                                <input type="text" name="hak_akses" class="form-control" placeholder="Ketik : 1 untuk user, 2 untuk admin" required>
-                           </div>
+                           </div> -->
+                            <div class="form-check-inline form-check">
+                                                <label for="inline-checkbox1" class="form-check-label ">
+                                                    <input type="checkbox" id="inline-checkbox1" name="inline-checkbox1" value="1" class="form-check-input">Petugas
+                                                </label> &nbsp; &nbsp;
+                                                <label for="inline-checkbox2" class="form-check-label ">
+                                                    <input type="checkbox" id="inline-checkbox2" name="inline-checkbox2" value="2" class="form-check-input">Admin
+                                                </label>
+                            </div>
                      </div>
                      <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button> -->
                           <button type="submit" id="add-row" class="btn btn-success">Update</button>
                      </div>
                   </div>
@@ -133,8 +149,12 @@
                   </div>
               </div>
            </div>
+<<<<<<< HEAD
+       </form> -->
+    </div>
+    
        </form>
- -->    </div>
+    </div>
   </div>  
 </div>
 <?php $this->view('footer.php'); ?>
