@@ -98,8 +98,8 @@
             <div class="top-left">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="./"><img src="<?php echo base_url() ?>assets/images/LOGOPAL.png" alt="Logo"></a>
-                    <a class="navbar-brand hidden" href="./"><img src="<?php echo base_url() ?>assets/images/logo2.png" alt="Logo"></a>
-                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+                    <!-- <a class="navbar-brand hidden" href="./"><img src="<?php echo base_url() ?>assets/images/LOGOPAL.png" alt="Logo"></a> -->
+                    <!-- <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a> -->
                 </div>
             </div>
             <div class="top-right">
