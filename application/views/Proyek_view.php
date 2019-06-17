@@ -87,7 +87,7 @@
  	               <div class="modal-header">
  	                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
  	                   <h4 class="modal-title" id="myModalLabel">Hapus</h4>
- 	               </div> -->
+ 	               </div>
  	               <div class="modal-body">
  	                       <input type="hidden" name="Kode" class="form-control" placeholder="Kode Proyek" required>
 												 <strong>Anda yakin mau menghapus record ini?</strong>
@@ -99,7 +99,7 @@
  	      			</div>
  	        </div>
  	     </div>
- 	 </form>
+ 	 </form> -->
 
 <script src="<?php echo base_url().'assets/js/jquery-2.1.4.min.js'?>"></script>
 <script src="<?php echo base_url().'assets/js/bootstrap.js'?>"></script>
