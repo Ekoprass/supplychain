@@ -152,10 +152,9 @@
 <<<<<<< HEAD
        </form> -->
     </div>
-=======
+    
        </form>
- -->    </div>
->>>>>>> c4cf31c7b8676ab957422ac2c6a10ba821a7824b
+    </div>
   </div>  
 </div>
 <?php $this->view('footer.php'); ?>
