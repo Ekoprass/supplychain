@@ -84,7 +84,7 @@
                      </div>
                      <div class="modal-body">
                          <div class="form-group">
-                               <input type="text" name="Nomer" class="form-control" placeholder="Masukkan Nomer Petugas" required disabled>
+                               <input type="text" name="Nomer" class="form-control" placeholder="Masukkan Nomer Petugas" readonly>
                            </div>
                            <div class="form-group">
                                <input type="text" name="Nama" class="form-control" placeholder=" Masukkan Nama Petugas" required>
@@ -149,8 +149,13 @@
                   </div>
               </div>
            </div>
+<<<<<<< HEAD
        </form> -->
     </div>
+=======
+       </form>
+ -->    </div>
+>>>>>>> c4cf31c7b8676ab957422ac2c6a10ba821a7824b
   </div>  
 </div>
 <?php $this->view('footer.php'); ?>
