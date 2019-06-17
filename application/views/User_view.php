@@ -76,7 +76,7 @@
                      </div>
                      <div class="modal-body">
                          <div class="form-group">
-                               <input type="text" name="Nomer" class="form-control" placeholder="Masukkan Nomer Petugas" required disabled>
+                               <input type="text" name="Nomer" class="form-control" placeholder="Masukkan Nomer Petugas" readonly>
                            </div>
                            <div class="form-group">
                                <input type="text" name="Nama" class="form-control" placeholder=" Masukkan Nama Petugas" required>
@@ -101,7 +101,7 @@
        </form>
 
        <!--Modul untuk hapus data--> 
-       <form id="add-row-form" action="<?php echo base_url().'index.php/user/hapus'?>" method="post">
+       <!-- <form id="add-row-form" action="<?php echo base_url().'index.php/user/hapus'?>" method="post">
            <div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                  <div class="modal-content">
@@ -134,7 +134,7 @@
               </div>
            </div>
        </form>
-    </div>
+ -->    </div>
   </div>  
 </div>
 <?php $this->view('footer.php'); ?>
