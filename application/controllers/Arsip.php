@@ -30,9 +30,9 @@ class Arsip extends CI_Controller {
 
   public function Data()
 	{
+	   	$session_data=$this->session->userdata('logged_in');
+	    $akses=$session_data['hak_akses']; 
 	    $data['menus'] = $this->Menus->getMenuUser($akses);
-		$session_data=$this->session->userdata('logged_in');
-	    $akses=$session_data['hak_akses'];
 		$this->load->view('dataarsip_view',$data);
 	}
 
