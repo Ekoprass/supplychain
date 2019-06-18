@@ -65,18 +65,18 @@
                             </div> -->
                              <div class="radio">
                                                     <label for="radio1" class="form-check-label ">
-                                                        <input type="radio" id="radio1" name="radios" value="option1" class="form-check-input">PETUGAS
+                                                        <input type="radio" id="radio1" name="hak_akses" value="1" class="form-check-input">PETUGAS
                                                     </label>
                                                 </div>
                                                 <div class="radio">
                                                     <label for="radio2" class="form-check-label ">
-                                                        <input type="radio" id="radio2" name="radios" value="option2" class="form-check-input">ADMIN
+                                                        <input type="radio" id="radio2" name="hak_akses" value="2" class="form-check-input">ADMIN
                                                     </label>
                                                 </div>
                        </div>
                        <div class="modal-footer">
                             <!-- <button type="button" class="btn btn-default" data-dismiss="modal">TUTUP</button> -->
-                            <button type="submit" id="add-row" class="btn btn-info">SIMPAN</button>
+                            <button type="submit" id="add-row" class="btn btn-success">SIMPAN</button>
                        </div>
                     </div>
                 </div>
@@ -108,18 +108,20 @@
                            <!-- <div class="form-group">
                                <input type="text" name="hak_akses" class="form-control" placeholder="Ketik : 1 untuk user, 2 untuk admin" required>
                            </div> -->
-                            <div class="form-check-inline form-check">
-                                                <label for="inline-checkbox1" class="form-check-label ">
-                                                    <input type="checkbox" id="inline-checkbox1" name="inline-checkbox1" value="1" class="form-check-input">Petugas
-                                                </label> &nbsp; &nbsp;
-                                                <label for="inline-checkbox2" class="form-check-label ">
-                                                    <input type="checkbox" id="inline-checkbox2" name="inline-checkbox2" value="2" class="form-check-input">Admin
-                                                </label>
+                            <div class="radio">
+                               <label for="radio1" class="form-check-label ">
+                               <input type="radio" id="radio1" name="hak_akses" value="1" class="form-check-input">PETUGAS
+                               </label>
+                            </div>
+                            <div class="radio">
+                                <label for="radio2" class="form-check-label ">
+                                <input type="radio" id="radio2" name="hak_akses" value="2" class="form-check-input">ADMIN
+                                </label>
                             </div>
                      </div>
                      <div class="modal-footer">
                           <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button> -->
-                          <button type="submit" id="add-row" class="btn btn-info">Update</button>
+                          <button type="submit" id="add-row" class="btn btn-success">UPDATE</button>
                      </div>
                   </div>
               </div>
