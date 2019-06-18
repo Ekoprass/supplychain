@@ -33,9 +33,9 @@
   <link href="<?php echo base_url().'assets/css/dataTables.bootstrap.css'?>" rel="stylesheet" type="text/css"/>
 
  <!-- gawe tanggal -->
- <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
- <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
  <script type='text/javascript' src='//code.jquery.com/jquery-1.8.3.js'></script>
+ <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
 
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker3.min.css">
  <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
@@ -117,7 +117,7 @@
         <header id="header" class="header">
             <div class="top-left">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="./"><img src="<?php echo base_url() ?>assets/images/LOGOPAL.png" alt="Logo"></a>
+                    <a class="navbar-brand" href="<?php echo site_url() ?>/home"><img src="<?php echo base_url() ?>assets/images/LOGOPAL.png" alt="Logo"></a>
                     <!-- <a class="navbar-brand hidden" href="./"><img src="<?php echo base_url() ?>assets/images/LOGOPAL.png" alt="Logo"></a> -->
                     <!-- <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a> -->
                 </div>

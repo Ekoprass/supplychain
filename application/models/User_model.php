@@ -1,5 +1,19 @@
 <?php
 class User_model extends CI_Model{
+	
+		public function Login($username,$password)
+		{
+			$this->db->select('no_petugas,username,password,hak_akses,nama_petugas');
+			$this->db->from('petugas');
+			$this->db->where('username', $username);
+			$this->db->where('password', md5($password));
+			$query=$this->db->get();
+			if ($query->num_rows()==1) {
+				return $query->result();
+			}else{
+				return false;
+			}
+		}
 
   function get_all_jb() 
   {

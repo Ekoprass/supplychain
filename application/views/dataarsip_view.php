@@ -14,8 +14,8 @@
                         <tr>
                           <th>NO. DOKUMEN</th>
                           <th>NO. PURCHASE ORDER</th>
-                          <th>DESKRIPSI</th>
                           <th>TANGGAL PO</th>
+                          <th>DESKRIPSI</th>
                           <th>JURU BELI</th>
                           <th>PROYEK</th>
                           <th>VENDOR</th>
@@ -24,6 +24,7 @@
                           <th>TANGGAL ENTRY</th>
                           <th>DOKUMEN</th>
                           <th>STATUS DOKUMEN</th>
+                          <th>AKSI</th>
                         </tr>
                       </thead>
                     </table>
@@ -31,48 +32,6 @@
             </div>
           </div>
 
-
-        <!-- Modal Add Produk-->
-          <form id="add-row-form" action="<?php echo base_url().'index.php/User/simpan'?>" method="post">
-             <div class="modal fade" id="myModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                   <div class="modal-content">
-                       <div class="modal-header">
-                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                           <h4 class="modal-title" id="myModalLabel">TAMBAH PETUGAS</h4>
-                       </div>
-                       <div class="modal-body">
-                           <div class="form-group">
-                               <input type="text" name="Nomer" class="form-control" placeholder="Masukkan Nomer Petugas" required>
-                           </div>
-                           <div class="form-group">
-                               <input type="text" name="Nama" class="form-control" placeholder=" Masukkan Nama Petugas" required>
-                           </div>
-                           <div class="form-group">
-                               <input type="text" name="Username" class="form-control" placeholder="Masukkan Username" required>
-                           </div>
-                           <div class="form-group">
-                               <input type="text" name="Password" class="form-control" placeholder="Masukkan Password" required>
-                           </div>
-                             <div class="radio">
-                                                    <label for="radio1" class="form-check-label ">
-                                                        <input type="radio" id="radio1" name="radios" value="option1" class="form-check-input">PETUGAS
-                                                    </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label for="radio2" class="form-check-label ">
-                                                        <input type="radio" id="radio2" name="radios" value="option2" class="form-check-input">ADMIN
-                                                    </label>
-                                                </div>
-                       </div>
-                       <div class="modal-footer">
-                            <!-- <button type="button" class="btn btn-default" data-dismiss="modal">TUTUP</button> -->
-                            <button type="submit" id="add-row" class="btn btn-success">SIMPAN</button>
-                       </div>
-                    </div>
-                </div>
-             </div>
-         </form>
 
        <!-- Modal Update Produk-->
         <form id="add-row-form" action="<?php echo base_url().'index.php/User/update'?>" method="post">
@@ -85,28 +44,79 @@
                      </div>
                      <div class="modal-body">
                          <div class="form-group">
-                               <input type="text" name="Nomer" class="form-control" placeholder="Masukkan Nomer Petugas" readonly>
-                           </div>
-                           <div class="form-group">
-                               <input type="text" name="Nama" class="form-control" placeholder=" Masukkan Nama Petugas" required>
-                           </div>
-                           <div class="form-group">
-                               <input type="text" name="Username" class="form-control" placeholder="Masukkan Username" required>
-                           </div>
-                           <div class="form-group">
-                               <input type="text" name="Password" class="form-control" placeholder="Masukkan Password" required>
-                           </div>
-                           <div class="form-group">
-                               <input type="text" name="hak_akses" class="form-control" placeholder="Ketik : 1 untuk user, 2 untuk admin" required>
-                           </div>
-                            <div class="form-check-inline form-check">
-                                                <label for="inline-checkbox1" class="form-check-label ">
-                                                    <input type="checkbox" id="inline-checkbox1" name="inline-checkbox1" value="1" class="form-check-input">Petugas
-                                                </label> &nbsp; &nbsp;
-                                                <label for="inline-checkbox2" class="form-check-label ">
-                                                    <input type="checkbox" id="inline-checkbox2" name="inline-checkbox2" value="2" class="form-check-input">Admin
-                                                </label>
+                            <label class=" form-control-label">Nomor Dokumen</label>
+                            <div class="input-group">
+                              <input class="form-control" name="no_dokumen">
                             </div>
+                          </div>
+                          <div class="form-group">
+                            <label class=" form-control-label">Nomor Purchase Order</label>
+                            <div class="input-group">
+                              <input class="form-control" name="no_po">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label>Tanggal Purchase Order</label>
+                              <div class='input-group date' id='datetimepicker'>
+                                <span class="input-group-addon">
+                                  <span class="menu-icon fa fa-calendar"></span>
+                                </span>
+                                <input type='text' class="form-control" name="tgl_po" />
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class=" form-control-label">Description</label>
+                            <div class="input-group">
+                              <textarea name="deskripsi" rows="5" placeholder="Description" class="form-control">
+                              </textarea>
+                            </div>
+                          </div>
+                          
+                          <div class="form-group">
+                            <label class=" form-control-label">Kode Juru Beli</label>
+                            <div class="input-group">
+                              <select class="standardSelect" tabindex="-1" style="display: none;" name="jurubeli"></select>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class=" form-control-label">Kode Proyek</label>
+                            <div class="input-group">
+                              <select class="standardSelect" tabindex="-1" style="display: none;" name="proyek"></select>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class=" form-control-label">Kode Vendor</label>
+                            <div class="input-group">
+                              <select class="standardSelect" tabindex="-1" style="display: none;" name="vendor"></select>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class=" form-control-label">Posisi Rak Dokumen</label>
+                            <div class="input-group">
+                              <select class="standardSelect" tabindex="-1" style="display: none;" name="rak"></select>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class=" form-control-label">Scan Dokumen(PDF File)</label>
+                            <div class="input-group">
+                              <input class="form-control" type="File" name="dokumen">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class=" form-control-label">Status Purchase Order</label>
+                            <div class="input-group">
+                                <div class="radio">
+                                    <label for="radio2" class="form-check-label ">
+                                      <input type="radio" id="radio2" name="status" value="1" class="form-check-input">Selesai
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label for="radio2" class="form-check-label ">
+                                      <input type="radio" id="radio2" name="status" value="2" class="form-check-input">Belum Selesai
+                                    </label>
+                                </div>
+                            </div>
+                          </div>
                      </div>
                      <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
@@ -116,47 +126,8 @@
               </div>
            </div>
        </form>
-
-       <!--Modul untuk hapus data--> 
-       <!-- <form id="add-row-form" action="<?php echo base_url().'index.php/user/hapus'?>" method="post">
-           <div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                 <div class="modal-content">
-                     <div class="modal-header">
-                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                         <h4 class="modal-title" id="myModalLabel">HAPUS DATA</h4>
-                     </div>
-                     <div class="modal-body">
-                         <div class="form-group">
-                               <input type="text" name="Nomer" class="form-control" placeholder="Masukkan Nomer Petugas" required >
-                           </div>
-                           <div class="form-group">
-                               <input type="text" name="Nama" class="form-control" placeholder=" Masukkan Nama Petugas" required>
-                           </div>
-                           <div class="form-group">
-                               <input type="text" name="Username" class="form-control" placeholder="Masukkan Username" required>
-                           </div>
-                           <div class="form-group">
-                               <input type="text" name="Password" class="form-control" placeholder="Masukkan Password" required>
-                           </div>
-                           <div class="form-group">
-                               <input type="text" name="hak_akses" class="form-control" placeholder="Ketik : 1 untuk user, 2 untuk admin" required>
-                           </div>
-                     </div>
-                     <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-                          <button type="submit" id="add-row" class="btn btn-success">HAPUS</button>
-                     </div>
-                  </div>
-              </div>
-           </div>
-<<<<<<< HEAD
-       </form> -->
     </div>
-
-       </form>
     </div>
-  </div>  
 </div>
 <?php $this->view('footer.php'); ?>
 <script src="<?php echo base_url().'assets/js/jquery-2.1.4.min.js'?>"></script>
@@ -168,8 +139,15 @@
 <script src="<?php echo base_url()?>assets/jquery-datatables/media/js/jquery.dataTables.js"></script>
 <script src="<?php echo base_url()?>assets/jquery-datatables-bs3/assets/js/datatables.js"></script>
 
-<!-- Examples -->
-<script src="<?php echo base_url()?>assets/javascripts/tables/examples.datatables.editable.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
+<script src="<?php echo base_url('') ?>assets/js/main.js"></script>
+<script src="<?php echo base_url('') ?>assets/js/lib/chosen/chosen.jquery.min.js"></script>
+
+
 
 <script>
   $(document).ready(function(){
@@ -242,11 +220,16 @@
             var dokumen=$(this).data("dokumen");
             var status_dokumen=$(this).data("status_dokumen");
             $('#ModalUpdate').modal('show');
-            $('[name="Nomer"]').val(Nomer);
-            $('[name="Nama"]').val(Nama);
-            $('[name="Username"]').val(Username);
-            $('[name="Password"]').val(Password);
-            $('[name="hak_akses"]').val(hak_akses);
+            $('[name="no_dokumen"]').val(no_dokumen);
+            $('[name="no_po"]').val(no_po);
+            $('[name="tgl_po"]').val(tgl_po);
+            $('[name="deskripsi"]').val(deskripsi);
+            $('[name="jurubeli"]').val(jurubeli);
+            $('[name="proyek"]').val(proyek);
+            $('[name="vendor"]').val(vendor);
+            $('[name="rak"]').val(rak_ke);
+            $('[name="dokumen"]').val(dokumen);
+            $('[name="status_dokumen"]').val(status_dokumen);
             
       });
       // End Edit Records
@@ -259,4 +242,13 @@
       // End Hapus Records
 
   });
+</script>
+<script>
+    jQuery(document).ready(function() {
+        jQuery(".standardSelect").chosen({
+            disable_search_threshold: 10,
+            no_results_text: "Oops, nothing found!",
+            width: "100%"
+        });
+    });
 </script>

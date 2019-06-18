@@ -86,8 +86,6 @@
 <script src="<?php echo base_url()?>assets/jquery-datatables/media/js/jquery.dataTables.js"></script>
 <script src="<?php echo base_url()?>assets/jquery-datatables-bs3/assets/js/datatables.js"></script>
 
-<!-- Examples -->
-<script src="<?php echo base_url()?>assets/javascripts/tables/examples.datatables.editable.js"></script>
 
 <script>
 	$(document).ready(function(){

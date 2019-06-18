@@ -31,7 +31,7 @@
 						<label>Tanggal Purchase Order</label>
                         <div class='input-group date' id='datetimepicker'>
                             <span class="input-group-addon">
-                               <span class="glyphicon glyphicon-calendar"></span>
+                               <span class="menu-icon fa fa-calendar"></span>
                             </span>
                             <input type='text' class="form-control" />
                         </div>
