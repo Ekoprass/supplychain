@@ -8,7 +8,7 @@
                    <h2>DATA VENDOR</h2>
               </div>
               <div class="card-body card-block">
-            		<button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add New</button>
+            		<button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">TAMBAH VENDOR</button>
                 <table class="table table-striped" id="mytable">
                   <thead>
                     <tr>
@@ -29,7 +29,7 @@
 	           <div class="modal-content">
 	               <div class="modal-header">
 	                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	                   <h4 class="modal-title" id="myModalLabel">Add New</h4>
+	                   <h4 class="modal-title" id="myModalLabel">Tambah Vendor</h4>
 	               </div>
 	               <div class="modal-body">
 	                   <div class="form-group">
