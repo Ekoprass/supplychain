@@ -244,7 +244,7 @@
             $('[name="Nama"]').val(Nama);
             $('[name="Username"]').val(Username);
             $('[name="Password"]').val(Password);
-            $('[name="hak_akses"]').val(hak_akses);
+            // $('[name="hak_akses"]').val(hak_akses);
             
       });
       // End Edit Records
