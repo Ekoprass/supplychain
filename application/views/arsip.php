@@ -39,25 +39,45 @@
 					<div class="form-group">
 						<label class=" form-control-label">Kode Juru Beli</label>
 						<div class="input-group">
-							<select class="standardSelect" tabindex="-1" style="display: none;"></select>
+							<select class="standardSelect" tabindex="-1" style="display: none;">
+								  <option value="" label="default"></option>
+								   <?php foreach ($jurubeli as $key) {?>
+								   	<option value="<?php echo $key['kd_jurubeli']; ?>"><?php echo $key['kd_jurubeli']." | ".$key['nama_jurubeli']; ?></option>
+								   <?php } ?>
+                                	</select>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class=" form-control-label">Kode Proyek</label>
 						<div class="input-group">
-							<select class="standardSelect" tabindex="-1" style="display: none;"></select>
+							<select class="standardSelect" tabindex="-1" style="display: none;">
+							  <option value="" label="default"></option>
+							   <?php foreach ($proyek as $key) {?>
+							   	<option value="<?php echo $key['kd_proyek']; ?>"><?php echo $key['kd_proyek']." | ".$key['nama_proyek']; ?></option>
+							   <?php } ?>
+	                        </select>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class=" form-control-label">Kode Vendor</label>
 						<div class="input-group">
-							<select class="standardSelect" tabindex="-1" style="display: none;"></select>
+							<select class="standardSelect" tabindex="-1" style="display: none;">
+								 <option value="" label="default"></option>
+							   <?php foreach ($vendor as $key) {?>
+							   	<option value="<?php echo $key['kd_vendor']; ?>"><?php echo $key['kd_vendor']." | ".$key['nama_vendor']; ?></option>
+							   <?php } ?>
+							</select>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class=" form-control-label">Posisi Rak Dokumen</label>
 						<div class="input-group">
-							<select class="standardSelect" tabindex="-1" style="display: none;"></select>
+							<select class="standardSelect" tabindex="-1" style="display: none;">
+								<option value="" label="default"></option>
+							   <?php foreach ($rak as $key) {?>
+							   	<option value="<?php echo $key['no_rak']; ?>"><?php echo $key['no_rak']." | ".$key['rak_ke']; ?></option>
+							   <?php } ?>
+							</select>
 						</div>
 					</div>
 					<div class="form-group">

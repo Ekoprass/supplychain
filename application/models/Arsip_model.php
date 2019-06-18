@@ -14,6 +14,33 @@ class Arsip_model extends CI_Model {
     return $this->datatables->generate();
   }
 
+  function get_all_jb()
+  {
+  	$this->db->select('kd_jurubeli,nama_jurubeli');
+    $get=$this->db->get('jurubeli');
+   	return $get->result_array();
+  }
+
+  function get_all_py()
+  {
+  	$this->db->select('kd_proyek,nama_proyek');
+    $get=$this->db->get('proyek');
+    return $get->result_array();
+  }
+
+  function get_all_vn()
+  {
+  	$this->db->select('kd_vendor,nama_vendor');
+    $get=$this->db->get('vendor');
+    return $get->result_array();
+  }
+
+  function get_all_rak()
+  {
+  	$this->db->select('no_rak,rak_ke');
+    $get=$this->db->get('rak_ke');
+    return $get->result_array();
+  }
 }
 
 /* End of file Arsip_model.php */

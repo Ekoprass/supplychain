@@ -15,6 +15,11 @@ class Arsip extends CI_Controller {
 		 $session_data=$this->session->userdata('logged_in');
 	    $akses=$session_data['hak_akses'];
 	    $data['menus'] = $this->Menus->getMenuUser($akses);
+
+	    $data['jurubeli']=$this->Arsip_model->get_all_jb();
+	    $data['proyek']=$this->Arsip_model->get_all_py();
+	    $data['vendor']=$this->Arsip_model->get_all_vn();
+		$data['rak']=$this->Arsip_model->get_all_rak();
 		$this->load->view('arsip',$data);
 	}
 
@@ -25,9 +30,9 @@ class Arsip extends CI_Controller {
 
   public function Data()
 	{
-		 $session_data=$this->session->userdata('logged_in');
-	    $akses=$session_data['hak_akses'];
 	    $data['menus'] = $this->Menus->getMenuUser($akses);
+		$session_data=$this->session->userdata('logged_in');
+	    $akses=$session_data['hak_akses'];
 		$this->load->view('dataarsip_view',$data);
 	}
 
