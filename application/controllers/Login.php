@@ -7,7 +7,7 @@
 		{
 			parent::__construct();
 			$this->load->library('session');
-			$this->load->model('User');
+			$this->load->model('User_model');
 
 		}
 		public function index()
@@ -32,7 +32,7 @@
 		public function CekDB($password)
 		{
 			$username=$this->input->post('username');
-				$result =$this->User->login($username,$password);
+				$result =$this->User_model->login($username,$password);
 				if ($result) {
 					$sess_array= array();
 					foreach ($result as $row) {

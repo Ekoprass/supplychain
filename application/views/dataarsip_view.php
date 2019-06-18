@@ -1,0 +1,262 @@
+<?php $this->view('template.php'); ?>
+<div class="content">
+    <div class="animated fadeIn">
+       <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header">
+                   <h2>Data Arsip Dokumen</h2>
+              </div>
+                  <div class="card-body card-block">
+                    <!-- <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">TAMBAH PETUGAS</button> -->
+                    <table class="table table-striped" id="mytable">
+                      <thead>
+                        <tr>
+                          <th>NO. DOKUMEN</th>
+                          <th>NO. PURCHASE ORDER</th>
+                          <th>DESKRIPSI</th>
+                          <th>TANGGAL PO</th>
+                          <th>JURU BELI</th>
+                          <th>PROYEK</th>
+                          <th>VENDOR</th>
+                          <th>POSISI RAK</th>
+                          <th>PETUGAS ENTRY</th>
+                          <th>TANGGAL ENTRY</th>
+                          <th>DOKUMEN</th>
+                          <th>STATUS DOKUMEN</th>
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
+            </div>
+          </div>
+
+
+        <!-- Modal Add Produk-->
+          <form id="add-row-form" action="<?php echo base_url().'index.php/User/simpan'?>" method="post">
+             <div class="modal fade" id="myModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                   <div class="modal-content">
+                       <div class="modal-header">
+                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                           <h4 class="modal-title" id="myModalLabel">TAMBAH PETUGAS</h4>
+                       </div>
+                       <div class="modal-body">
+                           <div class="form-group">
+                               <input type="text" name="Nomer" class="form-control" placeholder="Masukkan Nomer Petugas" required>
+                           </div>
+                           <div class="form-group">
+                               <input type="text" name="Nama" class="form-control" placeholder=" Masukkan Nama Petugas" required>
+                           </div>
+                           <div class="form-group">
+                               <input type="text" name="Username" class="form-control" placeholder="Masukkan Username" required>
+                           </div>
+                           <div class="form-group">
+                               <input type="text" name="Password" class="form-control" placeholder="Masukkan Password" required>
+                           </div>
+                             <div class="radio">
+                                                    <label for="radio1" class="form-check-label ">
+                                                        <input type="radio" id="radio1" name="radios" value="option1" class="form-check-input">PETUGAS
+                                                    </label>
+                                                </div>
+                                                <div class="radio">
+                                                    <label for="radio2" class="form-check-label ">
+                                                        <input type="radio" id="radio2" name="radios" value="option2" class="form-check-input">ADMIN
+                                                    </label>
+                                                </div>
+                       </div>
+                       <div class="modal-footer">
+                            <!-- <button type="button" class="btn btn-default" data-dismiss="modal">TUTUP</button> -->
+                            <button type="submit" id="add-row" class="btn btn-success">SIMPAN</button>
+                       </div>
+                    </div>
+                </div>
+             </div>
+         </form>
+
+       <!-- Modal Update Produk-->
+        <form id="add-row-form" action="<?php echo base_url().'index.php/User/update'?>" method="post">
+           <div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                 <div class="modal-content">
+                     <div class="modal-header">
+                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                         <h4 class="modal-title" id="myModalLabel">UPDATE DATA USER</h4>
+                     </div>
+                     <div class="modal-body">
+                         <div class="form-group">
+                               <input type="text" name="Nomer" class="form-control" placeholder="Masukkan Nomer Petugas" readonly>
+                           </div>
+                           <div class="form-group">
+                               <input type="text" name="Nama" class="form-control" placeholder=" Masukkan Nama Petugas" required>
+                           </div>
+                           <div class="form-group">
+                               <input type="text" name="Username" class="form-control" placeholder="Masukkan Username" required>
+                           </div>
+                           <div class="form-group">
+                               <input type="text" name="Password" class="form-control" placeholder="Masukkan Password" required>
+                           </div>
+                           <div class="form-group">
+                               <input type="text" name="hak_akses" class="form-control" placeholder="Ketik : 1 untuk user, 2 untuk admin" required>
+                           </div>
+                            <div class="form-check-inline form-check">
+                                                <label for="inline-checkbox1" class="form-check-label ">
+                                                    <input type="checkbox" id="inline-checkbox1" name="inline-checkbox1" value="1" class="form-check-input">Petugas
+                                                </label> &nbsp; &nbsp;
+                                                <label for="inline-checkbox2" class="form-check-label ">
+                                                    <input type="checkbox" id="inline-checkbox2" name="inline-checkbox2" value="2" class="form-check-input">Admin
+                                                </label>
+                            </div>
+                     </div>
+                     <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                          <button type="submit" id="add-row" class="btn btn-success">Update</button>
+                     </div>
+                  </div>
+              </div>
+           </div>
+       </form>
+
+       <!--Modul untuk hapus data--> 
+       <!-- <form id="add-row-form" action="<?php echo base_url().'index.php/user/hapus'?>" method="post">
+           <div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                 <div class="modal-content">
+                     <div class="modal-header">
+                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                         <h4 class="modal-title" id="myModalLabel">HAPUS DATA</h4>
+                     </div>
+                     <div class="modal-body">
+                         <div class="form-group">
+                               <input type="text" name="Nomer" class="form-control" placeholder="Masukkan Nomer Petugas" required >
+                           </div>
+                           <div class="form-group">
+                               <input type="text" name="Nama" class="form-control" placeholder=" Masukkan Nama Petugas" required>
+                           </div>
+                           <div class="form-group">
+                               <input type="text" name="Username" class="form-control" placeholder="Masukkan Username" required>
+                           </div>
+                           <div class="form-group">
+                               <input type="text" name="Password" class="form-control" placeholder="Masukkan Password" required>
+                           </div>
+                           <div class="form-group">
+                               <input type="text" name="hak_akses" class="form-control" placeholder="Ketik : 1 untuk user, 2 untuk admin" required>
+                           </div>
+                     </div>
+                     <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                          <button type="submit" id="add-row" class="btn btn-success">HAPUS</button>
+                     </div>
+                  </div>
+              </div>
+           </div>
+<<<<<<< HEAD
+       </form> -->
+    </div>
+
+       </form>
+    </div>
+  </div>  
+</div>
+<?php $this->view('footer.php'); ?>
+<script src="<?php echo base_url().'assets/js/jquery-2.1.4.min.js'?>"></script>
+<script src="<?php echo base_url().'assets/js/bootstrap.js'?>"></script>
+<script src="<?php echo base_url().'assets/js/jquery.datatables.min.js'?>"></script>
+<script src="<?php echo base_url().'assets/js/dataTables.bootstrap.js'?>"></script>
+<!-- Specific Page Vendor -->
+<script src="<?php echo base_url()?>assets/select2/select2.js"></script>
+<script src="<?php echo base_url()?>assets/jquery-datatables/media/js/jquery.dataTables.js"></script>
+<script src="<?php echo base_url()?>assets/jquery-datatables-bs3/assets/js/datatables.js"></script>
+
+<!-- Examples -->
+<script src="<?php echo base_url()?>assets/javascripts/tables/examples.datatables.editable.js"></script>
+
+<script>
+  $(document).ready(function(){
+    // Setup datatables
+    $.fn.dataTableExt.oApi.fnPagingInfo = function(oSettings)
+      {
+          return {
+              "iStart": oSettings._iDisplayStart,
+              "iEnd": oSettings.fnDisplayEnd(),
+              "iLength": oSettings._iDisplayLength,
+              "iTotal": oSettings.fnRecordsTotal(),
+              "iFilteredTotal": oSettings.fnRecordsDisplay(),
+              "iPage": Math.ceil(oSettings._iDisplayStart / oSettings._iDisplayLength),
+              "iTotalPages": Math.ceil(oSettings.fnRecordsDisplay() / oSettings._iDisplayLength)
+          };
+      };
+
+      var table = $("#mytable").dataTable({
+          initComplete: function() {
+              var api = this.api();
+              $('#mytable_filter input')
+                  .off('.DT')
+                  .on('input.DT', function() {
+                      api.search(this.value).draw();
+              });
+          },
+              oLanguage: {
+              sProcessing: "LOADING..."
+          },
+              processing: true,
+              serverSide: true,
+              ajax: {"url": "<?php echo base_url().'index.php/arsip/get_guest_json'?>", "type": "POST"},
+                  columns: [
+                        {"data": "no_dokumen"},
+                        {"data": "no_po"},
+                        {"data": "tgl_po"},
+                        {"data": "deskripsi"},
+                        {"data": "jurubeli"},
+                        {"data": "proyek"},
+                        {"data": "vendor"},
+                        {"data": "rak_ke"},
+                        {"data": "petugas"},
+                        {"data": "tgl_entry"},
+                        {"data": "dokumen"},
+                        {"data": "status_dokumen"},
+                        {"data": "view"}
+                  ],
+              order: [[1, 'asc']],
+          rowCallback: function(row, data, iDisplayIndex) {
+              var info = this.fnPagingInfo();
+              var page = info.iPage;
+              var length = info.iLength;
+              $('td:eq(0)', row).html();
+          }
+
+      });
+      // end setup datatables
+      // get Edit Records
+      $('#mytable').on('click','.edit_record',function(){
+            var no_dokumen=$(this).data('no_dokumen');
+            var no_po=$(this).data('no_po');
+            var tgl_po=$(this).data('tgl_po');
+            var deskripsi=$(this).data("deskripsi");
+            var jurubeli=$(this).data("jurubeli");
+            var proyek=$(this).data("proyek");
+            var vendor=$(this).data("vendor");
+            var rak_ke=$(this).data("rak_ke");
+            var petugas=$(this).data("petugas");
+            var tgl_entry=$(this).data("tgl_entry");
+            var dokumen=$(this).data("dokumen");
+            var status_dokumen=$(this).data("status_dokumen");
+            $('#ModalUpdate').modal('show');
+            $('[name="Nomer"]').val(Nomer);
+            $('[name="Nama"]').val(Nama);
+            $('[name="Username"]').val(Username);
+            $('[name="Password"]').val(Password);
+            $('[name="hak_akses"]').val(hak_akses);
+            
+      });
+      // End Edit Records
+      // get Hapus Records
+      // $('#mytable').on('click','.hapus_record',function(){
+   //          var kode=$(this).data('kd_jurubeli');
+   //          $('#ModalHapus').modal('show');
+   //          $('[name="Kode"]').val(kode);
+   //    });
+      // End Hapus Records
+
+  });
+</script>
