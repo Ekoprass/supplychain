@@ -32,10 +32,23 @@
     <link href="<?php echo base_url().'assets/css/jquery.datatables.min.css'?>" rel="stylesheet" type="text/css"/>
   <link href="<?php echo base_url().'assets/css/dataTables.bootstrap.css'?>" rel="stylesheet" type="text/css"/>
 
-  <script src="<?php echo base_url('') ?>assets/vendors/moment/min/moment.min.js"></script>
-    <script src="<?php echo base_url('') ?>assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-    <!-- bootstrap-datetimepicker -->    
-    <script src="<?php echo base_url('') ?>assets/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+ <!-- gawe tanggal -->
+ <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+ <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+ <script type='text/javascript' src='//code.jquery.com/jquery-1.8.3.js'></script>
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker3.min.css">
+ <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
+ <script type='text/javascript'>
+    $(function(){
+        $('.input-group.date').datepicker({
+            calendarWeeks: true,
+            todayHighlight: true,
+            autoclose: true
+        });  
+    });
+
+</script>
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
    <style>
