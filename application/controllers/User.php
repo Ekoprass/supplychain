@@ -42,9 +42,6 @@ class User extends CI_Controller{
       'password'		 => $this->input->post('Password'),
       'hak_akses'		 => $this->input->post('hak_akses'),
     );
-    print_r($data);
-    die;
-
     $this->db->where('no_petugas',$Nomer);
     $this->db->update('petugas', $data);
     redirect('User');
