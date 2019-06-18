@@ -8,7 +8,7 @@
                    <h2>DATA PROYEK</h2>
               </div>
               <div class="card-body card-block">
-            		<button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">Add New</button>
+            		<button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">TAMBAH PROYEK</button>
                 <table class="table table-striped" id="mytable">
                   <thead>
                     <tr>
@@ -29,7 +29,7 @@
 	           <div class="modal-content">
 	               <div class="modal-header">
 	                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	                   <h4 class="modal-title" id="myModalLabel">Add New</h4>
+	                   <h4 class="modal-title" id="myModalLabel">Tambah Proyek</h4>
 	               </div>
 	               <div class="modal-body">
 	                   <div class="form-group">
@@ -86,6 +86,8 @@
 <script src="<?php echo base_url()?>assets/jquery-datatables/media/js/jquery.dataTables.js"></script>
 <script src="<?php echo base_url()?>assets/jquery-datatables-bs3/assets/js/datatables.js"></script>
 
+<!-- Examples -->
+<script src="<?php echo base_url()?>assets/javascripts/tables/examples.datatables.editable.js"></script>
 
 <script>
 	$(document).ready(function(){
