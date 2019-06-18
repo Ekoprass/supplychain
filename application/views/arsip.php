@@ -5,7 +5,7 @@
 		<div class="col-xs-12">
 			<div class="card">
 				<div class="card-header">
-					<strong>Masked Input</strong> <small> Small Text Mask</small>
+					<h2>INPUT ARSIP</h2>
 				</div>
 				<div class="card-body card-block">
 					<div class="form-group">
@@ -28,11 +28,14 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class=" form-control-label">Tanggal Purchase Order</label>
-						<div class="input-group">
-							<input class="form-control">
-						</div>
-					</div>
+						<label>Tanggal Purchase Order</label>
+                        <div class='input-group date' id='datetimepicker'>
+                            <span class="input-group-addon">
+                               <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                            <input type='text' class="form-control" />
+                        </div>
+                    </div>
 					<div class="form-group">
 						<label class=" form-control-label">Kode Juru Beli</label>
 						<div class="input-group">
@@ -58,21 +61,6 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class=" form-control-label">Tanggal Masuk</label>
-						<div class="input-group">
-							<input class="form-control">
-						</div>
-					</div>
-					<div class="form-group">
-						<label>tanggal</label>
-                        <div class='input-group date' id='datetimepicker'>
-                            <span class="input-group-addon">
-                               <span class="glyphicon glyphicon-calendar"></span>
-                            </span>
-                            <input type='text' class="form-control" />
-                        </div>
-                    </div>
-					<div class="form-group">
 						<label class=" form-control-label">Scan Dokumen(PDF File)</label>
 						<div class="input-group">
 							<input class="form-control" type="File">
@@ -91,14 +79,9 @@
                                 	<input type="radio" id="radio2" name="status" value="2" class="form-check-input">Belum Selesai
                                 </label>
                             </div>
-							<!-- <lable for="inline-radio1" class="form-check-label">
-								<input type="radio" name="Status" value="1" id="inline-radio1" class="form-check-input">Selesai
-							</lable>
-							<lable for="inline-radio2" class="form-check-label">
-								<input type="radio" name="Status" value="2" class="form-check-input">Belum Selesai
-							</lable> -->
 						</div>
 					</div>
+					<button class="btn btn-info">Simpan</button>
 				</div>
 			</div>
 		</div>
