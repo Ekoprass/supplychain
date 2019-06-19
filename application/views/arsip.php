@@ -7,6 +7,7 @@
 				<div class="card-header">
 					<h2>INPUT ARSIP</h2>
 				</div>
+				<?php echo form_open_multipart('Arsip/tambah'); ?>
 				<div class="card-body card-block">
 					<div class="form-group">
 						<label class=" form-control-label">Nomor Dokumen</label>
@@ -21,8 +22,13 @@
 						</div>
 					</div>
 					<div class="form-group">
+<<<<<<< HEAD
 						<label class=" form-control-label">Description</label>
 						<div class="input-group" required>
+=======
+						<label class=" form-control-label">Deskripsi</label>
+						<div class="input-group">
+>>>>>>> 6f6ab0402b258c4882d31bff3f8ff744c937688d
 							<textarea name="deskripsi" rows="5" placeholder="Description" class="form-control">
 							</textarea>
 						</div>
@@ -72,16 +78,20 @@
 					<div class="form-group">
 						<label class=" form-control-label">Posisi Rak Dokumen</label>
 						<div class="input-group">
+<<<<<<< HEAD
 							<select class="standardSelect" name="rak" tabindex="-1" style="display: none;" required>
 								<option value="" label="default"></option>
 							   <?php foreach ($rak as $key) {?>
 							   	<option value="<?php echo $key['no_rak']; ?>"><?php echo $key['no_rak']." | ".$key['rak_ke']; ?></option>
 							   <?php } ?>
 							</select>
+=======
+							<input class="form-control" name="rak">
+>>>>>>> 6f6ab0402b258c4882d31bff3f8ff744c937688d
 						</div>
 					</div>
 					<div class="form-group">
-						<label class=" form-control-label">Scan Dokumen(PDF File)</label>
+						<label class=" form-control-label">Scan Dokumen (PDF File)</label>
 						<div class="input-group">
 							<input class="form-control" type="File"  name="dokumen" required>
 						</div>
