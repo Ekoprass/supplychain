@@ -35,12 +35,6 @@ class Arsip_model extends CI_Model {
     return $get->result_array();
   }
 
-  function get_all_rak()
-  {
-  	$this->db->select('no_rak,rak_ke');
-    $get=$this->db->get('rak_ke');
-    return $get->result_array();
-  }
 }
 
 /* End of file Arsip_model.php */

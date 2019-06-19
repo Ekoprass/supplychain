@@ -19,7 +19,6 @@ class Arsip extends CI_Controller {
 	    $data['jurubeli']=$this->Arsip_model->get_all_jb();
 	    $data['proyek']=$this->Arsip_model->get_all_py();
 	    $data['vendor']=$this->Arsip_model->get_all_vn();
-		$data['rak']=$this->Arsip_model->get_all_rak();
 		$this->load->view('arsip',$data);
 	}
 
@@ -36,14 +35,26 @@ class Arsip extends CI_Controller {
 	    $data['jurubeli']=$this->Arsip_model->get_all_jb();
 	    $data['proyek']=$this->Arsip_model->get_all_py();
 	    $data['vendor']=$this->Arsip_model->get_all_vn();
-		$data['rak']=$this->Arsip_model->get_all_rak();
 		$this->load->view('dataarsip_view',$data);
 	}
 
 	public function tambah()
 	{
+		$this->form_validation->set_rules('no_dokumen', 'Nomor Dokumen', 'trim|required|is_unique[arsip_dokumen.no_dokumen]');
+		$this->form_validation->set_rules('no_po', 'Nomor Purchase Order', 'trim|required|is_unique[arsip_dokumen.no_po]');
+		if ($this->form_validation->run() === FALSE) {
+			$this->form_validation->set_message('is_unique', 'no_dokumen sudah ada.');
+			$this->form_validation->set_message('is_unique', 'Nomor PO Sudah Terdaftar');
+			$session_data=$this->session->userdata('logged_in');
+		    $akses=$session_data['hak_akses'];
+		    $data['menus'] = $this->Menus->getMenuUser($akses);
 
-	 		$config['upload_path'] = realpath('./assets/dokument/');
+		    $data['jurubeli']=$this->Arsip_model->get_all_jb();
+		    $data['proyek']=$this->Arsip_model->get_all_py();
+		    $data['vendor']=$this->Arsip_model->get_all_vn();
+			$this->load->view('arsip',$data);
+		}else{
+			$config['upload_path'] = realpath('./assets/dokument/');
 			$config['allowed_types'] = 'pdf';
 			$config['max_size']  = '5000';
 			
@@ -72,8 +83,11 @@ class Arsip extends CI_Controller {
 				 $this->db->insert('arsip_dokumen', $data);
 				  redirect('Arsip/Data');
 			}
-   
+			}
 	}
+	 		
+
+
 }
 
 /* End of file Arsip.php */

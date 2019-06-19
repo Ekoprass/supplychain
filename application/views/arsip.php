@@ -8,16 +8,19 @@
 					<h2>INPUT ARSIP</h2>
 				</div>
 				<?php echo form_open_multipart('Arsip/tambah'); ?>
+				
 				<div class="card-body card-block">
 					<div class="form-group">
 						<label class=" form-control-label">Nomor Dokumen</label>
 						<div class="input-group">
+							<?php echo form_error('no_dokumen'); ?>
 							<input class="form-control" name="no_dokumen" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class=" form-control-label">Nomor Purchase Order</label>
 						<div class="input-group">
+							<?php echo form_error('no_po', '<div style="color:red"><b>', '</b></div>'); ?>
 							<input class="form-control" name="no_po" required>
 						</div>
 					</div>
