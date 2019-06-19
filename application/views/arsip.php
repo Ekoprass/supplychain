@@ -73,12 +73,7 @@
 					<div class="form-group">
 						<label class=" form-control-label">Posisi Rak Dokumen</label>
 						<div class="input-group">
-							<select class="standardSelect" name="rak" tabindex="-1" style="display: none;">
-								<option value="" label="default"></option>
-							   <?php foreach ($rak as $key) {?>
-							   	<option value="<?php echo $key['no_rak']; ?>"><?php echo $key['no_rak']." | ".$key['rak_ke']; ?></option>
-							   <?php } ?>
-							</select>
+							<input class="form-control" name="rak">
 						</div>
 					</div>
 					<div class="form-group">

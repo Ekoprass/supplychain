@@ -40,6 +40,40 @@ class Arsip extends CI_Controller {
 		$this->load->view('dataarsip_view',$data);
 	}
 
+	public function tambah()
+	{
+
+	 		$config['upload_path'] = realpath('./assets/dokument/');
+			$config['allowed_types'] = 'pdf';
+			$config['max_size']  = '5000';
+			
+			$this->load->library('upload', $config);
+			if ( ! $this->upload->do_upload('dokumen')){
+				$error = array('error' => $this->upload->display_errors());
+				echo $error['error'];
+			}else {
+				date_default_timezone_set('Asia/Jakarta');
+				$d=strtotime($this->input->post('tgl_po'));
+				$session_data=$this->session->userdata('logged_in');
+				$data=array(
+			      'no_dokumen'      	=> $this->input->post('no_dokumen'),
+			      'no_po'    			=> $this->input->post('no_po'),
+			      'tgl_po'				=> date("Y-m-d",$d),
+			      'deskripsi'			=> $this->input->post('deskripsi'),
+			      'jurubeli'			=> $this->input->post('jurubeli'),
+			      'proyek'				=> $this->input->post('proyek'),
+			      'vendor'				=> $this->input->post('vendor'),
+			      'rak_ke'					=> $this->input->post('rak'),
+			      'tgl_entry'			=> date("Y-m-d h:i:s"),
+			      'petugas'				=> $session_data['nama_petugas'],
+			      'status_dokumen'		=> $this->input->post('status'),
+			      'dokumen'				=> $this ->upload->data('file_name'),
+			    );
+				 $this->db->insert('arsip_dokumen', $data);
+				  redirect('Arsip/Data');
+			}
+   
+	}
 }
 
 /* End of file Arsip.php */
