@@ -59,10 +59,10 @@
  	               </div>
  	               <div class="modal-body">
  	                   <div class="form-group">
- 	                       <input type="text" name="Kode" readonly class="form-control" placeholder="Kode Juru Beli" required>
+ 	                       <input type="text" name="Kode" readonly class="form-control" placeholder="Kode Proyek" required>
  	                   </div>
  										 <div class="form-group">
- 	                       <input type="text" name="Nama" class="form-control" placeholder="Nama Juru Beli" required>
+ 	                       <input type="text" name="Nama" class="form-control" placeholder="Nama Proyek " required>
  	                   </div>
  	               </div>
  	               <div class="modal-footer">
