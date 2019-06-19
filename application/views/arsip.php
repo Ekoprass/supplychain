@@ -10,19 +10,19 @@
 				<div class="card-body card-block">
 					<div class="form-group">
 						<label class=" form-control-label">Nomor Dokumen</label>
-						<div class="input-group">
+						<div class="input-group" required>
 							<input class="form-control" name="no_dokumen">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class=" form-control-label">Nomor Purchase Order</label>
-						<div class="input-group">
+						<div class="input-group" required>
 							<input class="form-control" name="no_po">
 						</div>
 					</div>
 					<div class="form-group">
 						<label class=" form-control-label">Description</label>
-						<div class="input-group">
+						<div class="input-group" required>
 							<textarea name="deskripsi" rows="5" placeholder="Description" class="form-control">
 							</textarea>
 						</div>
@@ -33,13 +33,13 @@
                             <span class="input-group-addon">
                                <span class="menu-icon fa fa-calendar"></span>
                             </span>
-                            <input type='text' class="form-control" name="tgl_po"/>
+                            <input type='text' class="form-control" name="tgl_po" required/>
                         </div>
                     </div>
 					<div class="form-group">
 						<label class=" form-control-label">Kode Juru Beli</label>
 						<div class="input-group">
-							<select class="standardSelect" name="jurubeli" tabindex="-1" style="display: none;">
+							<select class="standardSelect" name="jurubeli" tabindex="-1" style="display: none;" required>
 								  <option value="" label="default"></option>
 								   <?php foreach ($jurubeli as $key) {?>
 								   	<option value="<?php echo $key['kd_jurubeli']; ?>"><?php echo $key['kd_jurubeli']." | ".$key['nama_jurubeli']; ?></option>
@@ -50,7 +50,7 @@
 					<div class="form-group">
 						<label class=" form-control-label">Kode Proyek</label>
 						<div class="input-group">
-							<select class="standardSelect" name="proyek" tabindex="-1" style="display: none;">
+							<select class="standardSelect" name="proyek" tabindex="-1" style="display: none;" required>
 							  <option value="" label="default"></option>
 							   <?php foreach ($proyek as $key) {?>
 							   	<option value="<?php echo $key['kd_proyek']; ?>"><?php echo $key['kd_proyek']." | ".$key['nama_proyek']; ?></option>
@@ -61,7 +61,7 @@
 					<div class="form-group">
 						<label class=" form-control-label">Kode Vendor</label>
 						<div class="input-group">
-							<select class="standardSelect" name="vendor" tabindex="-1" style="display: none;">
+							<select class="standardSelect" name="vendor" tabindex="-1" style="display: none;" required>
 								 <option value="" label="default"></option>
 							   <?php foreach ($vendor as $key) {?>
 							   	<option value="<?php echo $key['kd_vendor']; ?>"><?php echo $key['kd_vendor']." | ".$key['nama_vendor']; ?></option>
@@ -72,7 +72,7 @@
 					<div class="form-group">
 						<label class=" form-control-label">Posisi Rak Dokumen</label>
 						<div class="input-group">
-							<select class="standardSelect" name="rak" tabindex="-1" style="display: none;">
+							<select class="standardSelect" name="rak" tabindex="-1" style="display: none;" required>
 								<option value="" label="default"></option>
 							   <?php foreach ($rak as $key) {?>
 							   	<option value="<?php echo $key['no_rak']; ?>"><?php echo $key['no_rak']." | ".$key['rak_ke']; ?></option>
@@ -83,12 +83,12 @@
 					<div class="form-group">
 						<label class=" form-control-label">Scan Dokumen(PDF File)</label>
 						<div class="input-group">
-							<input class="form-control" type="File"  name="dokumen">
+							<input class="form-control" type="File"  name="dokumen" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class=" form-control-label">Status Purchase Order</label>
-						<div class="input-group">
+						<div class="input-group" required>
 							<div class="radio">
                                 <label for="radio2" class="form-check-label ">
                                 	<input type="radio"  id="radio2" name="status" value="1" class="form-check-input">Selesai
