@@ -11,7 +11,7 @@
  Target Server Version : 100134
  File Encoding         : 65001
 
- Date: 18/06/2019 13:03:39
+ Date: 19/06/2019 13:04:00
 */
 
 SET NAMES utf8mb4;
@@ -127,6 +127,7 @@ INSERT INTO `arsip_dokumen` VALUES ('18', '2', NULL, 'Sit ipsam cupiditate itaqu
 INSERT INTO `arsip_dokumen` VALUES ('181', '8268', NULL, 'Eligendi autem quo doloribus recusandae rerum.', '8151226', '810', '80167', '790', '8259', '1993-12-17 00:00:00', 'eml', NULL);
 INSERT INTO `arsip_dokumen` VALUES ('182', '65386658', NULL, 'Omnis non ad maxime quisquam nihil non.', '66482533', '670325', '6710729', '639', '703296', '1977-06-05 00:00:00', 'flac', NULL);
 INSERT INTO `arsip_dokumen` VALUES ('182047', '2923', NULL, 'Ea repellendus quia rerum sed.', '29179', '3027111', '327', '235', '322', '2008-08-01 00:00:00', 'kwd', NULL);
+INSERT INTO `arsip_dokumen` VALUES ('1828201', '337291', '2019-06-26', 'asjdka', '1', '1', '1', 'Besi', 'Bambang P', '2019-06-19 10:41:33', 'Invoice_-_INV_2019_0004_2.pdf', 2);
 INSERT INTO `arsip_dokumen` VALUES ('18292', '102300', NULL, 'Blanditiis rerum voluptatum recusandae nesciunt atque enim.', '951310', '95370415', '956338', '950', '9608796', '1976-10-24 00:00:00', 'igl', NULL);
 INSERT INTO `arsip_dokumen` VALUES ('183', '293', NULL, 'Quia voluptas ut deleniti sunt vero.', '55', '56055430', '566', '515', '5891', '2004-09-26 00:00:00', 'log', NULL);
 INSERT INTO `arsip_dokumen` VALUES ('1831', '2', NULL, 'Similique odit ipsa quae illum eaque.', '688', '69', '6872438', '660', '711', '2011-05-18 00:00:00', 'xpi', NULL);
@@ -282,6 +283,7 @@ INSERT INTO `arsip_dokumen` VALUES ('3217', '5004', NULL, 'Molestias libero porr
 INSERT INTO `arsip_dokumen` VALUES ('3224', '83201934', NULL, 'Fugit itaque aut voluptates quo dolor temporibus.', '77146', '7848438', '77446884', '759', '80107', '1975-04-21 00:00:00', 'flx', NULL);
 INSERT INTO `arsip_dokumen` VALUES ('3242548', '4', NULL, 'Explicabo nihil temporibus sed.', '7151521', '719505', '730844', '701', '748338', '1987-03-21 00:00:00', 'mseed', NULL);
 INSERT INTO `arsip_dokumen` VALUES ('324660583', '2309', NULL, 'Nisi a dolores ut unde maiores.', '8675', '8489', '84883', '843', '876976', '2000-07-21 00:00:00', 'kfo', NULL);
+INSERT INTO `arsip_dokumen` VALUES ('3246723', '1299381', '2019-06-25', 'ASDkka					', '101587', '10228', '100438632', 'Besi', 'Bambang P', '2019-06-19 10:43:09', 'Invoice_-_INV_2019_0004_2.pdf', 1);
 INSERT INTO `arsip_dokumen` VALUES ('32704', '50', NULL, 'Sunt nam quis molestiae omnis quis unde.', '59198114', '59946', '601', '558', '634', '1996-11-11 00:00:00', '7z', NULL);
 INSERT INTO `arsip_dokumen` VALUES ('3276', '9840', NULL, 'In minima aut cumque maxime doloremque consequatur.', '92511', '9186', '93101804', '916', '9271960', '2014-10-05 00:00:00', 'xenc', NULL);
 INSERT INTO `arsip_dokumen` VALUES ('3280', '345', NULL, 'Excepturi ut et reprehenderit nam.', '685272312', '68779', '686856518', '658', '7104', '2001-01-04 00:00:00', 'xlf', NULL);
@@ -759,6 +761,7 @@ INSERT INTO `arsip_dokumen` VALUES ('764328047', '817', NULL, 'Quia quo voluptat
 INSERT INTO `arsip_dokumen` VALUES ('76519', '1130', NULL, 'Eveniet nobis quia ut accusantium enim.', '4478757', '453', '4581850', '398', '4706', '1974-10-25 00:00:00', 'arc', NULL);
 INSERT INTO `arsip_dokumen` VALUES ('7654842', '1447', NULL, 'Deleniti exercitationem nesciunt occaecati commodi doloribus.', '212980', '22964', '2422765', '141', '24123', '2003-11-27 00:00:00', 'fdf', NULL);
 INSERT INTO `arsip_dokumen` VALUES ('765633', '85', NULL, 'Totam perferendis modi minus aut qui repellat animi.', '57', '5768', '5749463', '536', '61230', '1999-07-13 00:00:00', 'z1', NULL);
+INSERT INTO `arsip_dokumen` VALUES ('7676433', '14253465', '2019-06-24', 'ommomo				', '10235', '10632272', '10502', 'Pagar', 'Bambang P', '2019-06-19 10:31:25', 'Invoice_-_INV_2019_0002.pdf', 2);
 INSERT INTO `arsip_dokumen` VALUES ('7690416', '68901526', NULL, 'Et nostrum rem consectetur nihil.', '867', '84879', '848257744', '842', '876', '1973-03-23 00:00:00', 'xenc', NULL);
 INSERT INTO `arsip_dokumen` VALUES ('7695977', '168', NULL, 'Quas in consequuntur reiciendis eius esse veniam.', '7255', '726', '7357506', '710', '76', '1983-06-01 00:00:00', 'lnk', NULL);
 INSERT INTO `arsip_dokumen` VALUES ('7699732', '5271', NULL, 'Fugit aut sint labore omnis qui maiores eveniet.', '2856', '29911376', '32', '226', '311', '2011-02-07 00:00:00', 'sv4cpio', NULL);
@@ -783,6 +786,7 @@ INSERT INTO `arsip_dokumen` VALUES ('7818', '96', NULL, 'Nostrum facere delectus
 INSERT INTO `arsip_dokumen` VALUES ('781860', '25274278', NULL, 'Non corporis quasi at in ipsa et soluta molestias.', '6', '60961', '6128', '568', '64765770', '2018-10-25 00:00:00', 'rdf', NULL);
 INSERT INTO `arsip_dokumen` VALUES ('781877', '433582', NULL, 'Aliquid eveniet blanditiis neque ab voluptatem est similique.', '1529', '1555536', '163787254', '65', '1613216', '2013-10-23 00:00:00', 'fe_launch', NULL);
 INSERT INTO `arsip_dokumen` VALUES ('782', '226', NULL, 'Cupiditate sed voluptas nulla.', '57044', '5769', '57508', '537', '6124', '2002-07-16 00:00:00', 'crd', NULL);
+INSERT INTO `arsip_dokumen` VALUES ('7832648', '23487234', '2019-06-24', 'godzila					', '101097571', '10093101', '10344475', 'Monster', 'Bambang P', '2019-06-19 11:06:52', 'Invoice_-_INV_2019_0004.pdf', 2);
 INSERT INTO `arsip_dokumen` VALUES ('784800', '208', NULL, 'Nihil et impedit sit ipsam.', '6865559', '68909084', '687', '659', '7109', '1993-05-26 00:00:00', 'rif', NULL);
 INSERT INTO `arsip_dokumen` VALUES ('78501', '17194', NULL, 'Perspiciatis distinctio ut repellendus reiciendis consequatur ut sunt.', '528479016', '54098696', '53288', '490', '5588', '2010-11-06 00:00:00', 'dwg', NULL);
 INSERT INTO `arsip_dokumen` VALUES ('78669', '830', NULL, 'Unde qui laborum excepturi aperiam.', '361', '3916', '38882', '313', '388934', '2000-02-26 00:00:00', 'gv', NULL);
@@ -1030,6 +1034,7 @@ INSERT INTO `arsip_dokumen` VALUES ('98558740', '', NULL, 'Laudantium nisi labor
 INSERT INTO `arsip_dokumen` VALUES ('986', '2037', NULL, 'Sequi eius totam rem quibusdam qui.', '91', '9069', '909177', '896', '9126267', '1974-08-11 00:00:00', 'sxc', NULL);
 INSERT INTO `arsip_dokumen` VALUES ('98816', '168', NULL, 'Sunt qui dicta minima veniam.', '19593', '21271', '22454564', '123', '22023546', '1986-08-30 00:00:00', 'vsf', NULL);
 INSERT INTO `arsip_dokumen` VALUES ('98995', '338517171', NULL, 'Occaecati saepe dolor dolorem rerum.', '928649465', '921319', '9356603', '920', '930160', '2007-01-20 00:00:00', 'odb', NULL);
+INSERT INTO `arsip_dokumen` VALUES ('99085', '6774157', '2019-06-11', 'momppm		', '1', '10280941', '10502', '6', 'Bambang P', '2019-06-19 10:25:18', 'BAb-_03_Solusi_Persamaan_Nirlanjar_17.pdf', 1);
 INSERT INTO `arsip_dokumen` VALUES ('9909373', '', NULL, 'Velit provident assumenda omnis nobis sit ut hic.', '11752563', '1182', '129353709', '28', '12', '2010-03-24 00:00:00', 'wpd', NULL);
 INSERT INTO `arsip_dokumen` VALUES ('991852', '180364', NULL, 'Soluta incidunt perferendis tempora ipsam vel accusantium et eum.', '46912', '47', '4734', '418', '49166', '2008-07-22 00:00:00', 'nfo', NULL);
 INSERT INTO `arsip_dokumen` VALUES ('99233246', '735878396', NULL, 'Ut voluptates sint facere animi deleniti quisquam odio.', '79052', '8', '7842985', '772', '81391', '2006-05-08 00:00:00', 'uvvm', NULL);
@@ -2076,7 +2081,6 @@ INSERT INTO `menus` VALUES (2, 'MASTER DATA', 1, 0, '2', NULL, NULL);
 INSERT INTO `menus` VALUES (3, 'Juru Beli', 2, 2, '2', 'fa fa-briefcase', 'JuruBeli');
 INSERT INTO `menus` VALUES (4, 'Proyek', 2, 2, '2', 'fa fa-gears', 'Proyek');
 INSERT INTO `menus` VALUES (5, 'Vendor', 2, 2, '2', 'fa fa-building-o', 'Vendor');
-INSERT INTO `menus` VALUES (6, 'Rak', 2, 2, '2', 'ti-harddrives', 'Rak');
 INSERT INTO `menus` VALUES (7, 'User', 2, 2, '2', 'fa fa-group', 'User');
 INSERT INTO `menus` VALUES (8, 'ARSIP DOKUMEN', 1, 0, '1', NULL, NULL);
 INSERT INTO `menus` VALUES (9, 'Input Arsip', 2, 8, '1', 'fa fa-download', 'Arsip');
@@ -2338,6 +2342,7 @@ INSERT INTO `petugas` VALUES (3245, 'Dudley Quitzon', 'georgette.mcclure', '1cfb
 INSERT INTO `petugas` VALUES (3320, 'Muhammad Rempel', 'felipa83', '6c622b7bc5c5532ff5f877dc52c4893b2c9a9d7b', NULL);
 INSERT INTO `petugas` VALUES (3336, 'Abigayle Haag', 'xhyatt', '9a235b2deb5ebb7a4f9c46e1b441e72c6b62e56b', NULL);
 INSERT INTO `petugas` VALUES (3370, 'Mr. Nathan Haley', 'pagac.otho', 'e353ec8258cc244dfa5bae4efa0e6b33e80d3398', NULL);
+INSERT INTO `petugas` VALUES (3400, 'Aripin', 'aripin', '21232f297a57a5a743894a0e4a801fc3', '1');
 INSERT INTO `petugas` VALUES (3491, 'Darrin Huels', 'abshire.libby', '7c20a3c8129f6ed5145359db936db04b28cca67b', NULL);
 INSERT INTO `petugas` VALUES (3588, 'Frederick VonRueden DVM', 'cassin.leonard', '3594fd751406ccd47a5e6edc8b9faf2f1b804e13', NULL);
 INSERT INTO `petugas` VALUES (3614, 'Ms. Leonie Beier I', 'kmayer', '70e4d035369adb77733897c092242adfd98ea145', NULL);
@@ -3099,7 +3104,7 @@ INSERT INTO `petugas` VALUES (984865796, 'Prof. Benny Sauer', 'rosa.kessler', '7
 INSERT INTO `petugas` VALUES (990011516, 'Malvina Zieme', 'antoinette46', '42c21500f4d93b8c9162331f43a14288045c4652', NULL);
 INSERT INTO `petugas` VALUES (994739387, 'Nicholaus Reilly', 'euna16', 'a89c65dfd41bf3eff8fabfe84df4b32ac891de66', NULL);
 INSERT INTO `petugas` VALUES (997445616, 'Lucas Greenholt', 'thea.trantow', '317852aa8c5db50f3e5a5cf3e4dc73fd8cbca47b', NULL);
-INSERT INTO `petugas` VALUES (998534230, 'Abbie Schaefe', 'simonis.darric', 'b4816afe400d2d82a2e560318a4fdc2293953776', NULL);
+INSERT INTO `petugas` VALUES (998534230, 'Abbie Schaefe', 'simonis.darric', 'b4816afe400d2d82a2e560318a4fdc2293953776', '1');
 
 -- ----------------------------
 -- Table structure for proyek
