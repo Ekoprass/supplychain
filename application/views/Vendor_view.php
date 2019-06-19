@@ -9,12 +9,13 @@
               </div>
               <div class="card-body card-block">
             		<button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">TAMBAH VENDOR</button>
+                <h3 class="pull-right">Cari <i class="icon fa fa-search"></i></h3>
                 <table class="table table-striped" id="mytable">
                   <thead>
                     <tr>
-                      <th>Kode Vendor</th>
-                      <th>Nama Vendor</th>
-                      <th>Action</th>
+                      <th>KODE VENDOR</th>
+                      <th>NAMA VENDOR</th>
+                      <th>ACTION</th>
                     </tr>
                   </thead>
                 </table>
@@ -29,7 +30,7 @@
 	           <div class="modal-content">
 	               <div class="modal-header">
 	                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	                   <h4 class="modal-title" id="myModalLabel">Tambah Vendor</h4>
+	                   <h4 class="modal-title" id="myModalLabel">TAMBAH DATA VENDOR</h4>
 	               </div>
 	               <div class="modal-body">
 	                   <div class="form-group">
@@ -40,8 +41,8 @@
 	                   </div>
 	               </div>
 	               <div class="modal-footer">
-	                   	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	                  	<button type="submit" id="add-row" class="btn btn-info">Save</button>
+	                   	<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+	                  	<button type="submit" id="add-row" class="btn btn-info">Simpan</button>
 	               </div>
 	      			</div>
 	        </div>
@@ -55,7 +56,7 @@
  	           <div class="modal-content">
  	               <div class="modal-header">
  	                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
- 	                   <h4 class="modal-title" id="myModalLabel">Update</h4>
+ 	                   <h4 class="modal-title" id="myModalLabel">EDIT DATA VENDOR</h4>
  	               </div>
  	               <div class="modal-body">
  	                   <div class="form-group">
@@ -66,8 +67,8 @@
  	                   </div>
  	               </div>
  	               <div class="modal-footer">
- 	                   	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
- 	                  	<button type="submit" id="add-row" class="btn btn-info">Update</button>
+ 	                   	<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+ 	                  	<button type="submit" id="add-row" class="btn btn-info">Perbarui</button>
  	               </div>
  	      			</div>
  	        </div>

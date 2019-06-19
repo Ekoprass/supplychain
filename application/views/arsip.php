@@ -22,7 +22,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class=" form-control-label">Description</label>
+						<label class=" form-control-label">Deskripsi</label>
 						<div class="input-group">
 							<textarea name="deskripsi" rows="5" placeholder="Description" class="form-control">
 							</textarea>
@@ -77,7 +77,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label class=" form-control-label">Scan Dokumen(PDF File)</label>
+						<label class=" form-control-label">Scan Dokumen (PDF File)</label>
 						<div class="input-group">
 							<input class="form-control" type="File"  name="dokumen">
 						</div>
