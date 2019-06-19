@@ -7,6 +7,7 @@
 				<div class="card-header">
 					<h2>INPUT ARSIP</h2>
 				</div>
+				<?php echo form_open_multipart('Arsip/tambah'); ?>
 				<div class="card-body card-block">
 					<div class="form-group">
 						<label class=" form-control-label">Nomor Dokumen</label>

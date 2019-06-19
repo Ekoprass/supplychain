@@ -34,7 +34,7 @@
 
 
        <!-- Modal Update Produk-->
-        <form id="add-row-form" action="<?php echo base_url().'index.php/User/update'?>" method="post">
+        <form id="add-row-form" action="<?php echo site_url()?>Arsip/update" method="post" enctype="multipart/form-data">
            <div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                  <div class="modal-content">
@@ -75,25 +75,46 @@
                           <div class="form-group">
                             <label class=" form-control-label">Kode Juru Beli</label>
                             <div class="input-group">
-                              <select class="standardSelect" tabindex="-1" style="display: none;" name="jurubeli"></select>
+                              <select class="standardSelect" tabindex="-1" style="display: none;" name="jurubeli">
+                                      <option value="" label="default"></option>
+                                       <?php foreach ($jurubeli as $key) {?>
+                                        <option value="<?php echo $key['kd_jurubeli']; ?>"><?php echo $key['kd_jurubeli']." | ".$key['nama_jurubeli']; ?></option>
+                                       <?php } ?>
+                                  </select>
+                              </select>
                             </div>
                           </div>
                           <div class="form-group">
                             <label class=" form-control-label">Kode Proyek</label>
                             <div class="input-group">
-                              <select class="standardSelect" tabindex="-1" style="display: none;" name="proyek"></select>
+                              <select class="standardSelect" tabindex="-1" style="display: none;" name="proyek">
+                                <option value="" label="default"></option>
+                                 <?php foreach ($proyek as $key) {?>
+                                  <option value="<?php echo $key['kd_proyek']; ?>"><?php echo $key['kd_proyek']." | ".$key['nama_proyek']; ?></option>
+                                 <?php } ?>
+                              </select>
                             </div>
                           </div>
                           <div class="form-group">
                             <label class=" form-control-label">Kode Vendor</label>
                             <div class="input-group">
-                              <select class="standardSelect" tabindex="-1" style="display: none;" name="vendor"></select>
+                              <select class="standardSelect" tabindex="-1" style="display: none;" name="vendor">
+                                <option value="" label="default"></option>
+                                 <?php foreach ($vendor as $key) {?>
+                                  <option value="<?php echo $key['kd_vendor']; ?>"><?php echo $key['kd_vendor']." | ".$key['nama_vendor']; ?></option>
+                                 <?php } ?>
+                              </select>
                             </div>
                           </div>
                           <div class="form-group">
                             <label class=" form-control-label">Posisi Rak Dokumen</label>
                             <div class="input-group">
-                              <select class="standardSelect" tabindex="-1" style="display: none;" name="rak"></select>
+                              <select class="standardSelect" tabindex="-1" style="display: none;" name="rak">
+                                <option value="" label="default"></option>
+                                 <?php foreach ($rak as $key) {?>
+                                  <option value="<?php echo $key['no_rak']; ?>"><?php echo $key['no_rak']." | ".$key['rak_ke']; ?></option>
+                                 <?php } ?>
+                              </select>
                             </div>
                           </div>
                           <div class="form-group">
