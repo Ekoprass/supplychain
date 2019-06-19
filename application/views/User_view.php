@@ -9,6 +9,7 @@
               </div>
                   <div class="card-body card-block">
                     <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">TAMBAH PETUGAS</button>
+                    <h3 class="pull-right">Cari <i class="icon fa fa-search"></i></h3>
                     <table class="table table-striped" id="mytable">
                       <thead>
                         <tr>
@@ -65,18 +66,18 @@
                             </div> -->
                              <div class="radio">
                                                     <label for="radio1" class="form-check-label ">
-                                                        <input type="radio" id="radio1" name="hak_akses" value="1" class="form-check-input">PETUGAS
+                                                        <input type="radio" id="radio1" name="hak_akses" value="1" class="form-check-input">Petugas
                                                     </label>
                                                 </div>
                                                 <div class="radio">
                                                     <label for="radio2" class="form-check-label ">
-                                                        <input type="radio" id="radio2" name="hak_akses" value="2" class="form-check-input">ADMIN
+                                                        <input type="radio" id="radio2" name="hak_akses" value="2" class="form-check-input">Admin
                                                     </label>
                                                 </div>
                        </div>
                        <div class="modal-footer">
-                            <!-- <button type="button" class="btn btn-default" data-dismiss="modal">TUTUP</button> -->
-                            <button type="submit" id="add-row" class="btn btn-success">SIMPAN</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                            <button type="submit" id="add-row" class="btn btn-info">Simpan</button>
                        </div>
                     </div>
                 </div>
@@ -121,7 +122,7 @@
                      </div>
                      <div class="modal-footer">
                           <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button> -->
-                          <button type="submit" id="add-row" class="btn btn-success">UPDATE</button>
+                          <button type="submit" id="add-row" class="btn btn-info">UPDATE</button>
                      </div>
                   </div>
               </div>

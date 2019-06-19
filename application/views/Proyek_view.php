@@ -9,12 +9,13 @@
               </div>
               <div class="card-body card-block">
             		<button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">TAMBAH PROYEK</button>
+                <h3 class="pull-right">Cari <i class="icon fa fa-search"></i></h3>
                 <table class="table table-striped" id="mytable">
                   <thead>
                     <tr>
-                      <th>Kode Proyek</th>
-                      <th>Nama Proyek</th>
-                      <th>Action</th>
+                      <th>KODE PROYEK</th>
+                      <th>NAMA PROYEK</th>
+                      <th>ACTION</th>
                     </tr>
                   </thead>
                 </table>
@@ -40,8 +41,8 @@
 	                   </div>
 	               </div>
 	               <div class="modal-footer">
-	                   	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	                  	<button type="submit" id="add-row" class="btn btn-info">Save</button>
+	                   	<button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+	                  	<button type="submit" id="add-row" class="btn btn-info">Simpan</button>
 	               </div>
 	      			</div>
 	        </div>
