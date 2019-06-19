@@ -124,24 +124,29 @@
             </div>
             <div class="top-right">
                 <div class="header-menu">
-                    
+                    <h2>
+                        <div class="pull-right" style="margin-top: -15px;">
+                            <a class="nav-link" onMouseOver="this.style.color='#d6d6d6'"   onMouseOut="this.style.color='#1635af'"  href="<?php echo site_url() ?>/login/logout"><i class="fa fa-power-off"></i>
+                            </a>
+                        </div>
+                    </h2>
 
-                    <div class="user-area dropdown float-right">
+                   <!--  <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img class="user-avatar rounded-circle" src="<?php echo base_url() ?>assets/images/admin.jpg" alt="User Avatar">
                         </a>
 
-                        <div class="user-menu dropdown-menu">
+                        <div class="user-menu dropdown-menu"> -->
                           <!--   <a class="nav-link" href="#"><i class="fa fa-user"></i>My Profile</a>
  -->
                           <!--   <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span class="count">13</span></a> -->
 <!-- 
                             <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a> -->
 
-                            <a class="nav-link" href="<?php echo site_url() ?>/login/logout"><i class="fa fa-power-off"></i>Logout</a>
+                         <!--    <a class="nav-link" href="<?php echo site_url() ?>/login/logout"><i class="fa fa-power-off"></i>Logout</a>
                         </div>
                     </div>
-
+ -->
                 </div>
             </div>
         </header>
