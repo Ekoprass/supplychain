@@ -11,22 +11,20 @@
 				<div class="card-body card-block">
 					<div class="form-group">
 						<label class=" form-control-label">Nomor Dokumen</label>
-						<div class="input-group" required>
-							<input class="form-control" name="no_dokumen">
+						<div class="input-group">
+							<input class="form-control" name="no_dokumen" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class=" form-control-label">Nomor Purchase Order</label>
-						<div class="input-group" required>
-							<input class="form-control" name="no_po">
+						<div class="input-group">
+							<input class="form-control" name="no_po" required>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class=" form-control-label">Description</label>
-						<div class="input-group" required>
 						<label class=" form-control-label">Deskripsi</label>
 						<div class="input-group">
-							<textarea name="deskripsi" rows="5" placeholder="Description" class="form-control">
+							<textarea name="deskripsi" rows="5" placeholder="Description" class="form-control" required>
 							</textarea>
 						</div>
 					</div>
@@ -75,13 +73,13 @@
 					<div class="form-group">
 						<label class=" form-control-label">Posisi Rak Dokumen</label>
 						<div class="input-group">
-							<select class="standardSelect" name="rak" tabindex="-1" style="display: none;" required>
+							<!-- <select class="standardSelect" name="rak" tabindex="-1" style="display: none;" required>
 								<option value="" label="default"></option>
 							   <?php foreach ($rak as $key) {?>
 							   	<option value="<?php echo $key['no_rak']; ?>"><?php echo $key['no_rak']." | ".$key['rak_ke']; ?></option>
 							   <?php } ?>
-							</select>
-							<input class="form-control" name="rak">
+							</select> -->
+							<input class="form-control" name="rak" required>
 						</div>
 					</div>
 					<div class="form-group">
@@ -92,15 +90,15 @@
 					</div>
 					<div class="form-group">
 						<label class=" form-control-label">Status Purchase Order</label>
-						<div class="input-group" required>
+						<div class="input-group">
 							<div class="radio">
                                 <label for="radio2" class="form-check-label ">
-                                	<input type="radio"  id="radio2" name="status" value="1" class="form-check-input">Selesai
+                                	<input type="radio"  id="radio2" name="status" value="1" class="form-check-input" required>Selesai
                                 </label>
                             </div>
                             <div class="radio">
                                 <label for="radio2" class="form-check-label ">
-                                	<input type="radio" id="radio2" name="status" value="2" class="form-check-input">Belum Selesai
+                                	<input type="radio" id="radio2" name="status" value="2" class="form-check-input" required>Belum Selesai
                                 </label>
                             </div>
 						</div>
