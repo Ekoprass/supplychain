@@ -4,8 +4,8 @@
        <div class="row">
 		<div class="col-xs-12">
 			<div class="card">	                   
-				<div class="card-header">
-					<h2>INPUT ARSIP</h2>
+				<div class="card-header" style="background-color: navy">
+					<h2 style="color: #fff">INPUT ARSIP</h2>
 				</div>
 				<?php echo form_open_multipart('Arsip/tambah'); ?>
 				<div class="card-body card-block">
@@ -75,17 +75,11 @@
 					<div class="form-group">
 						<label class=" form-control-label">Posisi Rak Dokumen</label>
 						<div class="input-group">
-							<!-- <select class="standardSelect" name="rak" tabindex="-1" style="display: none;" required>
-								<option value="" label="default"></option>
-							   <?php foreach ($rak as $key) {?>
-							   	<option value="<?php echo $key['no_rak']; ?>"><?php echo $key['no_rak']." | ".$key['rak_ke']; ?></option>
-							   <?php } ?>
-							</select> -->
 							<input class="form-control" name="rak" required>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class=" form-control-label">Scan Dokumen (PDF File)</label>
+						<label class=" form-control-label">Scan Dokumen (PDF File) <small>Ukuran Maks File 5MB</small></label>
 						<div class="input-group">
 							<input class="form-control" type="File"  name="dokumen" required>
 						</div>
