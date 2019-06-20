@@ -39,7 +39,12 @@
 
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker3.min.css">
  <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
+
+<!--pdf viewer-->
+
+
  <script type='text/javascript'>
+
     $(function(){
         $('.input-group.date').datepicker({
             calendarWeeks: true,
@@ -51,48 +56,12 @@
 </script>
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-   <style>
-    #weatherWidget .currentDesc {
-        color: #ffffff!important;
-    }
-        .traffic-chart {
-            min-height: 335px;
-        }
-        #flotPie1  {
-            height: 150px;
-        }
-        #flotPie1 td {
-            padding:3px;
-        }
-        #flotPie1 table {
-            top: 20px!important;
-            right: -10px!important;
-        }
-        .chart-container {
-            display: table;
-            min-width: 270px ;
-            text-align: left;
-            padding-top: 10px;
-            padding-bottom: 10px;
-        }
-        #flotLine5  {
-             height: 105px;
-        }
-
-        #flotBarChart {
-            height: 150px;
-        }
-        #cellPaiChart{
-            height: 160px;
-        }
-
-    </style>
 </head>
 
 <body>
     <!-- Left Panel -->
-    <aside id="left-panel" class="left-panel">
-        <nav class="navbar navbar-expand-lg navbar-default" style="width: 230px;">
+    <aside id="left-panel" class="left-panel" >
+        <nav class="navbar navbar-expand-lg navbar-default" >
             <div id="main-menu" class="main-menu collapse navbar-collapse" style="margin-bottom: 100px">
                 <ul class="nav navbar-nav">
                    
