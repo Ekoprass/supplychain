@@ -98,7 +98,7 @@
                    
                <?php foreach ($menus as $key ) { 
                         if ($key['parent']==0) {?>
-                        <li class="menu-title" style="background-color: navy; color: #fff"><?php echo $key['menu']; ?></li>
+                        <li class="menu-title" style="background-color: #03428b; color: #fff"><?php echo $key['menu']; ?></li>
                     <?php }
                         if ($key['parent']>0) {?>
                      <li>
