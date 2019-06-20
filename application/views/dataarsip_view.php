@@ -18,8 +18,8 @@
        <div class="row">
           <div class="col">
             <div class="card">
-              <div class="card-header">
-                   <h2>Data Arsip Dokumen</h2>
+              <div class="card-header" style="background-color: #03428b">
+                   <h2 style="color: #fff">DATA ARSIP DOKUMEN</h2>
               </div>
                   <div class="card-body card-block">
                     <!-- <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">TAMBAH PETUGAS</button> -->

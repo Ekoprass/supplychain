@@ -4,8 +4,8 @@
        <div class="row">
           <div class="col-lg-12">
             <div class="card">
-              <div class="card-header">
-                   <h2>DAFTAR PETUGAS</h2>
+              <div class="card-header" style="background-color: #03428b">
+                   <h2 style="color: #fff">DAFTAR PETUGAS</h2>
               </div>
               <div class="card-body card-block">
                 <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">TAMBAH PETUGAS</button>

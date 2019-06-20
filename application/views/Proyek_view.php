@@ -4,8 +4,8 @@
        <div class="row">
           <div class="col-lg-12">
             <div class="card">
-              <div class="card-header">
-                   <h2>DATA PROYEK</h2>
+              <div class="card-header" style="background-color: #03428b">
+                   <h2 style="color: #fff">DATA PROYEK</h2>
               </div>
               <div class="card-body card-block">
             		<button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">TAMBAH PROYEK</button>
@@ -56,7 +56,7 @@
  	           <div class="modal-content">
  	               <div class="modal-header">
  	                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
- 	                   <h4 class="modal-title" id="myModalLabel">EDIT DATA PROYEL</h4>
+ 	                   <h4 class="modal-title" id="myModalLabel">EDIT DATA PROYEK</h4>
  	               </div>
  	               <div class="modal-body">
  	                   <div class="form-group">

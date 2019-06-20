@@ -4,7 +4,7 @@
        <div class="row">
 		<div class="col-xs-12">
 			<div class="card">	                   
-				<div class="card-header" style="background-color: navy">
+				<div class="card-header" style="background-color: #03428b">
 					<h2 style="color: #fff">INPUT ARSIP</h2>
 				</div>
 				<?php echo form_open_multipart('Arsip/tambah'); ?>
