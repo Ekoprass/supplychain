@@ -126,7 +126,7 @@
                 <div class="header-menu">
                     <h2>
                         <div class="pull-right" style="margin-top: -15px;">
-                            <a class="nav-link" onMouseOver="this.style.color='#999999'"   onMouseOut="this.style.color='#30baff'"  href="<?php echo site_url() ?>/login/logout"><i class="fa fa-power-off"></i>
+                            <a class="nav-link" onMouseOver="this.style.color='#999999'"   onMouseOut="this.style.color='#03428b'"  href="<?php echo site_url() ?>/login/logout"><i class="fa fa-power-off"></i>
                             </a>
                         </div>
                     </h2>
