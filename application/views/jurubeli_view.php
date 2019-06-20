@@ -11,6 +11,7 @@
                 		<button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">TAMBAH JURU BELI</button>
                     <h3 class="pull-right">Cari <i class="icon fa fa-search"></i></h3>
                     <table class="table table-striped" id="mytable">
+                      <?php echo form_error('Kode', '<div style="color:red"><b>', '</b></div>'); ?>
                       <thead>
                         <tr>
                           <th>KODE JURU BELI</th>
@@ -157,3 +158,4 @@
 
 	});
 </script>
+
