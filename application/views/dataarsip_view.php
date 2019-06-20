@@ -141,7 +141,7 @@
                      </div>
                      <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-                          <button type="submit" id="add-row" class="btn btn-success">Update</button>
+                          <button type="submit" id="add-row" class="btn btn-success">Perbarui</button>
                      </div>
                   </div>
               </div>
