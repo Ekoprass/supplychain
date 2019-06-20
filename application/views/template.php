@@ -92,13 +92,13 @@
 <body>
     <!-- Left Panel -->
     <aside id="left-panel" class="left-panel">
-        <nav class="navbar navbar-expand-sm navbar-default">
-            <div id="main-menu" class="main-menu collapse navbar-collapse">
+        <nav class="navbar navbar-expand-lg navbar-default" style="width: 230px;">
+            <div id="main-menu" class="main-menu collapse navbar-collapse" style="margin-bottom: 100px">
                 <ul class="nav navbar-nav">
                    
                <?php foreach ($menus as $key ) { 
                         if ($key['parent']==0) {?>
-                        <li class="menu-title"><?php echo $key['menu']; ?></li>
+                        <li class="menu-title" style="background-color: navy; color: #fff"><?php echo $key['menu']; ?></li>
                     <?php }
                         if ($key['parent']>0) {?>
                      <li>

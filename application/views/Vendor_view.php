@@ -74,8 +74,9 @@
  	        </div>
  	     </div>
  	 </form>
-
-</div></div></div>
+  </div>
+</div>
+</div>
 <?php $this->view('footer.php'); ?>
 
 <script src="<?php echo base_url().'assets/js/jquery-2.1.4.min.js'?>"></script>

@@ -99,6 +99,13 @@ class Arsip extends CI_Controller {
 			}
 			}
 	}
+
+	function pdf($item)
+    {
+    
+        fopen("base_url()/assets/dokument/$item", "");
+
+    }
 	 		
 
 

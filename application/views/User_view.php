@@ -7,26 +7,22 @@
               <div class="card-header">
                    <h2>DAFTAR PETUGAS</h2>
               </div>
-                  <div class="card-body card-block">
-                    <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">TAMBAH PETUGAS</button>
-                    <h3 class="pull-right">Cari <i class="icon fa fa-search"></i></h3>
-                    <table class="table table-striped" id="mytable">
-                      <thead>
-                        <tr>
-                          <th>NO. PETUGAS</th>
-                          <th>NAMA PETUGAS</th>
-                          <th>USERNAME</th>
-                          <th>PASSWORD</th>
-                          <th>HAK AKSES</th>
-                          <!-- <th>Product Code</th>
-                          <th>Product Name</th>
-                          <th>Price</th>
-                          <th>Category</th>-->
-                          <th>AKSI</th>
-                        </tr>
-                      </thead>
-                    </table>
-                  </div>
+              <div class="card-body card-block">
+                <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">TAMBAH PETUGAS</button>
+                <h3 class="pull-right">Cari <i class="icon fa fa-search"></i></h3>
+                <table class="table table-striped" id="mytable">
+                  <thead>
+                    <tr>
+                      <th>NO. PETUGAS</th>
+                      <th>NAMA PETUGAS</th>
+                      <th>USERNAME</th>
+                      <th>PASSWORD</th>
+                      <th>HAK AKSES</th>
+                      <th>AKSI</th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
             </div>
           </div>
 
@@ -127,45 +123,6 @@
                   </div>
               </div>
            </div>
-       </form>
-
-       <!--Modul untuk hapus data--> 
-       <!-- <form id="add-row-form" action="<?php echo base_url().'index.php/user/hapus'?>" method="post">
-           <div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                 <div class="modal-content">
-                     <div class="modal-header">
-                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                         <h4 class="modal-title" id="myModalLabel">HAPUS DATA</h4>
-                     </div>
-                     <div class="modal-body">
-                         <div class="form-group">
-                               <input type="text" name="Nomer" class="form-control" placeholder="Masukkan Nomer Petugas" required >
-                           </div>
-                           <div class="form-group">
-                               <input type="text" name="Nama" class="form-control" placeholder=" Masukkan Nama Petugas" required>
-                           </div>
-                           <div class="form-group">
-                               <input type="text" name="Username" class="form-control" placeholder="Masukkan Username" required>
-                           </div>
-                           <div class="form-group">
-                               <input type="text" name="Password" class="form-control" placeholder="Masukkan Password" required>
-                           </div>
-                           <div class="form-group">
-                               <input type="text" name="hak_akses" class="form-control" placeholder="Ketik : 1 untuk user, 2 untuk admin" required>
-                           </div>
-                     </div>
-                     <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-                          <button type="submit" id="add-row" class="btn btn-success">HAPUS</button>
-                     </div>
-                  </div>
-              </div>
-           </div>
-<<<<<<< HEAD
-       </form> -->
-    </div>
-
        </form>
     </div>
   </div>  
