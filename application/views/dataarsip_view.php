@@ -1,14 +1,29 @@
 <?php $this->view('template.php'); ?>
+<style type="text/css">
+.pdfobject-container {
+  width: 100%;
+  max-width: 600px;
+  height: 600px;
+  margin: 2em 0;
+}
+
+.pdfobject { border: solid 1px #666; }
+#results { padding: 1rem; }
+.hidden { display: none; }
+.success { color: #4F8A10; background-color: #DFF2BF; }
+.fail { color: #D8000C; background-color: #FFBABA; }
+</style>
 <div class="content">
     <div class="animated fadeIn">
        <div class="row">
-          <div class="col-lg-12">
+          <div class="col">
             <div class="card">
               <div class="card-header">
                    <h2>Data Arsip Dokumen</h2>
               </div>
                   <div class="card-body card-block">
                     <!-- <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">TAMBAH PETUGAS</button> -->
+                    <div class="table-responsive">
                     <table class="table table-striped" id="mytable">
                       <thead>
                         <tr>
@@ -28,6 +43,7 @@
                         </tr>
                       </thead>
                     </table>
+                  </div>
                   </div>
             </div>
           </div>
@@ -147,7 +163,29 @@
               </div>
            </div>
        </form>
+
+        <div class="modal fade" id="ModalViewPDF" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                     <h4 class="modal-title" id="myModalLabel">EDIT DATA VENDOR</h4>
+                 </div>
+                 <div class="modal-body">
+                      <div id="results" class="hidden"></div>
+                      <div id="pdf"></div>
+                      <div ></div>
+
+                 </div>
+                 <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                      <button type="submit" id="add-row" class="btn btn-info">Perbarui</button>
+                 </div>
+              </div>
+          </div>
+       </div>
     </div>
+    <a href="/web/viewer.html?file=%2Fyourpdf.pdf">Open yourpdf.pdf with PDF.js</a>
     </div>
 </div>
 <?php $this->view('footer.php'); ?>
@@ -168,6 +206,8 @@
 <script src="<?php echo base_url('') ?>assets/js/main.js"></script>
 <script src="<?php echo base_url('') ?>assets/js/lib/chosen/chosen.jquery.min.js"></script>
 
+
+<script src="<?php echo base_url() ?>assets/pdfobject/pdfobject.min.js"></script>
 
 
 <script>
@@ -227,31 +267,34 @@
       });
       // end setup datatables
       // get Edit Records
-      $('#mytable').on('click','.edit_record',function(){
-            var no_dokumen=$(this).data('no_dokumen');
-            var no_po=$(this).data('no_po');
-            var tgl_po=$(this).data('tgl_po');
-            var deskripsi=$(this).data("deskripsi");
-            var jurubeli=$(this).data("jurubeli");
-            var proyek=$(this).data("proyek");
-            var vendor=$(this).data("vendor");
-            var rak_ke=$(this).data("rak_ke");
-            var petugas=$(this).data("petugas");
-            var tgl_entry=$(this).data("tgl_entry");
-            var dokumen=$(this).data("dokumen");
-            var status_dokumen=$(this).data("status_dokumen");
+        $('#mytable').on('click','.edit_record',function(){
+            var Kode=$(this).data('kd_proyek');
+            var Nama=$(this).data('nama_proyek');
             $('#ModalUpdate').modal('show');
-            $('[name="no_dokumen"]').val(no_dokumen);
-            $('[name="no_po"]').val(no_po);
-            $('[name="tgl_po"]').val(tgl_po);
-            $('[name="deskripsi"]').val(deskripsi);
-            $('[name="jurubeli"]').val(jurubeli);
-            $('[name="proyek"]').val(proyek);
-            $('[name="vendor"]').val(vendor);
-            $('[name="rak"]').val(rak_ke);
-            $('[name="dokumen"]').val(dokumen);
-            $('[name="status_dokumen"]').val(status_dokumen);
+            $('[name="Kode"]').val(Kode);
+            $('[name="Nama"]').val(Nama);
             
+      });
+      $('#mytable').on('click','.view_pdf',function(){
+            var options = {
+              pdfOpenParams: {
+                pagemode: "thumbs",
+                navpanes: 0,
+                toolbar: 0,
+                statusbar: 0,
+                view: "FitV"
+              }
+            };
+           var dokumen=$(this).data('dokumen');
+            $('#ModalViewPDF').modal('show');
+            
+
+            var myPDF = PDFObject.embed("<?php echo base_url().'assets/dokument/'?>"+dokumen, "#pdf", options);
+
+            var el = document.querySelector("#results");
+            el.setAttribute("class", (myPDF) ? "success" : "fail");
+            el.innerHTML = (myPDF) ? "PDFObject successfully added an &lt;embed> element to the page!" : "Uh-oh, the embed didn't work.";
+        
       });
       // End Edit Records
       // get Hapus Records
