@@ -15,10 +15,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /*<body style="background-image:url('<?php echo base_url() ?>assets/images/bc.jpeg'); background-repeat: no-repeat;
   background-size: cover; "> */
   body{
-	background: url('<?php echo base_url()?>assets/images/ac.jpg');
+	/*background: url('<?php echo base_url()?>assets/images/ac.jpg');
 	color: #fff;
 	background-size:100%;
-	background-repeat: no-repeat;
+	background-repeat: no-repeat;*/
 }
 
 
@@ -80,7 +80,55 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 <?php $this->view('template.php'); ?>
 <div id="container">
-	<h1>Selamat Datang Di PT.Pal Indonesia</h1>
+	<h1>Selamat Datang Di PT.PAL Indonesia</h1>
+	<div class="container">
+  <div id="WJSlider" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#WJSlider" data-slide-to="0" class="active"></li>
+      <li data-target="#WJSlider" data-slide-to="1"></li>
+      <li data-target="#WJSlider" data-slide-to="2"></li>
+      <li data-target="#WJSlider" data-slide-to="3"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+
+      <div class="item active">
+        <img src="https://www.pal.co.id/uploads/1507705634TOc-Harkan%20KRI-Slider%20palcoid-2017.jpg" alt="slide1" width="1056" height="860">
+        <div class="carousel-caption">
+          <!-- <h3>Judul Gambar 1</h3>
+          <p>Ini adalah deskripsi singkat dari judul gambar yang pertama.</p> -->
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="https://www.pal.co.id/uploads/1507707058vP1-Fasilitas-slider%20palcoid.jpg" alt="slide2" width="1056" height="860">
+        <div class="carousel-caption">
+          <!-- <h3>Judul Gambar 2</h3>
+          <p>Ini adalah deskripsi singkat dari judul gambar yang ke dua.</p> -->
+        </div>
+      </div>
+   
+      <div class="item">
+        <img src="https://www.pal.co.id/uploads/15078916286NG-Anual%20Slider%20palcoid-2017.jpg" alt="slide3" width="1056" height="860">
+        <div class="carousel-caption">
+          <!-- <h3>Judul Gambar 3</h3>
+          <p>Ini adalah deskripsi singkat dari judul gambar yang ke tiga.</p> -->
+        </div>
+      </div>
+
+      <!-- <div class="item">
+        <img src="https://s2-ssl.dmcdn.net/v/D8ak21SsBfJu7GfD2/x1080" alt="slide4" width="676" height="360">
+        <div class="carousel-caption"> -->
+          <!-- <h3>Judul Gambar 4</h3>
+          <p>Ini adalah deskripsi singkat dari judul gambar yang ke empat.</p> -->
+        </div>
+      </div>
+  
+    </div>
+
+</div>
 
 	<!-- <div id="body">
 		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
