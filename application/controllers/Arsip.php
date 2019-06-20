@@ -9,6 +9,9 @@ class Arsip extends CI_Controller {
     	$this->load->library('datatables');
 		$this->load->model('Menus');
 		$this->load->model('Arsip_model');
+		if (!$this->session->userdata('logged_in')) {
+			redirect('login','refresh');
+		}
 	}
 	public function index()
 	{
@@ -40,11 +43,22 @@ class Arsip extends CI_Controller {
 
 	public function tambah()
 	{
-		$this->form_validation->set_rules('no_dokumen', 'Nomor Dokumen', 'trim|required|is_unique[arsip_dokumen.no_dokumen]');
-		$this->form_validation->set_rules('no_po', 'Nomor Purchase Order', 'trim|required|is_unique[arsip_dokumen.no_po]');
-		if ($this->form_validation->run() === FALSE) {
-			$this->form_validation->set_message('is_unique', 'no_dokumen sudah ada.');
-			$this->form_validation->set_message('is_unique', 'Nomor PO Sudah Terdaftar');
+		$config = array(
+		        array(
+		                'field' => 'no_dokumen',
+		                'label' => 'Nomor Dokumen',
+		                'rules' => 'is_unique[arsip_dokumen.no_dokumen]',
+		                'errors'=> array('is_unique' =>'Nomor Dokumen Telah Terdaftar')
+		        ),
+		        array(
+		                'field' => 'no_po',
+		                'label' => 'Nomor Purchase Order',
+		                'rules' => 'is_unique[arsip_dokumen.no_po]',
+		                'errors'=> array('is_unique'=>'Nomor Purchase Order Telah Terdaftar')
+		                ),
+		        );
+		$this->form_validation->set_rules($config);
+		if ($this->form_validation->run() == FALSE) {
 			$session_data=$this->session->userdata('logged_in');
 		    $akses=$session_data['hak_akses'];
 		    $data['menus'] = $this->Menus->getMenuUser($akses);

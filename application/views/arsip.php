@@ -3,24 +3,23 @@
     <div class="animated fadeIn">
        <div class="row">
 		<div class="col-xs-12">
-			<div class="card">
+			<div class="card">	                   
 				<div class="card-header">
 					<h2>INPUT ARSIP</h2>
 				</div>
 				<?php echo form_open_multipart('Arsip/tambah'); ?>
-				
 				<div class="card-body card-block">
 					<div class="form-group">
 						<label class=" form-control-label">Nomor Dokumen</label>
 						<div class="input-group">
-							<?php echo form_error('no_dokumen'); ?>
+							<?php echo form_error('no_dokumen', ' <div class="alert alert-danger" role="alert">', '</div>'); ?>
 							<input class="form-control" name="no_dokumen" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class=" form-control-label">Nomor Purchase Order</label>
 						<div class="input-group">
-							<?php echo form_error('no_po', '<div style="color:red"><b>', '</b></div>'); ?>
+							<?php echo form_error('no_po', ' <div class="alert alert-danger" role="alert">', '</div>'); ?>
 							<input class="form-control" name="no_po" required>
 						</div>
 					</div>

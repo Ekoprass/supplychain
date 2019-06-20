@@ -7,6 +7,9 @@ class User extends CI_Controller{
     $this->load->library('Datatables');
     $this->load->model('User_model');
     $this->load->model('Menus');
+    if (!$this->session->userdata('logged_in')) {
+			redirect('login','refresh');
+		}
   }
   function index(){
     $session_data=$this->session->userdata('logged_in');
