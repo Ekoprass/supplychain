@@ -111,7 +111,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
    
       <div class="item">
-        <img src="https://www.pal.co.id/uploads/15078916286NG-Anual%20Slider%20palcoid-2017.jpg" alt="slide3" width="1056" height="860">
+        <img src="https://www.pal.co.id/uploads/1507703805NYo-provider-slider%20palcoid.jpg" alt="slide3" width="1056" height="860">
         <div class="carousel-caption">
           <!-- <h3>Judul Gambar 3</h3>
           <p>Ini adalah deskripsi singkat dari judul gambar yang ke tiga.</p> -->
