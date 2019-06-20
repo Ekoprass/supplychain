@@ -117,7 +117,7 @@
               });
           },
               oLanguage: {
-              sProcessing: "loading..."
+              sProcessing: "LOADING..."
           },
               processing: true,
               serverSide: true,
