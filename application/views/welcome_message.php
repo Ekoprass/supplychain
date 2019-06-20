@@ -118,9 +118,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
       </div>
 
-      <!-- <div class="item">
-        <img src="https://s2-ssl.dmcdn.net/v/D8ak21SsBfJu7GfD2/x1080" alt="slide4" width="676" height="360">
-        <div class="carousel-caption"> -->
+      <div class="item">
+        <img src="https://www.pal.co.id/uploads/1508748377BcG-Desaign%20Tek-SLIDE%20palcoid%202017.jpg" alt="slide4" width="1056" height="860">
+        <div class="carousel-caption">
           <!-- <h3>Judul Gambar 4</h3>
           <p>Ini adalah deskripsi singkat dari judul gambar yang ke empat.</p> -->
         </div>
