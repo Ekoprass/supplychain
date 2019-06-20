@@ -15,7 +15,7 @@
                         <tr>
                           <th>KODE JURU BELI</th>
                           <th>JURU BELI</th>
-                          <th>ACTION</th>
+                          <th>AKSI</th>
                         </tr>
                       </thead>
                     </table>

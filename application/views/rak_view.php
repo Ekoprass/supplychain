@@ -15,7 +15,7 @@
                   <tr>
                     <th>KODE RAK</th>
                     <th>NAMA RAK</th>
-                    <th>ACTION</th>
+                    <th>AKSI</th>
                   </tr>
                 </thead>
               </table>

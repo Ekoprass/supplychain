@@ -15,7 +15,7 @@
                     <tr>
                       <th>KODE VENDOR</th>
                       <th>NAMA VENDOR</th>
-                      <th>ACTION</th>
+                      <th>AKSI</th>
                     </tr>
                   </thead>
                 </table>

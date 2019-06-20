@@ -15,7 +15,7 @@
                     <tr>
                       <th>KODE PROYEK</th>
                       <th>NAMA PROYEK</th>
-                      <th>ACTION</th>
+                      <th>AKSI</th>
                     </tr>
                   </thead>
                 </table>
