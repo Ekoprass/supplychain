@@ -40,6 +40,7 @@
                           <th>DOKUMEN</th>
                           <th>STATUS DOKUMEN</th>
                           <th>AKSI</th>
+                          <th></th>
                         </tr>
                       </thead>
                     </table>
@@ -83,7 +84,7 @@
                           <div class="form-group">
                             <label class=" form-control-label">Deskripsi</label>
                             <div class="input-group">
-                              <textarea name="deskripsi" rows="5" placeholder="Description" class="form-control">
+                              <textarea name="deskripsi" placeholder="Description" class="form-control">
                               </textarea>
                             </div>
                           </div>
@@ -144,7 +145,7 @@
                             <div class="input-group">
                                 <div class="radio">
                                     <label for="radio2" class="form-check-label ">
-                                      <input type="radio" id="radio2" name="status" value="1" class="form-check-input">Selesai
+                                      <input type="radio" id="radio1" name="status" value="1" class="form-check-input">Selesai
                                     </label>
                                 </div>
                                 <div class="radio">
@@ -165,21 +166,19 @@
        </form>
 
         <div class="modal fade" id="ModalViewPDF" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
+          <div class="modal-dialog" style="max-width: unset; width: 1000px;">
              <div class="modal-content">
                  <div class="modal-header">
                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                     <h4 class="modal-title" id="myModalLabel">EDIT DATA VENDOR</h4>
+                     <h4 class="modal-title" id="myModalLabel">Lihat Dokumen PDF</h4>
                  </div>
                  <div class="modal-body">
-                      <div id="results" class="hidden"></div>
-                      <div id="pdf"></div>
+                      <div id="pdf" style="max-width: unset;"></div>
                       <div ></div>
 
                  </div>
                  <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-                      <button type="submit" id="add-row" class="btn btn-info">Perbarui</button>
                  </div>
               </div>
           </div>
@@ -254,7 +253,8 @@
                         {"data": "tgl_entry"},
                         {"data": "dokumen"},
                         {"data": "status_dokumen"},
-                        {"data": "view"}
+                        {"data": "view"},
+                        {"data": "pdf"}
                   ],
               order: [[1, 'asc']],
           rowCallback: function(row, data, iDisplayIndex) {
@@ -268,30 +268,45 @@
       // end setup datatables
       // get Edit Records
         $('#mytable').on('click','.edit_record',function(){
-            var Kode=$(this).data('kd_proyek');
-            var Nama=$(this).data('nama_proyek');
+            var no_dokumen=$(this).data('no_dokumen');
+            var no_po=$(this).data('no_po');
+            var tgl_po=$(this).data('tgl_po');
+            var deskripsi=$(this).data('deskripsi');
+            var jurubeli=$(this).data('jurubeli');
+            var proyek=$(this).data('proyek');
+            var vendor=$(this).data('vendor');
+            var rak=$(this).data('rak_ke');
+            var dokumen=$(this).data('dokumen');
+            // var status=$(this).data('status_dokumen');
             $('#ModalUpdate').modal('show');
-            $('[name="Kode"]').val(Kode);
-            $('[name="Nama"]').val(Nama);
+            $('[name="no_dokumen"]').val(no_dokumen);
+            $('[name="no_po"]').val(no_po);
+            $('[name="tgl_po"]').val(tgl_po);
+            $('[name="deskripsi"]').val(deskripsi);
+            $('[name="jurubeli"]').val(jurubeli);
+            $('[name="proyek"]').val(proyek);
+            $('[name="vendor"]').val(vendor);
+            $('[name="rak"]').val(rak);
+            $('[name="dokumen"]').val(dokumen);
+            $('[name="status"]').val(status);
             
       });
       $('#mytable').on('click','.view_pdf',function(){
             var options = {
               pdfOpenParams: {
                 pagemode: "thumbs",
-                navpanes: 0,
-                toolbar: 0,
-                statusbar: 0,
-                view: "FitV"
+                navpanes: 1,
+                toolbar: 1,
+                statusbar: 1,
+                view: "Fillv"
               }
             };
-           var dokumen=$(this).data('dokumen');
-            $('#ModalViewPDF').modal('show');
-            
+            var dokumen=$(this).data('dokumen');
 
+            $('#ModalViewPDF').modal('show');
+            $('[name="Kode"]').val(dokumen);
             var myPDF = PDFObject.embed("<?php echo base_url().'assets/dokument/'?>"+dokumen, "#pdf", options);
 
-            var el = document.querySelector("#results");
             el.setAttribute("class", (myPDF) ? "success" : "fail");
             el.innerHTML = (myPDF) ? "PDFObject successfully added an &lt;embed> element to the page!" : "Uh-oh, the embed didn't work.";
         
@@ -299,10 +314,10 @@
       // End Edit Records
       // get Hapus Records
       // $('#mytable').on('click','.hapus_record',function(){
-   //          var kode=$(this).data('kd_jurubeli');
-   //          $('#ModalHapus').modal('show');
-   //          $('[name="Kode"]').val(kode);
-   //    });
+      //       var kode=$(this).data('kd_jurubeli');
+      //       $('#ModalHapus').modal('show');
+      //       $('[name="Kode"]').val(kode);
+      // });
       // End Hapus Records
 
   });

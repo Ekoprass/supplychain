@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/cs-skin-elastic.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/style.css">
     <link rel="stylesheet" href="<?php echo base_url('') ?>assets/css/lib/chosen/chosen.min.css">
-    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
 
@@ -87,8 +87,7 @@
             <div class="top-left">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="<?php echo site_url() ?>/home"><img src="<?php echo base_url() ?>assets/images/LOGOPAL.png" alt="Logo"></a>
-                    <!-- <a class="navbar-brand hidden" href="./"><img src="<?php echo base_url() ?>assets/images/LOGOPAL.png" alt="Logo"></a> -->
-                    <!-- <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a> -->
+                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                 </div>
             </div>
             <div class="top-right">
@@ -100,22 +99,22 @@
                         </div>
                     </h2>
 
-                   <!--  <div class="user-area dropdown float-right">
+                 <!--    <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img class="user-avatar rounded-circle" src="<?php echo base_url() ?>assets/images/admin.jpg" alt="User Avatar">
                         </a>
 
-                        <div class="user-menu dropdown-menu"> -->
-                          <!--   <a class="nav-link" href="#"><i class="fa fa-user"></i>My Profile</a>
- -->
-                          <!--   <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span class="count">13</span></a> -->
-<!-- 
-                            <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a> -->
+                        <div class="user-menu dropdown-menu">
+                            <a class="nav-link" href="#"><i class="fa fa-user"></i>My Profile</a>
 
-                         <!--    <a class="nav-link" href="<?php echo site_url() ?>/login/logout"><i class="fa fa-power-off"></i>Logout</a>
+                            <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span class="count">13</span></a>
+
+                            <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
+
+                            <a class="nav-link" href="<?php echo site_url() ?>/login/logout"><i class="fa fa-power-off"></i>Logout</a>
                         </div>
-                    </div>
- -->
+                    </div> -->
+
                 </div>
             </div>
         </header>
