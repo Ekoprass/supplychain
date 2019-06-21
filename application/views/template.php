@@ -71,7 +71,7 @@
                     <?php }
                         if ($key['parent']>0) {?>
                      <li>
-                        <a href="<?php echo site_url('')."/".$key['url'] ?>"> <i class="menu-icon fa <?php echo $key['icon']; ?>"></i><?php echo $key['menu']; ?></a>
+                        <a style="color:#c2c1c1" onMouseOver="this.style.color='#03428b'"   onMouseOut="this.style.color='#c2c1c1'" href="<?php echo site_url('')."/".$key['url'] ?>"> <i style="color:#c2c1c1" onMouseOver="this.style.color='#03428b'"   onMouseOut="this.style.color='#c2c1c1'" class="menu-icon fa <?php echo $key['icon']; ?>"></i><?php echo $key['menu']; ?></a>
                     </li>
                 <?php }} ?>
                   
@@ -94,7 +94,7 @@
                 <div class="header-menu">
                     <h2>
                         <div class="pull-right" style="margin-top: -15px;">
-                            <a class="nav-link" onMouseOver="this.style.color='#999999'"   onMouseOut="this.style.color='#03428b'"  href="<?php echo site_url() ?>/login/logout"><i class="fa fa-power-off"></i>
+                            <a class="nav-link" style="color:#03428b" onMouseOver="this.style.color='#c2c1c1'"   onMouseOut="this.style.color='#03428b'" href="<?php echo site_url() ?>/login/logout"><i class="fa fa-power-off"></i>
                             </a>
                         </div>
                     </h2>
