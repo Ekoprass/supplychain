@@ -11,7 +11,8 @@
                 		<button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">TAMBAH JURU BELI</button>
                     <h3 class="pull-right">Cari <i class="icon fa fa-search"></i></h3>
                     <table class="table table-striped" id="mytable">
-                      <?php echo form_error('Kode', '<div style="color:red"><b>', '</b></div>'); ?>
+                      <div id="error_div"></div>
+                      <!-- <?php echo form_error('Kode', '<div style="color:red"><b>', '</b></div>'); ?> -->
                       <thead>
                         <tr>
                           <th>KODE JURU BELI</th>
@@ -157,5 +158,26 @@
 			// End Hapus Records
 
 	});
+</script>
+
+<script type="text/javascript"> 
+  $(document).on('click', '#add-row', function() {
+        console.log($(this).attr('add-row-form'));
+        $.ajax({
+            url: "<?php echo site_url('/jurubeli/simpan')?>",
+            type: "POST",
+            dataType: "JSON",
+            data: {
+                "id": $(this).attr('add-row-form')
+            },
+            success: function(data) {
+                var myObj = JSON.parse(data);
+                $('#error_div').html(myObj.validation_error);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert("Kode Juru Beli Telah Terdaftar!");
+            }
+        });
+    });
 </script>
 
