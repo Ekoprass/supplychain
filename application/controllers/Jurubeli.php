@@ -33,16 +33,18 @@ class Jurubeli extends CI_Controller{
     );
     $this->form_validation->set_rules($config);
     if ($this->form_validation->run() === FALSE) {
-         $errors['validation_error'] = validation_errors();
-         json_encode($errors);
-         redirect('jurubeli','refresh');
+        $errors = validation_errors();
+            echo json_encode(['error'=>$errors]);
     }else{
     $data=array(
       'kd_jurubeli'     => $this->input->post('Kode'),
       'nama_jurubeli'     => $this->input->post('Nama'),
     );
     $this->db->insert('jurubeli', $data);
-    redirect('jurubeli');
+        echo json_encode(['success'=>'Data Berhasil Ditambahkan']);
+
+    redirect('jurubeli','refresh');
+    
   }}
 
   function update(){ //function update data

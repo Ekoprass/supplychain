@@ -11,7 +11,6 @@
                 		<button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">TAMBAH JURU BELI</button>
                     <h3 class="pull-right">Cari <i class="icon fa fa-search"></i></h3>
                     <table class="table table-striped" id="mytable">
-                      <div id="error_div"></div>
                       <!-- <?php echo form_error('Kode', '<div style="color:red"><b>', '</b></div>'); ?> -->
                       <thead>
                         <tr>
@@ -36,11 +35,13 @@
       	                   <h4 class="modal-title" id="myModalLabel">TAMBAH DATA JURU BELI</h4>
       	               </div>
       	               <div class="modal-body">
+                        <div class="alert alert-danger print-error-msg" style="display:none"></div>
+                        <div class="alert alert-primary print-success-msg" style="display:none"></div>
       	                   <div class="form-group">
-      	                       <input type="text" name="Kode" class="form-control" placeholder="Kode Juru Beli" required>
+      	                       <input id="jurubeli" type="text" name="Kode" class="form-control" placeholder="Kode Juru Beli" required>
       	                   </div>
       										 <div class="form-group">
-      	                       <input type="text" name="Nama" class="form-control" placeholder="Nama Juru Beli" required>
+      	                       <input id="nama_jurubeli" type="text" name="Nama" class="form-control" placeholder="Nama Juru Beli" required>
       	                   </div>
       	               </div>
       	               <div class="modal-footer">
@@ -160,24 +161,47 @@
 	});
 </script>
 
-<script type="text/javascript"> 
-  $(document).on('click', '#add-row', function() {
-        console.log($(this).attr('add-row-form'));
+<!-- <script type="text/javascript"> 
+  $(document).ready(function(){
+    var dataString = $("#add-row-form").serialize();
+    var url="/Jurubeli/simpan"
         $.ajax({
-            url: "<?php echo site_url('/jurubeli/simpan')?>",
-            type: "POST",
-            dataType: "JSON",
-            data: {
-                "id": $(this).attr('add-row-form')
-            },
-            success: function(data) {
-                var myObj = JSON.parse(data);
-                $('#error_div').html(myObj.validation_error);
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                alert("Kode Juru Beli Telah Terdaftar!");
-            }
-        });
-    });
+        type:"POST",
+        url:"<?php echo site_url() ?>"+url,
+        data:dataString,
+        success:function (data) {
+            alert(data);
+        }
+        });     
+  })
+</script>
+ -->
+<script type="text/javascript">
+  $(document).ready(function() {
+      $("#add-row").click(function(e){
+        e.preventDefault();
+        var kd_jurubeli = $("input[id='jurubeli']").val();
+        var nama_jurubeli = $("input[id='nama_jurubeli']").val();
+          $.ajax({
+              url: "<?php echo site_url() ?>/jurubeli/simpan",
+              type:'POST',
+              dataType: "json",
+              data: {Kode:kd_jurubeli, Nama:nama_jurubeli},
+              success: function(data) {
+                  if($.isEmptyObject(data.error)){
+                    $(".print-success-msg").css('display','block');
+                    // alert(data.success);
+                    $(".print-success-msg").html(data.success);
+                    $(".print-error-msg").css('display','none');
+
+                    location.replace("<?php echo site_url() ?>/jurubeli");
+                  }else{
+                    $(".print-error-msg").css('display','block');
+                    $(".print-error-msg").html(data.error);
+                  }
+              }
+          });
+      }); 
+  });
 </script>
 
