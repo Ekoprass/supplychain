@@ -4,10 +4,10 @@
             <div class="footer-inner bg-white">
                 <div class="row">
                     <div class="col-sm-6">
-                        Copyright &copy; 2018 ElaAdmin - Master
+                        Copyright &copy; 2018 ElaAdmin-Master
                     </div>
                     <div class="col-sm-6 text-right">
-                        Designed by <a href="https://www.pal.co.id">PT.PAL INDONESIA</a>
+                        Designed by <a href="https://www.pal.co.id">DIVISI TEKNOLOGI PT.PAL INDONESIA</a>
                     </div>
                 </div>
             </div>

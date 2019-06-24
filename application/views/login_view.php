@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>ARSIP SURAT PT. PAL</title>
+    <title>APLIKASI PENGARSIPAN DIVISI SUPPLY CHAIN</title>
     <meta name="description" content="Ela Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -51,15 +51,15 @@
                             <label>Password</label>
                             <input type="password" class="form-control" placeholder="Password" name="password" required>
                         </div>
-                        <div class="checkbox" hidden>
+                       <!--  <div class="checkbox" hidden>
                             <label>
                                 <input type="checkbox"> Ingat Saya
                             </label>
-                        </div>
+                        </div> -->
                         <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">LOGIN</button>
-                        <div class="register-link m-t-15 text-center">
+                        <!-- <div class="register-link m-t-15 text-center">
                             <p hidden>Lupa Password ? <a href="#"> Lapor</a></p>
-                        </div>
+                        </div> -->
                     </form>
                 </div>
             </div>

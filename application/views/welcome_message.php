@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>ARSIP SURAT PT.PAL Indonesia</title>
+	<title>APLIKASI PENGARSIPAN DIVISI SUPPLY CHAIN PT.PAL INDONESIA</title>
 	<link rel="apple-touch-icon" href="https://pmb.aknbojonegoro.ac.id/wp-content/uploads/2019/02/cropped-polinema.png">
     <link rel="shortcut icon" href="https://pmb.aknbojonegoro.ac.id/wp-content/uploads/2019/02/cropped-polinema.png">
 	<style type="text/css">
