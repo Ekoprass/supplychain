@@ -27,8 +27,14 @@ class Jurubeli extends CI_Controller{
             array(
                     'field' => 'Kode',
                     'label' => 'Kode Juru Beli',
-                    'rules' => 'is_unique[jurubeli.kd_jurubeli]',
-                    'errors'=> array('is_unique' =>'Kode Juru Beli Telah Terdaftar')
+                    'rules' => 'trim|required|is_unique[jurubeli.kd_jurubeli]',
+                    'errors'=> array('is_unique' =>'Kode Juru Beli Telah Terdaftar','required'=>'Form Kode Juru Beli Tidak Boleh Kosong' )
+            ),
+            array(
+                    'field' => 'Nama',
+                    'label' => 'Nama Juru Beli',
+                    'rules' => 'trim|required',
+                    'errors'=> array('required'=>'Form Nama Juru Beli Tidak Boleh Kosong' )
             )
     );
     $this->form_validation->set_rules($config);
@@ -59,10 +65,19 @@ class Jurubeli extends CI_Controller{
   }
 
   function delete(){ //function hapus data
-    $kode=$this->input->post('Kode');
-    $this->db->where('kd_jurubeli',$kode);
-    $this->db->delete('jurubeli');
-    redirect('jurubeli');
+    $kode=$this->input->post('kd_jurubeli');
+    $this->db->where('jurubeli', $kode);
+    $query=$this->db->get('arsip_dokumen');
+    if ($query->num_rows()==1) {
+        $errors = "Delete Gagal! \nKode Juru Beli Terelasi Dengan Data Arsip";
+        echo json_encode(['error'=>$errors]);
+    }else{
+      $this->db->where('kd_jurubeli',$kode);
+      $this->db->delete('jurubeli');
+      echo json_encode(['success'=>'Data Berhasil Dihapus']);
+      redirect('jurubeli','refresh');
+    }
+    
   }
 
 }

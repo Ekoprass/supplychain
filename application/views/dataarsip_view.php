@@ -16,7 +16,7 @@
 <div class="content">
     <div class="animated fadeIn">
        <div class="row">
-          <div class="col">
+          <div class="col-md-10">
             <div class="card">
               <div class="card-header" style="background-color: #03428b">
                    <h2 style="color: #fff">DATA ARSIP DOKUMEN</h2>
@@ -184,7 +184,6 @@
           </div>
        </div>
     </div>
-    <a href="/web/viewer.html?file=%2Fyourpdf.pdf">Open yourpdf.pdf with PDF.js</a>
     </div>
 </div>
 <?php $this->view('footer.php'); ?>
@@ -256,7 +255,7 @@
                         {"data": "view"},
                         {"data": "pdf"}
                   ],
-              order: [[1, 'asc']],
+              order: [[2, 'asc']],
           rowCallback: function(row, data, iDisplayIndex) {
               var info = this.fnPagingInfo();
               var page = info.iPage;
