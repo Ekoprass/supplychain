@@ -55,11 +55,11 @@
                             <label>
                                 <input type="checkbox"> Ingat Saya
                             </label>
-                        </div>
+                        </div> -->
                         <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">LOGIN</button>
-                        <div class="register-link m-t-15 text-center">
-                            <p hidden>Lupa Password ? <a href="#"> Lapor</a></p> -->
-                        </div>
+                        <!-- <div class="register-link m-t-15 text-center">
+                            <p hidden>Lupa Password ? <a href="#"> Lapor</a></p>
+                        </div> -->
                     </form>
                 </div>
             </div>
