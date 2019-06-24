@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SUPPLY CHAIN</title>
+    <title>ARSIP SURAT PT.PAL Indonesia</title>
     <meta name="description" content="Ela Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -71,7 +71,7 @@
                     <?php }
                         if ($key['parent']>0) {?>
                      <li>
-                        <a style="color:#c2c1c1" onMouseOver="this.style.color='#03428b'"   onMouseOut="this.style.color='#c2c1c1'" href="<?php echo site_url('')."/".$key['url'] ?>"> <i style="color:#c2c1c1" onMouseOver="this.style.color='#03428b'"   onMouseOut="this.style.color='#c2c1c1'" class="menu-icon fa <?php echo $key['icon']; ?>"></i><?php echo $key['menu']; ?></a>
+                        <a style="color:#9e9c9c" onMouseOver="this.style.color='#03428b'"   onMouseOut="this.style.color='#9e9c9c'" href="<?php echo site_url('')."/".$key['url'] ?>"> <i style="color:#9e9c9c" onMouseOver="this.style.color='#03428b'"   onMouseOut="this.style.color='#9e9c9c'" class="menu-icon fa <?php echo $key['icon']; ?>"></i><?php echo $key['menu']; ?></a>
                     </li>
                 <?php }} ?>
                   
