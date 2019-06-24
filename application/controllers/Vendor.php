@@ -23,13 +23,35 @@ class Vendor extends CI_Controller{
 
 
   function simpan(){ //function simpan data
+     $config = array(
+            array(
+                    'field' => 'Kode',
+                    'label' => 'Kode Vendori',
+                    'rules' => 'trim|required|is_unique[vendor.kd_vendor]',
+                    'errors'=> array('is_unique' =>'Kode Vendor Telah Terdaftar','required'=>'Form Kode Vendor Tidak Boleh Kosong' )
+            ),
+            array(
+                    'field' => 'Nama',
+                    'label' => 'Nama Vendor',
+                    'rules' => 'trim|required',
+                    'errors'=> array('required'=>'Form Nama Vendor Tidak Boleh Kosong' )
+            )
+    );
+    $this->form_validation->set_rules($config);
+    if ($this->form_validation->run() === FALSE) {
+        $errors = validation_errors();
+            echo json_encode(['error'=>$errors]);
+    }else{
     $data=array(
       'kd_vendor'     => $this->input->post('Kode'),
       'nama_vendor'     => $this->input->post('Nama'),
     );
     $this->db->insert('vendor', $data);
-    redirect('vendor');
-  }
+        echo json_encode(['success'=>'Data Berhasil Ditambahkan']);
+
+    redirect('vendor','refresh');
+    
+  }}
 
   function update(){ //function update data
     $kode=$this->input->post('Kode');

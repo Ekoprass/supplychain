@@ -33,11 +33,14 @@
 	                   <h4 class="modal-title" id="myModalLabel">TAMBAH DATA PROYEK</h4>
 	               </div>
 	               <div class="modal-body">
+                  <div class="alert alert-danger print-error-msg" style="display:none"></div>
+                  <div class="alert alert-primary print-success-msg" style="display:none"></div>
 	                   <div class="form-group">
-	                       <input type="text" name="Kode" class="form-control" placeholder="Kode Proyek" required>
+	                       <input type="text" id="proyek" name="Kode" class="form-control" placeholder="Kode Proyek" required>
+  
 	                   </div>
 										 <div class="form-group">
-	                       <input type="text" name="Nama" class="form-control" placeholder="Nama Proyek" required>
+	                       <input type="text" id="nama_proyek" name="Nama" class="form-control" placeholder="Nama Proyek" required>
 	                   </div>
 	               </div>
 	               <div class="modal-footer">
@@ -156,5 +159,34 @@
 
 	});
 </script>
+<script type="text/javascript">
+  $(document).ready(function() {
+      $("#add-row").click(function(e){
+        e.preventDefault();
+        var kd_proyek = $("input[id='proyek']").val();
+        var nama_proyek = $("input[id='nama_proyek']").val();
+          $.ajax({
+              url: "<?php echo site_url() ?>/proyek/simpan",
+              type:'POST',
+              dataType: "json",
+              data: {Kode:kd_proyek, Nama:nama_proyek},
+              success: function(data) {
+                  if($.isEmptyObject(data.error)){
+                    $(".print-success-msg").css('display','block');
+                    // alert(data.success);
+                    $(".print-success-msg").html(data.success);
+                    $(".print-error-msg").css('display','none');
+
+                    location.replace("<?php echo site_url() ?>/proyek");
+                  }else{
+                    $(".print-error-msg").css('display','block');
+                    $(".print-error-msg").html(data.error);
+                  }
+              }
+          });
+      }); 
+  });
+</script>
+
 </body>
 </html>

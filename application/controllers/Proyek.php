@@ -23,13 +23,35 @@ class Proyek extends CI_Controller{
 
 
   function simpan(){ //function simpan data
+     $config = array(
+           array(
+                    'field' => 'Kode',
+                    'label' => 'Kode Proyek',
+                    'rules' => 'trim|required|is_unique[proyek.kd_proyek]',
+                    'errors'=> array('is_unique' =>'Kode Proyek Telah Terdaftar','required'=>'Form Kode Proyek Tidak Boleh Kosong' )
+            ),
+            array(
+                    'field' => 'Nama',
+                    'label' => 'Nama Proyek',
+                    'rules' => 'trim|required',
+                    'errors'=> array('required'=>'Form Nama Proyek Tidak Boleh Kosong' )
+            )
+    );
+    $this->form_validation->set_rules($config);
+    if ($this->form_validation->run() === FALSE) {
+        $errors = validation_errors();
+            echo json_encode(['error'=>$errors]);
+    }else{
     $data=array(
       'kd_proyek'     => $this->input->post('Kode'),
       'nama_proyek'     => $this->input->post('Nama'),
     );
     $this->db->insert('proyek', $data);
-    redirect('proyek');
-  }
+        echo json_encode(['success'=>'Data Berhasil Ditambahkan']);
+
+    redirect('proyek','refresh');
+    
+  }}
 
   function update(){ //function update data
     $kode=$this->input->post('Kode');
