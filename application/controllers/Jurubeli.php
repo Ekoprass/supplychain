@@ -23,14 +23,19 @@ class Jurubeli extends CI_Controller{
 
 
   function simpan(){ //function simpan data
-    $this->form_validation->set_rules('Kode', 'Kode Juru Beli', 'trim|required|is_unique[jurubeli.kd_jurubeli]');
+    $config = array(
+            array(
+                    'field' => 'Kode',
+                    'label' => 'Kode Juru Beli',
+                    'rules' => 'is_unique[jurubeli.kd_jurubeli]',
+                    'errors'=> array('is_unique' =>'Kode Juru Beli Telah Terdaftar')
+            )
+    );
+    $this->form_validation->set_rules($config);
     if ($this->form_validation->run() === FALSE) {
-      $this->form_validation->set_message('is_unique', 'Kode Juru Beli Sudah Terdaftar');
-      $session_data=$this->session->userdata('logged_in');
-        $akses=$session_data['hak_akses'];
-        $data['menus'] = $this->Menus->getMenuUser($akses);
-
-      $this->load->view('jurubeli_view',$data);
+         $errors['validation_error'] = validation_errors();
+         json_encode($errors);
+         redirect('jurubeli','refresh');
     }else{
     $data=array(
       'kd_jurubeli'     => $this->input->post('Kode'),

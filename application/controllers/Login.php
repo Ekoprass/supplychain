@@ -47,7 +47,7 @@
 					}
 					return true;
 				}else{
-					$this->form_validation->set_message('CekDB',"Login Gagal Username dan Password tidak valid");
+					$this->form_validation->set_message('CekDB',"Login GAGAL, Username dan Password TIDAK VALID");
 					return false;
 				}
 			

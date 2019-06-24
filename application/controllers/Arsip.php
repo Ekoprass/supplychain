@@ -90,7 +90,7 @@ class Arsip extends CI_Controller {
 			      'vendor'				=> $this->input->post('vendor'),
 			      'rak_ke'					=> $this->input->post('rak'),
 			      'tgl_entry'			=> date("Y-m-d h:i:s"),
-			      'petugas'				=> $session_data['nama_petugas'],
+			      'petugas'				=> $session_data['id_petugas'],
 			      'status_dokumen'		=> $this->input->post('status'),
 			      'dokumen'				=> $this ->upload->data('file_name'),
 			    );
