@@ -25,6 +25,25 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+    <!-- gawe tombol login cek kelapkelip -->
+    <style>
+    .Button{
+        background-color: #03428b; /* Green */
+        border: none; 
+        border-radius: 4px; 
+        color: white; 
+        padding: 15px 201px; 
+        text-align: center; 
+        text-decoration: none; 
+        display: inline-block; 
+        font-size: 16px;
+        transition: 0.5s;
+    }
+    .Button:hover{
+        background-color: #c2c1c1;
+        color: white;
+    }
+    </style>
 </head>
 <body style="background-image:url('<?php echo base_url() ?>assets/images/bc.jpeg'); background-repeat: no-repeat;
   background-size: cover; ">
@@ -37,10 +56,11 @@
     <div class="sufee-login d-flex align-content-center flex-wrap">
         <div class="container">
             <div class="login-content col-2">
-                <div class="login-form">
+                <div class="login-form" style="border-radius: 8px;">
                     <div class="login-logo">
                         <img class="align-content" src="<?php echo base_url() ?>assets/images/LOGOPAL.png" alt="">
-                        <label>APLIKASI PENGARSIPAN DIVISI SUPPLY CHAIN</label>
+                        <br><br>
+                        <b><label style="color: #03428b; background-color: #c2c1c1; font-size: 20px">APLIKASI PENGARSIPAN DIVISI SUPPLY CHAIN</label></b>
                     </div>
                     <?php echo form_open('login/CekLogin'); ?>
                     <?php echo validation_errors(); ?>
@@ -61,11 +81,10 @@
                                 <input type="checkbox"> Ingat Saya
                             </label>
                         </div> -->
-                        <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">LOGIN</button>
+                        <button type="submit" class="Button">LOGIN</button>
                         <!-- <div class="register-link m-t-15 text-center">
                             <p hidden>Lupa Password ? <a href="#"> Lapor</a></p>
                         </div> -->
-                    </form>
                 </div>
             </div>
         </div>
