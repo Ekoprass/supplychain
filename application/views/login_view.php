@@ -40,15 +40,20 @@
                 <div class="login-form">
                     <div class="login-logo">
                         <img class="align-content" src="<?php echo base_url() ?>assets/images/LOGOPAL.png" alt="">
+                        <label>APLIKASI PENGARSIPAN DIVISI SUPPLY CHAIN</label>
                     </div>
                     <?php echo form_open('login/CekLogin'); ?>
                     <?php echo validation_errors(); ?>
                         <div class="form-group">
+                            <font face="Sans Serif">
                             <label>Username</label>
+                            </font>
                             <input type="text" class="form-control" placeholder="Username" name="username" required>
                         </div>
                         <div class="form-group">
+                            <font face="Sans Serif">
                             <label>Password</label>
+                            </font>
                             <input type="password" class="form-control" placeholder="Password" name="password" required>
                         </div>
                        <!--  <div class="checkbox" hidden>
