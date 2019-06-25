@@ -91,10 +91,10 @@
                  </div>
                  <div class="modal-body">
                          <input type="hidden" id="del-jurubeli" name="kd_jurubeli" class="form-control" placeholder="Kode Barang" required>
-                         <strong>Anda yakin mau menghapus record ini?</strong>
+                         <strong>Anda yakin ingin menghapus record ini?</strong>
                  </div>
                  <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
                       <button type="submit" id="dell-row" class="btn btn-success">Hapus</button>
                  </div>
               </div>

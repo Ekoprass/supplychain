@@ -65,10 +65,18 @@ class Vendor extends CI_Controller{
   }
 
   function delete(){ //function hapus data
-    $kode=$this->input->post('Kode');
+  $kode=$this->input->post('kd_vendor');
+  $this->db->where('vendor', $kode);
+  $query=$this->db->get('arsip_dokumen');
+  if ($query->num_rows()==1) {
+      $errors = "Delete Gagal! \nKode Juru Beli Terelasi Dengan Data Arsip";
+      echo json_encode(['error'=>$errors]);
+  }else{
     $this->db->where('kd_vendor',$kode);
     $this->db->delete('vendor');
-    redirect('vendor');
+    echo json_encode(['success'=>'Data Berhasil Dihapus']);
+    redirect('vendor','refresh');
   }
+}
 
 }
