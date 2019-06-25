@@ -56,11 +56,12 @@
     <div class="sufee-login d-flex align-content-center flex-wrap">
         <div class="container">
             <div class="login-content col-2">
-                <div class="login-form" style="border-radius: 8px;">
+                <div class="login-form" style="border-radius: 8px; padding-bottom: 33px">
                     <div class="login-logo">
                         <img class="align-content" src="<?php echo base_url() ?>assets/images/LOGOPAL.png" alt="">
-                        <br><br>
-                        <b><label style="color: #03428b; background-color: #c2c1c1; font-size: 20px">APLIKASI PENGARSIPAN DIVISI SUPPLY CHAIN</label></b>
+                        <br>
+                        <hr style="height: 10px; margin-bottom: 0px"></hr>
+                        <b><label style="color: #03428b; font-size: 20px">APLIKASI PENGARSIPAN DIVISI SUPPLY CHAIN</label></b>
                     </div>
                     <?php echo form_open('login/CekLogin'); ?>
                     <?php echo validation_errors(); ?>
