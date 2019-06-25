@@ -77,6 +77,27 @@
  	        </div>
  	     </div>
  	 </form>
+   <!-- Modal Hapus Produk-->
+   <form id="dell-row-form" action="<?php echo site_url().'/proyek/delete'?>" method="post">
+    <div class="modal fade" id="ModalHapus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+           <h4 class="modal-title" id="myModalLabel">Hapus Produk</h4>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" id="del-proyek" name="kd_proyek" class="form-control" placeholder="Kode Proyek" required>
+            <strong>Anda yakin ingin menghapus record ini?</strong>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+            <button type="submit" id="dell-row" class="btn btn-success">Hapus</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
 
 </div></div></div>
 <?php $this->view('footer.php'); ?>
@@ -150,12 +171,12 @@
       });
 			// End Edit Records
 			// get Hapus Records
-			// $('#mytable').on('click','.hapus_record',function(){
-   //          var kode=$(this).data('kd_vendor');
-   //          $('#ModalHapus').modal('show');
-   //          $('[name="Kode"]').val(kode);
-   //    });
-			// End Hapus Records
+      $('#mytable').on('click','.hapus_record',function(){
+            var kode=$(this).data('kd_proyek');
+            $('#ModalHapus').modal('show');
+            $('[name="kd_proyek"]').val(kode);
+      });
+      // End Hapus Records
 
 	});
 </script>
@@ -181,6 +202,34 @@
                   }else{
                     $(".print-error-msg").css('display','block');
                     $(".print-error-msg").html(data.error);
+                  }
+              }
+          });
+      }); 
+  });
+</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+      $("#dell-row").click(function(e){
+        e.preventDefault();
+        var kd_proyek = $("input[id='del-proyek']").val();
+          $.ajax({
+              url: "<?php echo site_url() ?>/proyek/delete",
+              type:'POST',
+              dataType: "json",
+              data: {kd_proyek:kd_proyek},
+              success: function(data) {
+                  if($.isEmptyObject(data.error)){
+                    $(".print-success-msg").css('display','block');
+                    // alert(data.success);
+                    $(".print-success-msg").html(data.success);
+                    $(".print-error-msg").css('display','none');
+
+                    location.replace("<?php echo site_url() ?>/jurubeli");
+                  }else{
+                    $(".print-error-msg").css('display','none');
+                    alert(data.error);
+                    // $(".print-error-msg").html(data.error);
                   }
               }
           });

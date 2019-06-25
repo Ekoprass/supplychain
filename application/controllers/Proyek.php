@@ -65,10 +65,18 @@ class Proyek extends CI_Controller{
   }
 
   function delete(){ //function hapus data
-    $kode=$this->input->post('Kode');
+  $kode=$this->input->post('kd_proyek');
+  $this->db->where('proyek', $kode);
+  $query=$this->db->get('arsip_dokumen');
+  if ($query->num_rows()==1) {
+      $errors = "Delete Gagal! \nKode Juru Beli Terelasi Dengan Data Arsip";
+      echo json_encode(['error'=>$errors]);
+  }else{
     $this->db->where('kd_proyek',$kode);
     $this->db->delete('proyek');
-    redirect('proyek');
+    echo json_encode(['success'=>'Data Berhasil Dihapus']);
+    redirect('proyek','refresh');
   }
+}
 
 }
