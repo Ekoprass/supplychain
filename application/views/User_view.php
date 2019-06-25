@@ -102,7 +102,7 @@
                            <div class="form-group">
                                <input type="text" name="Password" class="form-control" placeholder="Masukkan Password" required>
                            </div>
-                           <!-- <div class="form-group">
+                          <!--  <div class="form-group">
                                <input type="text" name="hak_akses" class="form-control" placeholder="Ketik : 1 untuk user, 2 untuk admin" required>
                            </div> -->
                             <div class="radio">
@@ -117,16 +117,39 @@
                             </div>
                      </div>
                      <div class="modal-footer">
-                          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button> -->
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
                           <button type="submit" id="add-row" class="btn btn-info">PERBARUI</button>
                      </div>
                   </div>
               </div>
            </div>
        </form>
+
+       <!-- Modul hapus data -->
+        <form id="dell-row-form" action="<?php echo site_url().'/User/delete'?>" method="post">
+       <div class="modal fade" id="ModalHapus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                     <h4 class="modal-title" id="myModalLabel">Hapus Produk</h4>
+                 </div>
+                 <div class="modal-body">
+                         <input type="hidden" id="del-user" name="Nomer" class="form-control" placeholder="Nomer Petugas" required>
+                         <strong>Anda yakin ingin menghapus record ini?</strong>
+                 </div>
+                 <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                      <button type="submit" id="dell-row" class="btn btn-success">Hapus</button>
+                 </div>
+              </div>
+          </div>
+        </div>
+      </form>
     </div>
   </div>  
 </div>
+
 <?php $this->view('footer.php'); ?>
 <script src="<?php echo base_url().'assets/js/jquery-2.1.4.min.js'?>"></script>
 <script src="<?php echo base_url().'assets/js/bootstrap.js'?>"></script>
@@ -207,12 +230,41 @@
       });
       // End Edit Records
       // get Hapus Records
-      // $('#mytable').on('click','.hapus_record',function(){
-   //          var kode=$(this).data('kd_jurubeli');
-   //          $('#ModalHapus').modal('show');
-   //          $('[name="Kode"]').val(kode);
-   //    });
+      $('#mytable').on('click','.hapus_record',function(){
+            var Nomer=$(this).data('no_petugas');
+            $('#ModalHapus').modal('show');
+            $('[name="Nomer"]').val(Nomer);
+      });
       // End Hapus Records
 
+  });
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+      $("#dell-row").click(function(e){
+        e.preventDefault();
+        var no_petugas = $("input[id='del-user']").val();
+          $.ajax({
+              url: "<?php echo site_url() ?>/User/delete",
+              type:'POST',
+              dataType: "json",
+              data: {no_petugas:no_petugas},
+              success: function(data) {
+                  if($.isEmptyObject(data.error)){
+                    $(".print-success-msg").css('display','block');
+                    // alert(data.success);
+                    $(".print-success-msg").html(data.success);
+                    $(".print-error-msg").css('display','none');
+
+                    location.replace("<?php echo site_url() ?>/petugas");
+                  }else{
+                    $(".print-error-msg").css('display','none');
+                    alert(data.error);
+                    // $(".print-error-msg").html(data.error);
+                  }
+              }
+          });
+      }); 
   });
 </script>

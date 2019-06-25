@@ -50,13 +50,21 @@ class User extends CI_Controller{
     redirect('User');
   }
 
-  function delete(){ //function hapus data
-    $nomer=$this->input->post('Nomer');
-    $this->db->where('no_petugas',$Nomer);
-    $this->db->delete('petugas', $data);
-    redirect('User');
+ function delete(){ //function hapus data
+    $Nomer=$this->input->post('no_petugas');
+    $this->db->where('petugas', $Nomer);
+    $query=$this->db->get('arsip_dokumen');
+    if ($query->num_rows()==1) {
+        $errors = "Delete Gagal! \nNomor Petugas Terelasi Dengan Data Arsip";
+        echo json_encode(['error'=>$errors]);
+    }else{
+      $this->db->where('no_petugas',$Nomer);
+      $this->db->delete('petugas');
+      echo json_encode(['success'=>'Data Berhasil Dihapus']);
+      redirect('User','refresh');
+    }
+    
   }
-
 }
 
 
