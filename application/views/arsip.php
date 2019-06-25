@@ -1,110 +1,110 @@
 <?php $this->view('template.php'); ?>
 <div class="content">
-    <div class="animated fadeIn">
-       <div class="row">
-		<div class="col-xs-12">
-			<div class="card">	                   
-				<div class="card-header" style="background-color: #03428b">
-					<h2 style="color: #fff">INPUT ARSIP</h2>
-				</div>
-				<?php echo form_open_multipart('Arsip/tambah'); ?>
-				<div class="card-body card-block">
-					<div class="form-group">
-						<label class=" form-control-label">Nomor Dokumen</label>
-						<div class="input-group">
-							<?php echo form_error('no_dokumen', ' <div class="alert alert-danger" role="alert">', '</div>'); ?>
-							<input class="form-control" name="no_dokumen" required>
-						</div>
+	<div class="animated fadeIn">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">	                   
+					<div class="card-header" style="background-color: #03428b">
+						<h2 style="color: #fff">INPUT ARSIP</h2>
 					</div>
-					<div class="form-group">
-						<label class=" form-control-label">Nomor Purchase Order</label>
-						<div class="input-group">
-							<?php echo form_error('no_po', ' <div class="alert alert-danger" role="alert">', '</div>'); ?>
-							<input class="form-control" name="no_po" required>
+					<?php echo form_open_multipart('Arsip/tambah'); ?>
+					<div class="card-body card-block">
+						<div class="form-group">
+							<label class=" form-control-label">Nomor Dokumen</label>
+							<div class="input-group">
+								<?php echo form_error('no_dokumen', ' <div class="alert alert-danger" role="alert">', '</div>'); ?>
+								<input class="form-control" name="no_dokumen" required>
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<label class=" form-control-label">Deskripsi</label>
-						<div class="input-group">
-							<textarea name="deskripsi" rows="5" placeholder="Description" class="form-control" required>
-							</textarea>
+						<div class="form-group">
+							<label class=" form-control-label">Nomor Purchase Order</label>
+							<div class="input-group">
+								<?php echo form_error('no_po', ' <div class="alert alert-danger" role="alert">', '</div>'); ?>
+								<input class="form-control" name="no_po" required>
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<label>Tanggal Purchase Order</label>
-                        <div class='input-group date' id='datetimepicker'>
-                            <span class="input-group-addon">
-                               <span class="menu-icon fa fa-calendar"></span>
-                            </span>
-                            <input type='text' class="form-control" name="tgl_po" required/>
-                        </div>
-                    </div>
-					<div class="form-group">
-						<label class=" form-control-label">Kode Juru Beli</label>
-						<div class="input-group">
-							<select class="standardSelect" name="jurubeli" tabindex="-1" style="display: none;" required>
-								  <option value="" label="default"></option>
-								   <?php foreach ($jurubeli as $key) {?>
-								   	<option value="<?php echo $key['kd_jurubeli']; ?>"><?php echo $key['kd_jurubeli']." | ".$key['nama_jurubeli']; ?></option>
-								   <?php } ?>
-                                	</select>
+						<div class="form-group">
+							<label class=" form-control-label">Deskripsi</label>
+							<div class="input-group">
+								<textarea name="deskripsi" rows="5" placeholder="Description" class="form-control" required>
+								</textarea>
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<label class=" form-control-label">Kode Proyek</label>
-						<div class="input-group">
-							<select class="standardSelect" name="proyek" tabindex="-1" style="display: none;" required>
-							  <option value="" label="default"></option>
-							   <?php foreach ($proyek as $key) {?>
-							   	<option value="<?php echo $key['kd_proyek']; ?>"><?php echo $key['kd_proyek']." | ".$key['nama_proyek']; ?></option>
-							   <?php } ?>
-	                        </select>
+						<div class="form-group">
+							<label>Tanggal Purchase Order</label>
+							<div class='input-group date' id='datetimepicker'>
+								<span class="input-group-addon">
+									<span class="menu-icon fa fa-calendar"></span>
+								</span>
+								<input type='text' class="form-control" name="tgl_po" required/>
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<label class=" form-control-label">Kode Vendor</label>
-						<div class="input-group">
-							<select class="standardSelect" name="vendor" tabindex="-1" style="display: none;" required>
-								 <option value="" label="default"></option>
-							   <?php foreach ($vendor as $key) {?>
-							   	<option value="<?php echo $key['kd_vendor']; ?>"><?php echo $key['kd_vendor']." | ".$key['nama_vendor']; ?></option>
-							   <?php } ?>
-							</select>
+						<div class="form-group">
+							<label class=" form-control-label">Kode Juru Beli</label>
+							<div class="input-group">
+								<select class="standardSelect" name="jurubeli" tabindex="-1" style="display: none;" required>
+									<option value="" label="default"></option>
+									<?php foreach ($jurubeli as $key) {?>
+										<option value="<?php echo $key['kd_jurubeli']; ?>"><?php echo $key['kd_jurubeli']." | ".$key['nama_jurubeli']; ?></option>
+									<?php } ?>
+								</select>
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<label class=" form-control-label">Posisi Rak Dokumen</label>
-						<div class="input-group">
-							<input class="form-control" name="rak" required>
+						<div class="form-group">
+							<label class=" form-control-label">Kode Proyek</label>
+							<div class="input-group">
+								<select class="standardSelect" name="proyek" tabindex="-1" style="display: none;" required>
+									<option value="" label="default"></option>
+									<?php foreach ($proyek as $key) {?>
+										<option value="<?php echo $key['kd_proyek']; ?>"><?php echo $key['kd_proyek']." | ".$key['nama_proyek']; ?></option>
+									<?php } ?>
+								</select>
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<label class=" form-control-label">Scan Dokumen (PDF File) <small>Ukuran Maks File 5MB</small></label>
-						<div class="input-group">
-							<input class="form-control" type="File"  name="dokumen" required>
+						<div class="form-group">
+							<label class=" form-control-label">Kode Vendor</label>
+							<div class="input-group">
+								<select class="standardSelect" name="vendor" tabindex="-1" style="display: none;" required>
+									<option value="" label="default"></option>
+									<?php foreach ($vendor as $key) {?>
+										<option value="<?php echo $key['kd_vendor']; ?>"><?php echo $key['kd_vendor']." | ".$key['nama_vendor']; ?></option>
+									<?php } ?>
+								</select>
+							</div>
 						</div>
-					</div>
-					<div class="form-group">
-						<label class=" form-control-label">Status Purchase Order</label>
-						<div class="input-group">
-							<div class="radio">
-                                <label for="radio2" class="form-check-label ">
-                                	<input type="radio"  id="radio2" name="status" value="1" class="form-check-input" required>Selesai
-                                </label>
-                            </div>
-                            <div class="radio">
-                                <label for="radio2" class="form-check-label ">
-                                	<input type="radio" id="radio2" name="status" value="2" class="form-check-input" required>Belum Selesai
-                                </label>
-                            </div>
+						<div class="form-group">
+							<label class=" form-control-label">Posisi Rak Dokumen</label>
+							<div class="input-group">
+								<input class="form-control" name="rak" required>
+							</div>
 						</div>
+						<div class="form-group">
+							<label class=" form-control-label">Scan Dokumen (PDF File) <small>Ukuran Maks File 5MB</small></label>
+							<div class="input-group">
+								<input class="form-control" type="File"  name="dokumen" required>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class=" form-control-label">Status Purchase Order</label>
+							<div class="input-group">
+								<div class="radio">
+									<label for="radio2" class="form-check-label ">
+										<input type="radio"  id="radio2" name="status" value="1" class="form-check-input" required>Selesai
+									</label>
+								</div>
+								<div class="radio">
+									<label for="radio2" class="form-check-label ">
+										<input type="radio" id="radio2" name="status" value="2" class="form-check-input" required>Belum Selesai
+									</label>
+								</div>
+							</div>
+						</div>
+						<button class="btn btn-info">Simpan</button>
 					</div>
-					<button class="btn btn-info">Simpan</button>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 </div>
 <?php $this->view('footer.php'); ?>
 
@@ -116,18 +116,18 @@
 <script src="<?php echo base_url('') ?>assets/js/lib/chosen/chosen.jquery.min.js"></script>
 
 <script>
-    jQuery(document).ready(function() {
-        jQuery(".standardSelect").chosen({
-            disable_search_threshold: 10,
-            no_results_text: "Oops, nothing found!",
-            width: "100%"
-        });
-    });
+	jQuery(document).ready(function() {
+		jQuery(".standardSelect").chosen({
+			disable_search_threshold: 10,
+			no_results_text: "Oops, nothing found!",
+			width: "100%"
+		});
+	});
 </script>
 <script>
 	$('#myDatepicker2').datetimepicker({
-        format: 'DD.MM.YYYY'
-    });
+		format: 'DD.MM.YYYY'
+	});
 </script>
 
 </body>
