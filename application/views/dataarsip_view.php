@@ -120,7 +120,7 @@
         </div>
       </div>
       <div class="form-group">
-        <label class=" form-control-label">Scan Dokumen(PDF File)</label>
+        <label class=" form-control-label">Scan Dokumen (PDF File)</label>
         <div class="input-group">
           <input class="form-control" type="File" name="dokumen">
         </div>
@@ -193,7 +193,7 @@
   jQuery(document).ready(function() {
     jQuery(".standardSelect").chosen({
       disable_search_threshold: 10,
-      no_results_text: "Oops, nothing found!",
+      no_results_text: "Maaf, Tidak bisa ditemukan!",
       width: "100%"
     });
   });
@@ -321,7 +321,7 @@
     jQuery(document).ready(function() {
       jQuery(".standardSelect").chosen({
         disable_search_threshold: 10,
-        no_results_text: "Oops, nothing found!",
+        no_results_text: "Maaf, Tidak bisa ditemukan!",
         width: "100%"
       });
     });
