@@ -25,7 +25,45 @@ class User extends CI_Controller{
 
 
   function simpan(){ //function simpan data
-    $data=array(
+  	 $config = array(
+           array(
+                    'field' => 'Nomer',
+                    'label' => 'Nomer Petugas',
+                    'rules' => 'trim|required|is_unique[petugas.no_petugas]',
+                    'errors'=> array('is_unique' =>'Petugas Telah Terdaftar','required'=>'Form Petugas Tidak Boleh Kosong' )
+            ),
+            array(
+                    'field' => 'Nama',
+                    'label' => 'Nama Petugas',
+                    'rules' => 'trim|required',
+                    'errors'=> array('required'=>'Form Nama Petugas Tidak Boleh Kosong' )
+            ),
+             array(
+                    'field' => 'Username',
+                    'label' => 'Username Petugas',
+                    'rules' => 'trim|required',
+                    'errors'=> array('required' =>'Username sudah digunakan')
+            ),
+            array(
+                    'field' => 'Password',
+                    'label' => 'Password',
+                    'rules' => 'trim|required',
+                    'errors'=> array('required'=>'Password Tidak Boleh Kosong' )
+            ),
+            array(
+                    'field' => 'hak_akses',
+                    'label' => 'hak_akses',
+                    'rules' => 'trim|required',
+                    'errors'=> array('required'=>'Hak Akses Tidak Boleh Kosong' )
+            )
+    );
+    
+  	$this->form_validation->set_rules($config);
+    if ($this->form_validation->run() === FALSE) {
+        $errors = validation_errors();
+            echo json_encode(['error'=>$errors]);
+    }else{
+   $data=array(
       'no_petugas'      => $this->input->post('Nomer'),
       'nama_petugas'    => $this->input->post('Nama'),
       'username'		=> $this->input->post('Username'),
@@ -33,8 +71,9 @@ class User extends CI_Controller{
       'hak_akses'		=> $this->input->post('hak_akses'),
     );
     $this->db->insert('petugas', $data);
+    	echo json_encode(['success'=>'Data Petugas Berhasil Ditambahkan']);
     redirect('User');
-  }
+  }}
 
   function update(){ //function update data
     $Nomer=$this->input->post('Nomer');
@@ -60,14 +99,12 @@ class User extends CI_Controller{
     }else{
       $this->db->where('no_petugas',$Nomer);
       $this->db->delete('petugas');
-      echo json_encode(['success'=>'Data Berhasil Dihapus']);
+      echo json_encode(['success'=>'Data Petugas Berhasil Dihapus']);
       redirect('User','refresh');
     }
     
   }
 }
-
-
 
 	// public function index()
 	// {

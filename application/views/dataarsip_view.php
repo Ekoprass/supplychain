@@ -2,7 +2,7 @@
 <div class="content">
   <div class="animated fadeIn">
    <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-12">
       <div class="card">
         <div class="card-header" style="background-color: #03428b">
          <h2 style="color: #fff">DATA ARSIP DOKUMEN</h2>
