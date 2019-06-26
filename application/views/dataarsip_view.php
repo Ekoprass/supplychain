@@ -248,8 +248,8 @@
       {"data": "tgl_entry"},
       {"data": "dokumen"},
       {"data": "status_dokumen"},
-      {"data": "view"},
-      {"data": "pdf"}
+      {"data": "view", "sortable":false},
+      {"data": "pdf","sortable":false}
       ],
       order: [[2, 'asc']],
       rowCallback: function(row, data, iDisplayIndex) {
