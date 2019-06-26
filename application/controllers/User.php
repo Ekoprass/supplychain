@@ -30,7 +30,7 @@ class User extends CI_Controller{
                     'field' => 'Nomer',
                     'label' => 'Nomer Petugas',
                     'rules' => 'trim|required|is_unique[petugas.no_petugas]',
-                    'errors'=> array('is_unique' =>'Petugas Telah Terdaftar','required'=>'Form Petugas Tidak Boleh Kosong' )
+                    'errors'=> array('is_unique' =>'Nomer petugas Telah Terdaftar','required'=>'Form Nomer Petugas Tidak Boleh Kosong' )
             ),
             array(
                     'field' => 'Nama',
@@ -42,7 +42,7 @@ class User extends CI_Controller{
                     'field' => 'Username',
                     'label' => 'Username Petugas',
                     'rules' => 'trim|required',
-                    'errors'=> array('required' =>'Username sudah digunakan')
+                    'errors'=> array('required' =>'Username Tidak Boleh Kosong')
             ),
             array(
                     'field' => 'Password',
@@ -50,12 +50,12 @@ class User extends CI_Controller{
                     'rules' => 'trim|required',
                     'errors'=> array('required'=>'Password Tidak Boleh Kosong' )
             ),
-            array(
-                    'field' => 'hak_akses',
-                    'label' => 'hak_akses',
-                    'rules' => 'trim|required',
-                    'errors'=> array('required'=>'Hak Akses Tidak Boleh Kosong' )
-            )
+            // array(
+            //         'field' => 'hak_akses',
+            //         'label' => 'hak_akses',
+            //         'rules' => 'trim|required',
+            //         'errors'=> array('required'=>'Hak Akses Tidak Boleh Kosong' )
+            // )
     );
     
   	$this->form_validation->set_rules($config);
@@ -72,7 +72,7 @@ class User extends CI_Controller{
     );
     $this->db->insert('petugas', $data);
     	echo json_encode(['success'=>'Data Petugas Berhasil Ditambahkan']);
-    redirect('User');
+    redirect('User', 'refresh');
   }}
 
   function update(){ //function update data
@@ -90,7 +90,7 @@ class User extends CI_Controller{
   }
 
  function delete(){ //function hapus data
-    $Nomer=$this->input->post('no_petugas');
+    $Nomer=$this->input->post('Nomer');
     $this->db->where('petugas', $Nomer);
     $query=$this->db->get('arsip_dokumen');
     if ($query->num_rows()==1) {

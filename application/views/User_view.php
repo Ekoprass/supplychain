@@ -36,18 +36,20 @@
                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                            <h4 class="modal-title" id="myModalLabel">TAMBAH PETUGAS</h4>
                        </div>
+                       <div class="alert alert-danger print-error-msg" style="display:none"></div>
+                       <div class="alert alert-primary print-success-msg" style="display:none"></div>
                        <div class="modal-body">
                            <div class="form-group">
-                               <input type="text" name="Nomer" class="form-control" placeholder="Masukkan Nomer Petugas" required>
+                               <input type="text" id="Nomer_petugas" name="Nomer" class="form-control" placeholder="Masukkan Nomer Petugas" required>
                            </div>
                            <div class="form-group">
-                               <input type="text" name="Nama" class="form-control" placeholder=" Masukkan Nama Petugas" required>
+                               <input type="text" id="Nama_petugas" name="Nama" class="form-control" placeholder=" Masukkan Nama Petugas" required>
                            </div>
                            <div class="form-group">
-                               <input type="text" name="Username" class="form-control" placeholder="Masukkan Username" required>
+                               <input type="text" id="Username" name="Username" class="form-control" placeholder="Masukkan Username" required>
                            </div>
                            <div class="form-group">
-                               <input type="text" name="Password" class="form-control" placeholder="Masukkan Password" required>
+                               <input type="text" id="Password" name="Password" class="form-control" placeholder="Masukkan Password" required>
                            </div>
                            <!-- <div class="form-group">
                                <input type="text" name="hak_akses" class="form-control" placeholder="Ketik : 1 untuk user, 2 untuk admin" required>
@@ -60,16 +62,16 @@
                                                     <input type="checkbox" id="inline-checkbox2" name="hak_akses" value="2" class="form-check-input">Admin
                                                 </label>
                             </div> -->
-                             <div class="radio">
+                            <!--  <div class="radio">
                                                     <label for="radio1" class="form-check-label ">
-                                                        <input type="radio" id="radio1" name="hak_akses" value="1" class="form-check-input">Petugas
+                                                        <input type="radio" id="Radio" name="hak_akses" value="1" class="form-check-input">Petugas
                                                     </label>
                                                 </div>
                                                 <div class="radio">
                                                     <label for="radio2" class="form-check-label ">
-                                                        <input type="radio" id="radio2" name="hak_akses" value="2" class="form-check-input">Admin
+                                                        <input type="radio" id="Radio" name="hak_akses" value="2" class="form-check-input">Admin
                                                     </label>
-                                                </div>
+                                                </div> -->
                        </div>
                        <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
@@ -242,14 +244,18 @@
 
 <script type="text/javascript">
   $(document).ready(function() {
-      $("#dell-row").click(function(e){
+      $("#add-row").click(function(e){
         e.preventDefault();
-        var no_petugas = $("input[id='del-user']").val();
+        var no_petugas = $("input[id='Nomer_petugas']").val();
+        var nama_petugas = $("input[id='Nama_petugas']").val();
+        var username = $("input[id='Username']").val();
+        var password = $("input[id='Password']").val();
+        // var hak_akses =$("radio[id='Radio']").val();
           $.ajax({
-              url: "<?php echo site_url() ?>/User/delete",
+              url: "<?php echo site_url() ?>/User/simpan",
               type:'POST',
               dataType: "json",
-              data: {no_petugas:no_petugas},
+              data: {Nomer:no_petugas, Nama:nama_petugas, Username:username, Password:password}, 
               success: function(data) {
                   if($.isEmptyObject(data.error)){
                     $(".print-success-msg").css('display','block');
@@ -257,7 +263,35 @@
                     $(".print-success-msg").html(data.success);
                     $(".print-error-msg").css('display','none');
 
-                    location.replace("<?php echo site_url() ?>/petugas");
+                    location.replace("<?php echo site_url() ?>/User");
+                  }else{
+                    $(".print-error-msg").css('display','block');
+                    $(".print-error-msg").html(data.error);
+                  }
+              }
+          });
+      }); 
+  });
+</script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+      $("#dell-row").click(function(e){
+        e.preventDefault();
+        var no_petugas = $("input[id='del-user']").val();
+          $.ajax({
+              url: "<?php echo site_url() ?>/User/delete",
+              type:'POST',
+              dataType: "json",
+              data: {Nomer:no_petugas},
+              success: function(data) {
+                  if($.isEmptyObject(data.error)){
+                    $(".print-success-msg").css('display','block');
+                    // alert(data.success);
+                    $(".print-success-msg").html(data.success);
+                    $(".print-error-msg").css('display','none');
+
+                    location.replace("<?php echo site_url() ?>/user");
                   }else{
                     $(".print-error-msg").css('display','none');
                     alert(data.error);
@@ -268,3 +302,5 @@
       }); 
   });
 </script>
+
+
