@@ -209,7 +209,7 @@ function delrec() {
                         {"data": "username"},
                         {"data": "password"},
                         {"data": "hak_akses"},
-                        {"data": "view"},
+                        {"data": "view", "sortable":false},
                         // {"data": "view"},
                   ],
               order: [[1, 'asc']],

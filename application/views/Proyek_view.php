@@ -155,7 +155,7 @@ function delrec() {
                 	columns: [
 												{"data": "kd_proyek"},
 												{"data": "nama_proyek"},
-                        {"data": "view"}
+                        {"data": "view", "sortable":false}
                   ],
           		order: [[1, 'asc']],
           rowCallback: function(row, data, iDisplayIndex) {
