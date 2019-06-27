@@ -46,7 +46,7 @@
 
 
   <!-- Modal Update Produk-->
-  <form id="add-row-form" action="<?php echo site_url()?>Arsip/update" method="post" enctype="multipart/form-data">
+  <form id="add-row-form" action="<?php echo site_url()?>/Arsip/update" method="post" enctype="multipart/form-data">
    <div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
      <div class="modal-content">
@@ -87,11 +87,11 @@
         <div class="form-group">
           <label class=" form-control-label">Kode Juru Beli</label>
           <div class="input-group">
-          <input type="text" name="jb">
-            <select class="standardSelect" tabindex="-1" style="display: none;" name="jurubeli">
+          <input type="text" name="jb" hidden>
+            <select class="standardSelect" tabindex="-1" style="display: none;" name="jurubeli" id='jurubeli'>
               <option value="" label="default"></option>
               <?php foreach ($jurubeli as $key) {?>
-                <option value="<?php echo $key['kd_jurubeli']; ?>"><?php echo $key['kd_jurubeli']." | ".$key['nama_jurubeli']; ?></option>
+                <option value="<?php echo $key['kd_jurubeli']; ?>"><?php echo $key['kd_jurubeli'].' | '.$key['nama_jurubeli']; ?></option>
               <?php } ?>
             </select>
         </div>
@@ -99,7 +99,7 @@
       <div class="form-group">
         <label class=" form-control-label">Kode Proyek</label>
         <div class="input-group">
-          <input type="text" name="pk">
+          <input type="text" name="pk" hidden>
           <select class="standardSelect" tabindex="-1" style="display: none;" name="proyek">
             <option value="" label="default"></option>
             <?php foreach ($proyek as $key) {?>
@@ -111,7 +111,7 @@
       <div class="form-group">
         <label class=" form-control-label">Kode Vendor</label>
         <div class="input-group">
-          <input type="text" name="vn">
+          <input type="text" name="vn" hidden>
           <select class="standardSelect" tabindex="-1" style="display: none;" name="vendor">
             <option value="" label="default"></option>
             <?php foreach ($vendor as $key) {?>
@@ -127,6 +127,7 @@
         </div>
       </div>
       <div class="form-group">
+        <input type="text" name="dokumena" hidden>
         <label class=" form-control-label">Scan Dokumen (PDF File)</label>
         <div class="input-group">
           <input class="form-control" type="File" name="dokumen">
@@ -148,6 +149,8 @@
         </div>
       </div>
     </div>
+    <input type="text" name="tgl_entry" hidden>
+    <input type="text" name="petugas" hidden>
     <div class="modal-footer">
       <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
       <button type="submit" id="add-row" class="btn btn-success">Perbarui</button>
@@ -244,17 +247,19 @@
       {"data": "proyek" , "searchable": false, "visible":false},
       {"data": "vendor", "searchable": false, "visible":false},
       {"data": "rak_ke"},
-      {"data": "petugas"},
-      {"data": "tgl_entry"},
+      {"data": "petugas", "searchable": true},
+      {"data": "tgl_entry", "searchable": false},
       {"data": "dokumen"},
       {"data": "status_dokumen", render : function(data) {
-         return data == '1' ? '<div class="btn-success"><strong style="color:white; font-size:10pt"><i class="icon fa fa-check"></i>SELESAI</strong></div>' : '<strong style="color:red">BELUM SELESAI</strong>';
-      }},
-       {"data": "", "orderable":false, "searchable": false, "render": function (data, type, row) {return '<button class="btn btn-primary" data-toggle="modal" data-no_dokumen="'+row.no_dokumen+'" data-no_po="'+row.no_po+'" data-tgl_po="'+row.tgl_po+'" data-deskripsi="'+row.deskripsi+'"data-jurubeli="'+row.nm_jurubeli+'" data-kd_jurubeli="'+row.jurubeli+'"data-proyek="'+row.nm_proyek+'"data-kd_proyek="'+row.proyek+'" data-vendor="'+row.nm_vendor+'" data-kd_vendor="'+row.vendor+'" data-rak_ke="'+row.rak_ke+'" data-dokumen="'+row.dokumen+'" data-status="'+row.status_dokumen+'" data-target="#ModalUpdate" onclick="delrec()">Edit</button>';}},
+         return data == '1' ? '<div class="btn btn-success"><strong style="color:white; font-size:10pt"><i class="icon fa fa-check"></i> SELESAI</strong></div>' : '<div class="btn btn-danger"><strong style="color:white; font-size:10pt"><i class="icon fa fa-close"></i> BELUM SELESAI</strong></div>' ;
+      },
+      className: "text-center"
+    },
+       {"data": "", "orderable":false, "searchable": false, "render": function (data, type, row) {return '<button class="btn btn-warning" data-toggle="modal" data-no_dokumen="'+row.no_dokumen+'" data-no_po="'+row.no_po+'" data-tgl_po="'+row.tgl_po+'" data-deskripsi="'+row.deskripsi+'"data-jurubeli="'+row.nm_jurubeli+'" data-kd_jurubeli="'+row.jurubeli+'"data-proyek="'+row.nm_proyek+'"data-kd_proyek="'+row.proyek+'" data-vendor="'+row.nm_vendor+'" data-kd_vendor="'+row.vendor+'" data-rak_ke="'+row.rak_ke+'" data-dokumen="'+row.dokumen+'" data-status="'+row.status_dokumen+'" data-petugas="'+row.petugas+'" data-entry="'+row.tgl_entry+'" data-target="#ModalUpdate" onclick="delrec()"><i class="icon fa fa-edit"></i> Edit</button>';}},
 
       {"data": "pdf", "orderable":false}
       ],
-      order: [[2, 'asc']],
+      order: [[1, 'asc']],
       rowCallback: function(row, data, iDisplayIndex) {
         var info = this.fnPagingInfo();
         var page = info.iPage;
@@ -280,6 +285,8 @@
         var rak=triggerLink.data('rak_ke');
         var dokumen=triggerLink.data('dokumen');
         var status=triggerLink.data('status');
+        var petugas=triggerLink.data('petugas');
+        var entry=triggerLink.data('entry');
 
         $('[name="no_dokumen"]').val(no_dokumen);
         $('[name="no_po"]').val(no_po);
@@ -293,15 +300,14 @@
         $('[name="vendor"]').val(vendor);
         $('[name="rak"]').val(rak);
         $('[name="sa"]').val(status);
+        $('[name="dokumena"]').val(dokumen);
+        $('[name="petugas"]').val(petugas);
+        $('[name="tgl_entry"]').val(entry);
         if(status=="1"){
           $('input[id="status1"]').prop('checked',true);
         }else if(status=="2"){
           $('input[id="status2"]').prop('checked',true);
         };
-        
-        jQuery(".standardSelect").chosen({
-
-        });
             
           });
       $('#mytable').on('click','.view_pdf',function(){

@@ -70,7 +70,7 @@ class Arsip extends CI_Controller {
 		}else{
 			$config['upload_path'] = realpath('./assets/dokument/');
 			$config['allowed_types'] = 'pdf';
-			$config['max_size']  = '5000';
+			$config['max_size']  = '10000';
 			
 			$this->load->library('upload', $config);
 			if ( ! $this->upload->do_upload('dokumen')){
@@ -106,7 +106,62 @@ class Arsip extends CI_Controller {
         fopen("base_url()/assets/dokument/$item", "");
 
     }
-	 		
+	
+	function update()
+	{
+
+			$config['upload_path'] = realpath('./assets/dokument/');
+			$config['allowed_types'] = 'pdf';
+			$config['max_size']  = '11000';
+			
+			$this->load->library('upload', $config);
+			if ($this->upload->do_upload('dokumen')){
+			$dokumen=$this->upload->data('file_name');
+				
+				// $error = array('error' => $this->upload->display_errors());
+				// echo $error['error'];
+			}else{
+				$dokumen=$this->input->post('dokumena');
+
+			}
+			if ($this->input->post('jurubeli')==null) {
+				$jurubeli=$this->input->post('jb');
+			}else {
+				$jurubeli=$this->input->post('jurubeli');
+			}	
+			if ($this->input->post('proyek')==null) {
+				$proyek=$this->input->post('pk');
+			}else {
+				$proyek=$this->input->post('proyek');
+			}	
+			if ($this->input->post('vendor')==null) {
+				$vendor=$this->input->post('vn');
+			}else {
+				$vendor=$this->input->post('vendor');
+			}
+
+			date_default_timezone_set('Asia/Jakarta');
+			$d=strtotime($this->input->post('tgl_po'));
+			$kode=$this->input->post('no_dokumen');
+			$data=array(
+		      'no_dokumen'      	=> $kode,
+		      'no_po'    			=> $this->input->post('no_po'),
+		      'tgl_po'				=> date("Y-m-d",$d),
+		      'deskripsi'			=> $this->input->post('deskripsi'),
+		      'jurubeli'			=> $jurubeli,
+		      'proyek'				=> $proyek,
+		      'vendor'				=> $vendor,
+		      'rak_ke'				=> $this->input->post('rak'),
+		      'tgl_entry'			=> $this->input->post('tgl_entry'),
+		      'petugas'				=> $this->input->post('petugas'),
+		      'status_dokumen'		=> $this->input->post('status'),
+		      'dokumen'				=> $dokumen
+		    );	
+    		$this->db->where('no_dokumen',$kode);
+			 $this->db->update('arsip_dokumen', $data);
+			  redirect('Arsip/Data');
+			
+	}
 
 
 }
