@@ -69,13 +69,13 @@
                             <font face="Sans Serif">
                             <label>Username</label>
                             </font>
-                            <input type="text" class="form-control" placeholder="Username" name="username" required>
+                            <input type="text" class="form-control" name="username" required>
                         </div>
                         <div class="form-group">
                             <font face="Sans Serif">
                             <label>Password</label>
                             </font>
-                            <input type="password" class="form-control" placeholder="Password" name="password" required>
+                            <input type="password" class="form-control"  name="password" required>
                         </div>
                        <!--  <div class="checkbox" hidden>
                             <label>

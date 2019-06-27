@@ -65,7 +65,7 @@
     </aside>
     <!-- /#left-panel -->
     <!-- Right Panel -->
-    <div id="right-panel" class="right-panel">
+    <div id="right-panel" class="right-panel" >
         <!-- Header-->
         <header id="header" class="header">
             <div class="top-left">

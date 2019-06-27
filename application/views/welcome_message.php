@@ -81,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php $this->view('template.php'); ?>
 <div id="container">
 	<h1>Selamat Datang di PT.PAL Indonesia</h1>
-	<div class="container">
+	<div class="container" style="padding-bottom:175px">
   <div id="WJSlider" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
