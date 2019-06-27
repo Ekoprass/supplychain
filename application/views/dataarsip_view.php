@@ -137,12 +137,12 @@
         <div class="input-group">
           <div class="radio">
             <label for="radio2" class="form-check-label ">
-              <input type="radio" id="radio1" name="status" value="1" class="form-check-input">Selesai
+              <input type="radio" id="status1" name="status" value="1" class="form-check-input">Selesai
             </label>
           </div>
           <div class="radio">
             <label for="radio2" class="form-check-label ">
-              <input type="radio" id="radio2" name="status" value="2" class="form-check-input">Belum Selesai
+              <input type="radio" id="status2" name="status" value="2" class="form-check-input">Belum Selesai
             </label>
           </div>
         </div>
@@ -197,7 +197,9 @@
 <script src="<?php echo base_url() ?>assets/pdfobject/pdfobject.min.js"></script>
 
 <script>
-  
+  function delrec() {
+  document.getElementById("add-row-form").reset();
+}
 </script>
 <script>
   $(document).ready(function(){
@@ -245,8 +247,10 @@
       {"data": "petugas"},
       {"data": "tgl_entry"},
       {"data": "dokumen"},
-      {"data": "status_dokumen"},
-       {"data": "", "orderable":false, "searchable": false, "render": function (data, type, row) {return '<button class="btn btn-primary" data-toggle="modal" data-no_dokumen="'+row.no_dokumen+'" data-no_po="'+row.no_po+'" data-tgl_po="'+row.tgl_po+'" data-deskripsi="'+row.deskripsi+'"data-jurubeli="'+row.nm_jurubeli+'" data-kd_jurubeli="'+row.jurubeli+'"data-proyek="'+row.nm_proyek+'"data-kd_proyek="'+row.proyek+'" data-vendor="'+row.nm_vendor+'" data-kd_vendor="'+row.vendor+'" data-rak_ke="'+row.rak_ke+'" data-dokumen="'+row.dokumen+'" data-status="'+row.status_dokumen+'" data-target="#ModalUpdate">Edit</button>';}},
+      {"data": "status_dokumen", render : function(data) {
+         return data == '1' ? '<div class="btn-success"><strong style="color:white; font-size:10pt"><i class="icon fa fa-check"></i>SELESAI</strong></div>' : '<strong style="color:red">BELUM SELESAI</strong>';
+      }},
+       {"data": "", "orderable":false, "searchable": false, "render": function (data, type, row) {return '<button class="btn btn-primary" data-toggle="modal" data-no_dokumen="'+row.no_dokumen+'" data-no_po="'+row.no_po+'" data-tgl_po="'+row.tgl_po+'" data-deskripsi="'+row.deskripsi+'"data-jurubeli="'+row.nm_jurubeli+'" data-kd_jurubeli="'+row.jurubeli+'"data-proyek="'+row.nm_proyek+'"data-kd_proyek="'+row.proyek+'" data-vendor="'+row.nm_vendor+'" data-kd_vendor="'+row.vendor+'" data-rak_ke="'+row.rak_ke+'" data-dokumen="'+row.dokumen+'" data-status="'+row.status_dokumen+'" data-target="#ModalUpdate" onclick="delrec()">Edit</button>';}},
 
       {"data": "pdf", "orderable":false}
       ],
@@ -275,10 +279,9 @@
         var kd_vendor=triggerLink.data('kd_vendor');
         var rak=triggerLink.data('rak_ke');
         var dokumen=triggerLink.data('dokumen');
-        var status=triggerLink.data('status_dokumen');
-        $(e.currentTarget).find('input[name="no_dokumen"]').val(no_dokumen);
+        var status=triggerLink.data('status');
 
-        $('[name="no_dokumen"]').text(no_dokumen);
+        $('[name="no_dokumen"]').val(no_dokumen);
         $('[name="no_po"]').val(no_po);
         $('[name="tgl_po"]').val(tgl_po);
         $('[name="deskripsi"]').val(deskripsi);
@@ -289,9 +292,13 @@
         $('[name="proyek"]').val(proyek);
         $('[name="vendor"]').val(vendor);
         $('[name="rak"]').val(rak);
-        // $('[name="dokumen"]').val(dokumen);
-        $('[name="status"]').val(status);
-        jQuery('#myDatepicker2').datepicker();
+        $('[name="sa"]').val(status);
+        if(status=="1"){
+          $('input[id="status1"]').prop('checked',true);
+        }else if(status=="2"){
+          $('input[id="status2"]').prop('checked',true);
+        };
+        
         jQuery(".standardSelect").chosen({
 
         });
