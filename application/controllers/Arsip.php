@@ -26,20 +26,20 @@ class Arsip extends CI_Controller {
 	}
 
 	 function get_guest_json() { //data data produk by JSON object
-    header('Content-Type: application/json');
-    echo $this->Arsip_model->get_all();
-  }
+	    header('Content-Type: application/json');
+	    echo $this->Arsip_model->get_all();
+	  }
 
-  public function Data()
-	{
-	   	$session_data=$this->session->userdata('logged_in');
-	    $akses=$session_data['hak_akses']; 
-	    $data['menus'] = $this->Menus->getMenuUser($akses);
-	    $data['jurubeli']=$this->Arsip_model->get_all_jb();
-	    $data['proyek']=$this->Arsip_model->get_all_py();
-	    $data['vendor']=$this->Arsip_model->get_all_vn();
-		$this->load->view('dataarsip_view',$data);
-	}
+	  public function Data()
+		{
+		   	$session_data=$this->session->userdata('logged_in');
+		    $akses=$session_data['hak_akses']; 
+		    $data['menus'] = $this->Menus->getMenuUser($akses);
+		    $data['jurubeli']=$this->Arsip_model->get_all_jb();
+		    $data['proyek']=$this->Arsip_model->get_all_py();
+		    $data['vendor']=$this->Arsip_model->get_all_vn();
+			$this->load->view('dataarsip_view',$data);
+		}
 
 	public function tambah()
 	{

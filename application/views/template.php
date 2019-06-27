@@ -32,28 +32,12 @@
     <link href="<?php echo base_url().'assets/css/jquery.datatables.min.css'?>" rel="stylesheet" type="text/css"/>
   <link href="<?php echo base_url().'assets/css/dataTables.bootstrap.css'?>" rel="stylesheet" type="text/css"/>
 
- <!-- gawe tanggal -->
- <script type='text/javascript' src='//code.jquery.com/jquery-1.8.3.js'></script>
- <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-
-
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker3.min.css">
- <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
+<link href="<?php echo base_url()?>assets/dist/css/select2.min.css" rel="stylesheet" />
+<div class="content">
 
 <!--pdf viewer-->
 
-
- <script type='text/javascript'>
-
-    $(function(){
-        $('.input-group.date').datepicker({
-            calendarWeeks: true,
-            todayHighlight: true,
-            autoclose: true
-        });  
-    });
-
-</script>
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 </head>

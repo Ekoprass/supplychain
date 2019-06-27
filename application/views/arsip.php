@@ -1,4 +1,24 @@
 <?php $this->view('template.php'); ?>
+
+ <!-- gawe tanggal -->
+ <script type='text/javascript' src='//code.jquery.com/jquery-1.8.3.js'></script>
+ <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker3.min.css">
+ <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
+ <script type='text/javascript'>
+
+    $(function(){
+        $('.input-group.date').datepicker({
+            calendarWeeks: true,
+            todayHighlight: true,
+            autoclose: true
+        });  
+    });
+
+</script>
+
 <div class="content">
 	<div class="animated fadeIn">
 		<div class="row">
@@ -125,8 +145,8 @@
 	});
 </script>
 <script>
-	$('#myDatepicker2').datetimepicker({
-		format: 'DD.MM.YYYY'
+	$('#datetimepicker').datepicker({
+		format: "dd-mm-yyyy"
 	});
 </script>
 

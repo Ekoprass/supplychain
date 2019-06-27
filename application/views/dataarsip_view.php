@@ -1,4 +1,10 @@
+<style>
+  .datepicker{z-index:1151 !important;}
+</style>
 <?php $this->view('template.php'); ?>
+
+
+
 <div class="content">
   <div class="animated fadeIn">
    <div class="row">
@@ -20,6 +26,9 @@
                 <th style="font-size: 8pt">JURU BELI</th>
                 <th style="font-size: 8pt">PROYEK</th>
                 <th style="font-size: 8pt">VENDOR</th>
+                <th style="font-size: 8pt">KODE JURUBELI</th>
+                <th style="font-size: 8pt">KODE PROYEK</th>
+                <th style="font-size: 8pt">KODE VENDOR</th>
                 <th style="font-size: 8pt">POSISI RAK</th>
                 <th style="font-size: 8pt">PETUGAS ENTRY</th>
                 <th style="font-size: 8pt">TANGGAL ENTRY</th>
@@ -64,7 +73,7 @@
             <span class="input-group-addon">
               <span class="menu-icon fa fa-calendar"></span>
             </span>
-            <input type='text' class="form-control" name="tgl_po" />
+            <input type='date' class="form-control clsDatePicker" name="tgl_po" />
           </div>
         </div>
         <div class="form-group">
@@ -78,6 +87,7 @@
         <div class="form-group">
           <label class=" form-control-label">Kode Juru Beli</label>
           <div class="input-group">
+          <input type="text" name="jb">
             <select class="standardSelect" tabindex="-1" style="display: none;" name="jurubeli">
               <option value="" label="default"></option>
               <?php foreach ($jurubeli as $key) {?>
@@ -89,6 +99,7 @@
       <div class="form-group">
         <label class=" form-control-label">Kode Proyek</label>
         <div class="input-group">
+          <input type="text" name="pk">
           <select class="standardSelect" tabindex="-1" style="display: none;" name="proyek">
             <option value="" label="default"></option>
             <?php foreach ($proyek as $key) {?>
@@ -100,6 +111,7 @@
       <div class="form-group">
         <label class=" form-control-label">Kode Vendor</label>
         <div class="input-group">
+          <input type="text" name="vn">
           <select class="standardSelect" tabindex="-1" style="display: none;" name="vendor">
             <option value="" label="default"></option>
             <?php foreach ($vendor as $key) {?>
@@ -111,12 +123,7 @@
       <div class="form-group">
         <label class=" form-control-label">Posisi Rak Dokumen</label>
         <div class="input-group">
-          <select class="standardSelect" tabindex="-1" style="display: none;" name="rak">
-            <option value="" label="default"></option>
-            <?php foreach ($rak as $key) {?>
-              <option value="<?php echo $key['no_rak']; ?>"><?php echo $key['no_rak']." | ".$key['rak_ke']; ?></option>
-            <?php } ?>
-          </select>
+          <input type="text" class="form-control" name="rak">
         </div>
       </div>
       <div class="form-group">
@@ -190,20 +197,8 @@
 <script src="<?php echo base_url() ?>assets/pdfobject/pdfobject.min.js"></script>
 
 <script>
-  jQuery(document).ready(function() {
-    jQuery(".standardSelect").chosen({
-      disable_search_threshold: 10,
-      no_results_text: "Maaf, Tidak bisa ditemukan!",
-      width: "100%"
-    });
-  });
+  
 </script>
-<script>
-  $('#myDatepicker2').datepicker({
-    format: 'DD.MM.YYYY'
-  });
-</script>
-
 <script>
   $(document).ready(function(){
     // Setup datatables
@@ -240,16 +235,20 @@
       {"data": "no_po"},
       {"data": "tgl_po"},
       {"data": "deskripsi"},
-      {"data": "jurubeli"},
-      {"data": "proyek"},
-      {"data": "vendor"},
+      {"data": "nm_jurubeli"},
+      {"data": "nm_proyek"},
+      {"data": "nm_vendor"},
+      {"data": "jurubeli", "searchable": false, "visible":false},
+      {"data": "proyek" , "searchable": false, "visible":false},
+      {"data": "vendor", "searchable": false, "visible":false},
       {"data": "rak_ke"},
       {"data": "petugas"},
       {"data": "tgl_entry"},
       {"data": "dokumen"},
       {"data": "status_dokumen"},
-      {"data": "view"},
-      {"data": "pdf"}
+       {"data": "", "orderable":false, "searchable": false, "render": function (data, type, row) {return '<button class="btn btn-primary" data-toggle="modal" data-no_dokumen="'+row.no_dokumen+'" data-no_po="'+row.no_po+'" data-tgl_po="'+row.tgl_po+'" data-deskripsi="'+row.deskripsi+'"data-jurubeli="'+row.nm_jurubeli+'" data-kd_jurubeli="'+row.jurubeli+'"data-proyek="'+row.nm_proyek+'"data-kd_proyek="'+row.proyek+'" data-vendor="'+row.nm_vendor+'" data-kd_vendor="'+row.vendor+'" data-rak_ke="'+row.rak_ke+'" data-dokumen="'+row.dokumen+'" data-status="'+row.status_dokumen+'" data-target="#ModalUpdate">Edit</button>';}},
+
+      {"data": "pdf", "orderable":false}
       ],
       order: [[2, 'asc']],
       rowCallback: function(row, data, iDisplayIndex) {
@@ -262,28 +261,40 @@
     });
       // end setup datatables
       // get Edit Records
-      $('#mytable').on('click','.edit_record',function(){
-        var no_dokumen=$(this).data('no_dokumen');
-        var no_po=$(this).data('no_po');
-        var tgl_po=$(this).data('tgl_po');
-        var deskripsi=$(this).data('deskripsi');
-        var jurubeli=$(this).data('jurubeli');
-        var proyek=$(this).data('proyek');
-        var vendor=$(this).data('vendor');
-        var rak=$(this).data('rak_ke');
-        var dokumen=$(this).data('dokumen');
-            // var status=$(this).data('status_dokumen');
-            $('#ModalUpdate').modal('show');
-            $('[name="no_dokumen"]').val(no_dokumen);
-            $('[name="no_po"]').val(no_po);
-            $('[name="tgl_po"]').val(tgl_po);
-            $('[name="deskripsi"]').val(deskripsi);
-            $('[name="jurubeli"]').val(jurubeli);
-            $('[name="proyek"]').val(proyek);
-            $('[name="vendor"]').val(vendor);
-            $('[name="rak"]').val(rak);
-            $('[name="dokumen"]').val(dokumen);
-            $('[name="status"]').val(status);
+      $("#ModalUpdate").on('shown.bs.modal',function(e){
+        var triggerLink = $(e.relatedTarget);
+        var no_dokumen=triggerLink.data("no_dokumen");
+        var no_po=triggerLink.data('no_po');
+        var tgl_po=triggerLink.data('tgl_po');
+        var deskripsi=triggerLink.data('deskripsi');
+        var jurubeli=triggerLink.data('jurubeli');
+        var proyek=triggerLink.data('proyek');
+        var vendor=triggerLink.data('vendor');
+        var kd_jurubeli=triggerLink.data('kd_jurubeli');
+        var kd_proyek=triggerLink.data('kd_proyek');
+        var kd_vendor=triggerLink.data('kd_vendor');
+        var rak=triggerLink.data('rak_ke');
+        var dokumen=triggerLink.data('dokumen');
+        var status=triggerLink.data('status_dokumen');
+        $(e.currentTarget).find('input[name="no_dokumen"]').val(no_dokumen);
+
+        $('[name="no_dokumen"]').text(no_dokumen);
+        $('[name="no_po"]').val(no_po);
+        $('[name="tgl_po"]').val(tgl_po);
+        $('[name="deskripsi"]').val(deskripsi);
+        $('[name="jb"]').val(kd_jurubeli);
+        $('[name="pk"]').val(kd_proyek);
+        $('[name="vn"]').val(kd_vendor);
+        $('[name="jurubeli"]').val(jurubeli);
+        $('[name="proyek"]').val(proyek);
+        $('[name="vendor"]').val(vendor);
+        $('[name="rak"]').val(rak);
+        // $('[name="dokumen"]').val(dokumen);
+        $('[name="status"]').val(status);
+        jQuery('#myDatepicker2').datepicker();
+        jQuery(".standardSelect").chosen({
+
+        });
             
           });
       $('#mytable').on('click','.view_pdf',function(){
