@@ -24,13 +24,6 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label class=" form-control-label">Deskripsi</label>
-							<div class="input-group">
-								<textarea name="deskripsi" rows="5" placeholder="Description" class="form-control" required>
-								</textarea>
-							</div>
-						</div>
-						<div class="form-group">
 							<label>Tanggal Purchase Order</label>
 							<div class='input-group date' id='datetimepicker'>
 								<span class="input-group-addon">
@@ -82,6 +75,13 @@
 							<label class=" form-control-label">Scan Dokumen (PDF File) <small>Ukuran Maks File 5MB</small></label>
 							<div class="input-group">
 								<input class="form-control" type="File"  name="dokumen" required>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class=" form-control-label">Deskripsi</label>
+							<div class="input-group">
+								<textarea onfocus="this.value=''" name="deskripsi" rows="5" class="form-control" required>
+								</textarea>
 							</div>
 						</div>
 						<div class="form-group">

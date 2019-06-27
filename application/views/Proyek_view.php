@@ -8,7 +8,7 @@
                    <h2 style="color: #fff">DATA PROYEK</h2>
               </div>
               <div class="card-body card-block">
-            		<button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">TAMBAH PROYEK</button>
+            		<button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd" onclick="delrec()">TAMBAH PROYEK</button>
                 <h3 class="pull-right">Cari <i class="icon fa fa-search"></i></h3>
                 <table class="table table-striped" id="mytable">
                   <thead>
@@ -77,6 +77,7 @@
  	        </div>
  	     </div>
  	 </form>
+   
    <!-- Modal Hapus Produk-->
    <form id="dell-row-form" action="<?php echo site_url().'/proyek/delete'?>" method="post">
     <div class="modal fade" id="ModalHapus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -114,6 +115,13 @@
 <!-- Examples -->
 <script src="<?php echo base_url()?>assets/javascripts/tables/examples.datatables.editable.js"></script>
 
+<!-- gawe reset record he -->
+<script>
+function delrec() {
+  document.getElementById("add-row-form").reset();
+}
+</script>
+
 <script>
 	$(document).ready(function(){
 		// Setup datatables
@@ -148,7 +156,7 @@
                 	columns: [
 												{"data": "kd_proyek"},
 												{"data": "nama_proyek"},
-                        {"data": "view"}
+                        {"data": "view", "sortable":false}
                   ],
           		order: [[1, 'asc']],
           rowCallback: function(row, data, iDisplayIndex) {

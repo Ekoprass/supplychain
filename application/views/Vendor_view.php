@@ -8,7 +8,7 @@
                    <h2 style="color: #fff">DATA VENDOR</h2>
               </div>
               <div class="card-body card-block">
-            		<button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">TAMBAH VENDOR</button>
+            		<button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd" onclick="delrec()">TAMBAH VENDOR</button>
                 <h3 class="pull-right">Cari <i class="icon fa fa-search"></i></h3>
                 <table class="table table-striped" id="mytable">
                   <thead>
@@ -114,6 +114,13 @@
 <!-- Examples -->
 <script src="<?php echo base_url()?>assets/javascripts/tables/examples.datatables.editable.js"></script>
 
+<!-- gawe reset record he -->
+<script>
+function delrec() {
+  document.getElementById("add-row-form").reset();
+}
+</script>
+
 <script>
 	$(document).ready(function(){
 		// Setup datatables
@@ -148,7 +155,7 @@
                 	columns: [
 												{"data": "kd_vendor"},
 												{"data": "nama_vendor"},
-                        {"data": "view"}
+                        {"data": "view", "sortable":false}
                   ],
           		order: [[1, 'asc']],
           rowCallback: function(row, data, iDisplayIndex) {
