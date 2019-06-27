@@ -77,6 +77,7 @@
  	        </div>
  	     </div>
  	 </form>
+   
    <!-- Modal Hapus Produk-->
    <form id="dell-row-form" action="<?php echo site_url().'/proyek/delete'?>" method="post">
     <div class="modal fade" id="ModalHapus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
