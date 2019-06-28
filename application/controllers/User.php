@@ -30,13 +30,13 @@ class User extends CI_Controller{
                     'field' => 'Nomer',
                     'label' => 'Nomer Petugas',
                     'rules' => 'trim|required|is_unique[petugas.no_petugas]',
-                    'errors'=> array('is_unique' =>'Nomer petugas Telah Terdaftar','required'=>'Form Nomer Petugas Tidak Boleh Kosong' )
+                    'errors'=> array('is_unique' =>'Nomer petugas Telah Terdaftar','required'=>'Nomer Petugas Tidak Boleh Kosong' )
             ),
             array(
                     'field' => 'Nama',
                     'label' => 'Nama Petugas',
                     'rules' => 'trim|required',
-                    'errors'=> array('required'=>'Form Nama Petugas Tidak Boleh Kosong' )
+                    'errors'=> array('required'=>'Nama Petugas Tidak Boleh Kosong' )
             ),
              array(
                     'field' => 'Username',

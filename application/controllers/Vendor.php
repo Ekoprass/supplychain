@@ -28,13 +28,13 @@ class Vendor extends CI_Controller{
                     'field' => 'Kode',
                     'label' => 'Kode Vendori',
                     'rules' => 'trim|required|is_unique[vendor.kd_vendor]',
-                    'errors'=> array('is_unique' =>'Kode Vendor Telah Terdaftar','required'=>'Form Kode Vendor Tidak Boleh Kosong' )
+                    'errors'=> array('is_unique' =>'Kode Vendor Telah Terdaftar','required'=>'Kode Vendor Tidak Boleh Kosong' )
             ),
             array(
                     'field' => 'Nama',
                     'label' => 'Nama Vendor',
                     'rules' => 'trim|required',
-                    'errors'=> array('required'=>'Form Nama Vendor Tidak Boleh Kosong' )
+                    'errors'=> array('required'=>'Nama Vendor Tidak Boleh Kosong' )
             )
     );
     $this->form_validation->set_rules($config);
@@ -47,7 +47,7 @@ class Vendor extends CI_Controller{
       'nama_vendor'     => $this->input->post('Nama'),
     );
     $this->db->insert('vendor', $data);
-        echo json_encode(['success'=>'Data Berhasil Ditambahkan']);
+        echo json_encode(['success'=>'Data Vendor Berhasil Ditambahkan']);
 
     redirect('vendor','refresh');
     
@@ -69,12 +69,12 @@ class Vendor extends CI_Controller{
   $this->db->where('vendor', $kode);
   $query=$this->db->get('arsip_dokumen');
   if ($query->num_rows()==1) {
-      $errors = "Delete Gagal! \nKode Juru Beli Terelasi Dengan Data Arsip";
+      $errors = "Delete Gagal! \nKode Vendor Terelasi Dengan Data Arsip";
       echo json_encode(['error'=>$errors]);
   }else{
     $this->db->where('kd_vendor',$kode);
     $this->db->delete('vendor');
-    echo json_encode(['success'=>'Data Berhasil Dihapus']);
+    echo json_encode(['success'=>'Data Vendor Berhasil Dihapus']);
     redirect('vendor','refresh');
   }
 }
