@@ -1,6 +1,4 @@
-<style>
-  .datepicker{z-index:1151 !important;}
-</style>
+
 <?php $this->view('template.php'); ?>
 
 <div class="content">
@@ -13,7 +11,7 @@
        </div>
        <div class="card-body card-block">
         <!-- <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">TAMBAH PETUGAS</button> -->
-        <div class="table-responsive">
+        <!-- <div class="table-responsive"> -->
           <h3 class="pull-right">Cari <i class="icon fa fa-search"></i></h3>
           <table class="table table-striped dt-responsive display wrap" id="mytable" cellspacing="0" width="100%">
             <thead>
