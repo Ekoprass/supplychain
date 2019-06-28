@@ -251,7 +251,7 @@
       {"data": "tgl_entry", "searchable": false},
       {"data": "dokumen"},
       {"data": "status_dokumen", render : function(data) {
-         return data == '1' ? '<div class="btn btn-success"><strong style="color:white; font-size:10pt"><i class="icon fa fa-check"></i> SELESAI</strong></div>' : '<div class="btn btn-danger"><strong style="color:white; font-size:10pt"><i class="icon fa fa-close"></i> BELUM SELESAI</strong></div>' ;
+         return data == '1' ? '<div class="label label-success"><strong style="color:white; font-size:10pt"><i class="icon fa fa-check"></i> SELESAI</strong></div>' : '<div class="label label-danger"><strong style="color:white; font-size:10pt"><i class="icon fa fa-close"></i> BELUM SELESAI</strong></div>' ;
       },
       className: "text-center"
     },
