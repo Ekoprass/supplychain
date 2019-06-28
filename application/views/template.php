@@ -71,7 +71,7 @@
             <div class="top-left">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="<?php echo site_url() ?>/home"><img src="<?php echo base_url() ?>assets/images/LOGOPAL.png" alt="Logo"></a>
-                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+                  <!--   <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a> -->
                 </div>
             </div>
             <div class="top-right">
