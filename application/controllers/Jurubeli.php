@@ -28,13 +28,13 @@ class Jurubeli extends CI_Controller{
                     'field' => 'Kode',
                     'label' => 'Kode Juru Beli',
                     'rules' => 'trim|required|is_unique[jurubeli.kd_jurubeli]',
-                    'errors'=> array('is_unique' =>'Kode Juru Beli Telah Terdaftar','required'=>'Form Kode Juru Beli Tidak Boleh Kosong' )
+                    'errors'=> array('is_unique' =>'Kode Juru Beli Telah Terdaftar','required'=>'Kode Juru Beli Tidak Boleh Kosong' )
             ),
             array(
                     'field' => 'Nama',
                     'label' => 'Nama Juru Beli',
                     'rules' => 'trim|required',
-                    'errors'=> array('required'=>'Form Nama Juru Beli Tidak Boleh Kosong' )
+                    'errors'=> array('required'=>'Nama Juru Beli Tidak Boleh Kosong' )
             )
     );
     $this->form_validation->set_rules($config);
@@ -47,7 +47,7 @@ class Jurubeli extends CI_Controller{
       'nama_jurubeli'     => $this->input->post('Nama'),
     );
     $this->db->insert('jurubeli', $data);
-        echo json_encode(['success'=>'Data Berhasil Ditambahkan']);
+        echo json_encode(['success'=>'Data Juru Beli Berhasil Ditambahkan']);
 
     redirect('jurubeli','refresh');
     
@@ -74,7 +74,7 @@ class Jurubeli extends CI_Controller{
     }else{
       $this->db->where('kd_jurubeli',$kode);
       $this->db->delete('jurubeli');
-      echo json_encode(['success'=>'Data Berhasil Dihapus']);
+      echo json_encode(['success'=>'Data Juru Beli Berhasil Dihapus']);
       redirect('jurubeli','refresh');
     }
     

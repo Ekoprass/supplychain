@@ -28,13 +28,13 @@ class Proyek extends CI_Controller{
                     'field' => 'Kode',
                     'label' => 'Kode Proyek',
                     'rules' => 'trim|required|is_unique[proyek.kd_proyek]',
-                    'errors'=> array('is_unique' =>'Kode Proyek Telah Terdaftar','required'=>'Form Kode Proyek Tidak Boleh Kosong' )
+                    'errors'=> array('is_unique' =>'Kode Proyek Telah Terdaftar','required'=>'Kode Proyek Tidak Boleh Kosong' )
             ),
             array(
                     'field' => 'Nama',
                     'label' => 'Nama Proyek',
                     'rules' => 'trim|required',
-                    'errors'=> array('required'=>'Form Nama Proyek Tidak Boleh Kosong' )
+                    'errors'=> array('required'=>'Nama Proyek Tidak Boleh Kosong' )
             )
     );
     $this->form_validation->set_rules($config);
@@ -47,7 +47,7 @@ class Proyek extends CI_Controller{
       'nama_proyek'     => $this->input->post('Nama'),
     );
     $this->db->insert('proyek', $data);
-        echo json_encode(['success'=>'Data Berhasil Ditambahkan']);
+        echo json_encode(['success'=>'Data Proyek Berhasil Ditambahkan']);
 
     redirect('proyek','refresh');
     
@@ -69,12 +69,12 @@ class Proyek extends CI_Controller{
   $this->db->where('proyek', $kode);
   $query=$this->db->get('arsip_dokumen');
   if ($query->num_rows()==1) {
-      $errors = "Delete Gagal! \nKode Juru Beli Terelasi Dengan Data Arsip";
+      $errors = "Delete Gagal! \nKode Proyek Terelasi Dengan Data Arsip";
       echo json_encode(['error'=>$errors]);
   }else{
     $this->db->where('kd_proyek',$kode);
     $this->db->delete('proyek');
-    echo json_encode(['success'=>'Data Berhasil Dihapus']);
+    echo json_encode(['success'=>'Data Proyek Berhasil Dihapus']);
     redirect('proyek','refresh');
   }
 }

@@ -56,7 +56,7 @@
          <div class="form-group">
           <label class=" form-control-label">Nomor Dokumen</label>
           <div class="input-group">
-            <input class="form-control" name="no_dokumen">
+            <input class="form-control" name="no_dokumen" readonly>
           </div>
         </div>
         <div class="form-group">
