@@ -3,8 +3,6 @@
 </style>
 <?php $this->view('template.php'); ?>
 
-
-
 <div class="content">
   <div class="animated fadeIn">
    <div class="row">
@@ -48,7 +46,7 @@
   <!-- Modal Update Produk-->
   <form id="add-row-form" action="<?php echo site_url()?>/Arsip/update" method="post" enctype="multipart/form-data">
    <div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog" style="width:1000px; max-width: unset">
      <div class="modal-content">
        <div class="modal-header">
          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -86,8 +84,9 @@
 
         <div class="form-group">
           <label class=" form-control-label">Kode Juru Beli</label>
+          <label class=" form-control-label pull-right" id="jb" hidden></label>
           <div class="input-group">
-          <input type="text" name="jb" hidden>
+          <input type="text" name="jb" hidden class="jb">
             <select class="standardSelect" tabindex="-1" style="display: none;" name="jurubeli" id='jurubeli'>
               <option value="" label="default"></option>
               <?php foreach ($jurubeli as $key) {?>
@@ -98,9 +97,10 @@
       </div>
       <div class="form-group">
         <label class=" form-control-label">Kode Proyek</label>
+        <label class=" form-control-label pull-right" id="pk" hidden></label>
         <div class="input-group">
-          <input type="text" name="pk" hidden>
-          <select class="standardSelect" tabindex="-1" style="display: none;" name="proyek">
+          <input type="text" name="pk"class="pk" hidden>
+          <select class="standardSelect" tabindex="-1" style="display: none;" name="proyek" id="proyek">
             <option value="" label="default"></option>
             <?php foreach ($proyek as $key) {?>
               <option value="<?php echo $key['kd_proyek']; ?>"><?php echo $key['kd_proyek']." | ".$key['nama_proyek']; ?></option>
@@ -110,9 +110,10 @@
       </div>
       <div class="form-group">
         <label class=" form-control-label">Kode Vendor</label>
+        <label class=" form-control-label pull-right" id="vn" hidden></label>
         <div class="input-group">
-          <input type="text" name="vn" hidden>
-          <select class="standardSelect" tabindex="-1" style="display: none;" name="vendor">
+          <input type="text" name="vn" class="vn" hidden>
+          <select class="standardSelect" tabindex="-1" style="display: none;" name="vendor" id="vendor">
             <option value="" label="default"></option>
             <?php foreach ($vendor as $key) {?>
               <option value="<?php echo $key['kd_vendor']; ?>"><?php echo $key['kd_vendor']." | ".$key['nama_vendor']; ?></option>
@@ -164,7 +165,7 @@
   <div class="modal-dialog" style="max-width: unset; width: 1000px;">
    <div class="modal-content">
      <div class="modal-header">
-       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+       <button type="reset" class="close" id="reset_me" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
        <h4 class="modal-title" id="myModalLabel">Lihat Dokumen PDF</h4>
      </div>
      <div class="modal-body">
@@ -296,6 +297,9 @@
         $('[name="pk"]').val(kd_proyek);
         $('[name="vn"]').val(kd_vendor);
         $('[name="jurubeli"]').val(jurubeli);
+        $('[id="jb"]').text(jurubeli);
+        $('[id="pk"]').text(proyek);
+        $('[id="vn"]').text(vendor);
         $('[name="proyek"]').val(proyek);
         $('[name="vendor"]').val(vendor);
         $('[name="rak"]').val(rak);
@@ -308,8 +312,38 @@
         }else if(status=="2"){
           $('input[id="status2"]').prop('checked',true);
         };
-            
-          });
+      });
+
+      jQuery(document).ready(function() {
+        $("#ModalUpdate").on('shown.bs.modal',function(){
+        jQuery("#jurubeli").chosen({
+          placeholder_text:$(".jb").val()+" | "+$("#jb").text(),
+          disable_search_threshold: 10,
+          no_results_text: "Maaf, Tidak bisa ditemukan!",
+          width: "100%"
+        });
+
+        jQuery("#proyek").chosen({
+          placeholder_text:$(".pk").val()+" | "+$("#pk").text(),
+          disable_search_threshold: 10,
+          no_results_text: "Maaf, Tidak bisa ditemukan!",
+          width: "100%"
+        });
+        jQuery("#vendor").chosen({
+          placeholder_text:$(".vn").val()+" | "+$("#vn").text(),
+          disable_search_threshold: 10,
+          no_results_text: "Maaf, Tidak bisa ditemukan!",
+          width: "100%"
+        }).trigger("chosen:updated");;
+        });
+      });
+
+      $("#reset_me").click(function() { 
+         jQuery("#jurubeli").chosen().trigger("chosen:updated");
+         jQuery("#proyek").chosen().trigger("chosen:updated");
+         jQuery("#vendor").chosen().trigger("chosen:updated");
+      });
+
       $('#mytable').on('click','.view_pdf',function(){
         var options = {
           pdfOpenParams: {
@@ -340,13 +374,5 @@
       // End Hapus Records
 
     });
-  </script>
-  <script>
-    jQuery(document).ready(function() {
-      jQuery(".standardSelect").chosen({
-        disable_search_threshold: 10,
-        no_results_text: "Maaf, Tidak bisa ditemukan!",
-        width: "100%"
-      });
-    });
+  
   </script>
