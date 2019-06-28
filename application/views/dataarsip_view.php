@@ -97,7 +97,7 @@
       </div>
       <div class="form-group">
         <label class=" form-control-label">Kode Proyek</label>
-        <label class=" form-control-label pull-right" id="pk" hidden></label>
+        <label class=" form-control-label pull-right" id="pk"  hidden></label>
         <div class="input-group">
           <input type="text" name="pk"class="pk" hidden>
           <select class="standardSelect" tabindex="-1" style="display: none;" name="proyek" id="proyek">
@@ -110,7 +110,7 @@
       </div>
       <div class="form-group">
         <label class=" form-control-label">Kode Vendor</label>
-        <label class=" form-control-label pull-right" id="vn" hidden></label>
+        <label class=" form-control-label pull-right" id="vn"  hidden></label>
         <div class="input-group">
           <input type="text" name="vn" class="vn" hidden>
           <select class="standardSelect" tabindex="-1" style="display: none;" name="vendor" id="vendor">
@@ -153,7 +153,7 @@
     <input type="text" name="tgl_entry" hidden>
     <input type="text" name="petugas" hidden>
     <div class="modal-footer">
-      <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+      <button type="reset" class="btn btn-default" id="reset_me" data-dismiss="modal" onClick="history.go(0);">Tutup</button>
       <button type="submit" id="add-row" class="btn btn-success">Perbarui</button>
     </div>
   </div>
@@ -165,7 +165,7 @@
   <div class="modal-dialog" style="max-width: unset; width: 1000px;">
    <div class="modal-content">
      <div class="modal-header">
-       <button type="reset" class="close" id="reset_me" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+       <button type="reset" class="close"  data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
        <h4 class="modal-title" id="myModalLabel">Lihat Dokumen PDF</h4>
      </div>
      <div class="modal-body">
@@ -314,35 +314,33 @@
         };
       });
 
+
       jQuery(document).ready(function() {
         $("#ModalUpdate").on('shown.bs.modal',function(){
-        jQuery("#jurubeli").chosen({
-          placeholder_text:$(".jb").val()+" | "+$("#jb").text(),
-          disable_search_threshold: 10,
-          no_results_text: "Maaf, Tidak bisa ditemukan!",
-          width: "100%"
-        });
+          jQuery("#jurubeli").chosen({
+            placeholder_text:$(".jb").val()+" | "+$("#jb").text(),
+            disable_search_threshold: 10,
+            no_results_text: "Maaf, Tidak bisa ditemukan!",
+            width: "100%"
+          });
 
-        jQuery("#proyek").chosen({
-          placeholder_text:$(".pk").val()+" | "+$("#pk").text(),
-          disable_search_threshold: 10,
-          no_results_text: "Maaf, Tidak bisa ditemukan!",
-          width: "100%"
+          jQuery("#proyek").chosen({
+            placeholder_text:$(".pk").val()+" | "+$("#pk").text(),
+            disable_search_threshold: 10,
+            no_results_text: "Maaf, Tidak bisa ditemukan!",
+            width: "100%"
+          });
+          jQuery("#vendor").chosen({
+            placeholder_text:$(".vn").val()+" | "+$("#vn").text(),
+            disable_search_threshold: 10,
+            no_results_text: "Maaf, Tidak bisa ditemukan!",
+            width: "100%"
+          });
         });
-        jQuery("#vendor").chosen({
-          placeholder_text:$(".vn").val()+" | "+$("#vn").text(),
-          disable_search_threshold: 10,
-          no_results_text: "Maaf, Tidak bisa ditemukan!",
-          width: "100%"
-        }).trigger("chosen:updated");;
-        });
-      });
+        
+    });
 
-      $("#reset_me").click(function() { 
-         jQuery("#jurubeli").chosen().trigger("chosen:updated");
-         jQuery("#proyek").chosen().trigger("chosen:updated");
-         jQuery("#vendor").chosen().trigger("chosen:updated");
-      });
+    
 
       $('#mytable').on('click','.view_pdf',function(){
         var options = {
@@ -374,5 +372,6 @@
       // End Hapus Records
 
     });
-  
+
+
   </script>
