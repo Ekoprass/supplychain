@@ -92,7 +92,7 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label class=" form-control-label">Scan Dokumen (PDF File) <small>Ukuran Maks File 5MB</small></label>
+							<label class=" form-control-label">Scan Dokumen (PDF File) <small>Ukuran Maks File 10MB</small></label>
 							<div class="input-group">
 								<input class="form-control" type="File"  name="dokumen" required>
 							</div>
