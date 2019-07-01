@@ -9,8 +9,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="shortcut icon" href="https://pmb.aknbojonegoro.ac.id/wp-content/uploads/2019/02/cropped-polinema.png">
 	<style type="text/css">
 
-	::selection { background-color: #E13300; color: white; }
-	::-moz-selection { background-color: #E13300; color: white; }
 
 /*<body style="background-image:url('<?php echo base_url() ?>assets/images/bc.jpeg'); background-repeat: no-repeat;
   background-size: cover; "> */

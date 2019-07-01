@@ -68,7 +68,7 @@ class User extends CI_Controller{
       'nama_petugas'    => $this->input->post('Nama'),
       'username'		=> $this->input->post('Username'),
       'password'		=> mD5($this->input->post('Password')),
-      'hak_akses'		=> $this->input->post('hak_akses'),
+      'hak_akses'		=> '1'
     );
     $this->db->insert('petugas', $data);
     	echo json_encode(['success'=>'Data Petugas Berhasil Ditambahkan']);

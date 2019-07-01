@@ -28,6 +28,7 @@
                 <th style="font-size: 8pt">KODE VENDOR</th>
                 <th style="font-size: 8pt">POSISI RAK</th>
                 <th style="font-size: 8pt">PETUGAS ENTRY</th>
+                <th style="font-size: 8pt">PETUGAS </th>
                 <th style="font-size: 8pt">TANGGAL ENTRY</th>
                 <th style="font-size: 8pt">DOKUMEN</th>
                 <th style="font-size: 8pt">STATUS DOKUMEN</th>
@@ -162,13 +163,13 @@
 
 <div class="modal fade" id="ModalViewPDF" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" style="max-width: unset; width: 1000px;">
-   <div class="modal-content">
+   <div class="modal-content" style="height: 700px">
      <div class="modal-header">
        <button type="reset" class="close"  data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
        <h4 class="modal-title" id="myModalLabel">Lihat Dokumen PDF</h4>
      </div>
      <div class="modal-body">
-      <div id="pdf" style="max-width: unset;"></div>
+      <div id="pdf" style="height:550px"></div>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
@@ -184,7 +185,6 @@
 <script src="<?php echo base_url().'assets/js/jquery.datatables.min.js'?>"></script>
 <script src="<?php echo base_url().'assets/js/dataTables.bootstrap.js'?>"></script>
 <!-- Specific Page Vendor -->
-<script src="<?php echo base_url()?>assets/select2/select2.js"></script>
 <script src="<?php echo base_url()?>assets/jquery-datatables/media/js/jquery.dataTables.js"></script>
 <script src="<?php echo base_url()?>assets/jquery-datatables-bs3/assets/js/datatables.js"></script>
 
@@ -238,7 +238,7 @@
       columns: [
       {"data": "no_dokumen"},
       {"data": "no_po"},
-      {"data": "tgl_po"},
+      {"data": "tgl_po", render : function(data){ return moment(data).format('DD MMMM YYYY');}},
       {"data": "deskripsi"},
       {"data": "nm_jurubeli"},
       {"data": "nm_proyek"},
@@ -248,6 +248,7 @@
       {"data": "vendor", "searchable": false, "visible":false},
       {"data": "rak_ke"},
       {"data": "petugas", "searchable": true},
+      {"data": "no_petugas", "searchable": false, "visible":false},
       {"data": "tgl_entry", "searchable": false},
       {"data": "dokumen"},
       {"data": "status_dokumen", render : function(data) {
@@ -255,7 +256,7 @@
       },
       className: "text-center"
     },
-       {"data": "", "orderable":false, "searchable": false, "render": function (data, type, row) {return '<button class="btn btn-warning" data-toggle="modal" data-no_dokumen="'+row.no_dokumen+'" data-no_po="'+row.no_po+'" data-tgl_po="'+row.tgl_po+'" data-deskripsi="'+row.deskripsi+'"data-jurubeli="'+row.nm_jurubeli+'" data-kd_jurubeli="'+row.jurubeli+'"data-proyek="'+row.nm_proyek+'"data-kd_proyek="'+row.proyek+'" data-vendor="'+row.nm_vendor+'" data-kd_vendor="'+row.vendor+'" data-rak_ke="'+row.rak_ke+'" data-dokumen="'+row.dokumen+'" data-status="'+row.status_dokumen+'" data-petugas="'+row.petugas+'" data-entry="'+row.tgl_entry+'" data-target="#ModalUpdate" onclick="delrec()"><i class="icon fa fa-edit"></i> Edit</button>';}},
+       {"data": "", "orderable":false, "searchable": false, "render": function (data, type, row) {return '<button class="btn btn-warning" data-toggle="modal" data-no_dokumen="'+row.no_dokumen+'" data-no_po="'+row.no_po+'" data-tgl_po="'+row.tgl_po+'" data-deskripsi="'+row.deskripsi+'"data-jurubeli="'+row.nm_jurubeli+'" data-kd_jurubeli="'+row.jurubeli+'"data-proyek="'+row.nm_proyek+'"data-kd_proyek="'+row.proyek+'" data-vendor="'+row.nm_vendor+'" data-kd_vendor="'+row.vendor+'" data-rak_ke="'+row.rak_ke+'" data-dokumen="'+row.dokumen+'" data-status="'+row.status_dokumen+'" data-petugas="'+row.no_petugas+'" data-entry="'+row.tgl_entry+'" data-target="#ModalUpdate" onclick="delrec()"><i class="icon fa fa-edit"></i> Edit</button>';}},
 
       {"data": "pdf", "orderable":false}
       ],

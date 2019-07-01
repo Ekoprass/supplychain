@@ -49,7 +49,7 @@
                                <input type="text" id="Username" name="Username" class="form-control" placeholder="Masukkan Username" required>
                            </div>
                            <div class="form-group">
-                               <input type="text" id="Password" name="Password" class="form-control" placeholder="Masukkan Password" required>
+                               <input type="password" id="Password" name="Password" class="form-control" placeholder="Masukkan Password" required>
                            </div>
                            <!-- <div class="form-group">
                                <input type="text" name="hak_akses" class="form-control" placeholder="Ketik : 1 untuk user, 2 untuk admin" required>
@@ -102,7 +102,7 @@
                                <input type="text" name="Username" class="form-control" placeholder="Masukkan Username" required>
                            </div>
                            <div class="form-group">
-                               <input type="text" name="Password" class="form-control" placeholder="Masukkan Password" required>
+                               <input type="password" name="Password" class="form-control" placeholder="Masukkan Password" required>
                            </div>
                           <!--  <div class="form-group">
                                <input type="text" name="hak_akses" class="form-control" placeholder="Ketik : 1 untuk user, 2 untuk admin" required>
@@ -208,7 +208,10 @@ function delrec() {
                         {"data": "nama_petugas"},
                         {"data": "username"},
                         {"data": "password"},
-                        {"data": "hak_akses"},
+                        {"data": "hak_akses", render : function(data) {
+                                return data == '1' ? 'Petugas' : 'Administrator'},
+                                 className: "text-center"
+                        },
                         {"data": "view", "sortable":false},
                         // {"data": "view"},
                   ],
@@ -235,6 +238,11 @@ function delrec() {
             $('[name="Username"]').val(Username);
             $('[name="Password"]').val(Password);
             // $('[name="hak_akses"]').val(hak_akses);
+            if(hak_akses=="1"){
+              $('input[id="radio1"]').prop('checked',true);
+            }else if(hak_akses=="2"){
+              $('input[id="radio2"]').prop('checked',true);
+            };
             
       });
       // End Edit Records

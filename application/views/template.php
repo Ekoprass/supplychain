@@ -32,8 +32,6 @@
     <link href="<?php echo base_url().'assets/css/jquery.datatables.min.css'?>" rel="stylesheet" type="text/css"/>
   <link href="<?php echo base_url().'assets/css/dataTables.bootstrap.css'?>" rel="stylesheet" type="text/css"/>
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
-<link href="<?php echo base_url()?>assets/dist/css/select2.min.css" rel="stylesheet" />
 <div class="content">
 
 <!--pdf viewer-->
