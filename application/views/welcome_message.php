@@ -86,7 +86,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <style>
   .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
-    width: 100%;
+    width: 92%;
   }
   </style>
 	<h1>Selamat Datang di PT.PAL Indonesia</h1>
