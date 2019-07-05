@@ -23,6 +23,7 @@ class Arsip extends CI_Controller {
 	    $data['proyek']=$this->Arsip_model->get_all_py();
 	    $data['vendor']=$this->Arsip_model->get_all_vn();
 
+
 	    $this->db->select("no_dokumen");
 				$this->db->from("arsip_dokumen");
 				$this->db->limit(1);
@@ -47,6 +48,8 @@ class Arsip extends CI_Controller {
 				}
 				}
 				$data['no_dokumen']=$no_dokumen;
+
+	    $data['rak_ke']=$this->Arsip_model->get_all_rak();
 		$this->load->view('arsip',$data);
 	}
 
@@ -64,6 +67,7 @@ class Arsip extends CI_Controller {
 		    $data['jurubeli']=$this->Arsip_model->get_all_jb();
 		    $data['proyek']=$this->Arsip_model->get_all_py();
 		    $data['vendor']=$this->Arsip_model->get_all_vn();
+		    $data['rak_ke']=$this->Arsip_model->get_all_rak();
 			$this->load->view('dataarsip_view',$data);
 		}
 
@@ -85,6 +89,7 @@ class Arsip extends CI_Controller {
 		    $data['jurubeli']=$this->Arsip_model->get_all_jb();
 		    $data['proyek']=$this->Arsip_model->get_all_py();
 		    $data['vendor']=$this->Arsip_model->get_all_vn();
+		    $data['rak_ke']=$this->Arsip_model->get_all_rak();
 			$this->load->view('arsip',$data);
 		}else{
 			$config['upload_path'] = realpath('./assets/dokument/');

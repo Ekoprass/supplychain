@@ -39,6 +39,13 @@ class Arsip_model extends CI_Model {
     $get=$this->db->get('vendor');
     return $get->result_array();
   }
+
+  function get_all_rak()
+  {
+    $this->db->select('kd_rak,nama_rak');
+    $get=$this->db->get('rak_ke');
+    return $get->result_array();
+  }
 // <button><i class="fa fa-edit"></button>
 }
 
