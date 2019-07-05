@@ -86,6 +86,17 @@
 							</div>
 						</div>
 						<div class="form-group">
+							<label class=" form-control-label">Kode Rak</label>
+							<div class="input-group">
+								<select class="standardSelect" name="rak_ke" tabindex="-1" style="display: none;" required>
+									<option value="" label="default"></option>
+									<?php foreach ($rak_ke as $key) {?>
+										<option value="<?php echo $key['kd_rak']; ?>"><?php echo $key['kd_rak']." | ".$key['nama_rak']; ?></option>
+									<?php } ?>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
 							<label class=" form-control-label">Posisi Rak Dokumen</label>
 							<div class="input-group">
 								<?php 
