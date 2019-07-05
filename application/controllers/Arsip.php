@@ -30,13 +30,13 @@ class Arsip extends CI_Controller {
 				$this->db->order_by('no_dokumen',"DESC");
 				$query = $this->db->get();
 				$result = $query->result();
-				foreach ($result as $id) {				
 				if ($result==null) {
 					$th=date("y");
 					$n="0000";
 					$n2 = str_pad($n + 1, 4, 0, STR_PAD_LEFT);
 					$no_dokumen=$th."".$n2;
 				}else{
+				foreach ($result as $id) {				
 					$th=date("y");
 					$n=$id->no_dokumen;
 					$th_db=substr($n, 0,2);
@@ -44,7 +44,7 @@ class Arsip extends CI_Controller {
 						$n="0000";	
 					}
 					$n2 = str_pad($n + 1, 4, 0, STR_PAD_LEFT);
-					echo $no_dokumen=$n2;
+					$no_dokumen=$n2;
 				}
 				}
 				$data['no_dokumen']=$no_dokumen;

@@ -91,6 +91,10 @@
 								</select>
 							</div>
 						</div>
+						<?php 
+							$session_data=$this->session->userdata('logged_in');
+							$akses=$session_data['hak_akses'];
+							if($akses==2){?>
 						<div class="form-group">
 							<label class=" form-control-label">Kode Rak</label>
 							<div class="input-group">
@@ -102,20 +106,8 @@
 								</select>
 							</div>
 						</div>
-						<div class="form-group">
-							<label class=" form-control-label">Posisi Rak Dokumen</label>
-							<div class="input-group">
-								<?php 
-									$session_data=$this->session->userdata('logged_in');
-	    							$akses=$session_data['hak_akses'];
-									if($akses==1){?>
-										<input class="form-control" name="rak" readonly>
-									<?php }else{ ?>
-										<input class="form-control" name="rak" required>
-			
-								<?php } ?>
-							</div>
-						</div>
+					<?php }else{ }?>
+						
 						<div class="form-group">
 							<label class=" form-control-label">Scan Dokumen (PDF File) <small>Ukuran Maks File 10MB</small></label>
 							<div class="input-group">
@@ -177,8 +169,3 @@
 		format: "dd-mm-yyyy"
 	});
 </script>
-
-</body>
-
-
-</html>
