@@ -106,7 +106,7 @@ class Arsip extends CI_Controller {
 				$session_data=$this->session->userdata('logged_in');
 				
 				if (!$this->input->post('rak')) {
-					$rak="Rak Belum Diisi!";
+					$rak="Kosong";
 				}else{
 					$rak=$this->input->post('rak');
 				}

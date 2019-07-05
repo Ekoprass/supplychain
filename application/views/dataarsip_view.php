@@ -309,7 +309,7 @@
         var page = info.iPage;
         var length = info.iLength;
         $('td:eq(0)', row).html();
-        if(data["kd_rak"] == ""){
+        if(data["kd_rak"] == "Kosong"){
                 $('td', row).css('background-color', '#a11313');
                 $('td', row).css('color', '#fff');
             }
