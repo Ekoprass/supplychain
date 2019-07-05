@@ -12,24 +12,7 @@
        <div class="card-body card-block">
         <!-- <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">TAMBAH PETUGAS</button> -->
         <!-- <div class="table-responsive"> -->
-          <form class='filter-form'>
-    <h3>Filters</h3>
-    <div>
-        <label>Name :</label>
-        <input type='text' value='' class='filter' data-column-index='0'>
-    </div>
-     <div>
-        <label>Position :</label>
-        <input type='text' value='' class='filter' data-column-index='1'>
-    </div>
-     <div>
-        <label>Age :</label>
-        <input type='text' value='' class='filter' data-column-index='3'>
-    </div>
-    <button type="button" class="filter-button">
-    search
-    </button>
-</form>
+      
           <h3 class="pull-right">Cari <i class="icon fa fa-search"></i></h3>
           <table class="table table-striped dt-responsive display wrap" id="mytable" cellspacing="0" width="100%">
             <thead>
