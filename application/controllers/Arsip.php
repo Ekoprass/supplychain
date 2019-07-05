@@ -22,6 +22,31 @@ class Arsip extends CI_Controller {
 	    $data['jurubeli']=$this->Arsip_model->get_all_jb();
 	    $data['proyek']=$this->Arsip_model->get_all_py();
 	    $data['vendor']=$this->Arsip_model->get_all_vn();
+
+	    $this->db->select("no_dokumen");
+				$this->db->from("arsip_dokumen");
+				$this->db->limit(1);
+				$this->db->order_by('no_dokumen',"DESC");
+				$query = $this->db->get();
+				$result = $query->result();
+				foreach ($result as $id) {				
+				if ($result==null) {
+					$th=date("y");
+					$n="0000";
+					$n2 = str_pad($n + 1, 4, 0, STR_PAD_LEFT);
+					$no_dokumen=$th."".$n2;
+				}else{
+					$th=date("y");
+					$n=$id->no_dokumen;
+					$th_db=substr($n, 0,2);
+					if ($th>$th_db) {
+						$n="0000";	
+					}
+					$n2 = str_pad($n + 1, 4, 0, STR_PAD_LEFT);
+					echo $no_dokumen=$n2;
+				}
+				}
+				$data['no_dokumen']=$no_dokumen;
 		$this->load->view('arsip',$data);
 	}
 
@@ -74,15 +99,22 @@ class Arsip extends CI_Controller {
 				date_default_timezone_set('Asia/Jakarta');
 				$d=strtotime($this->input->post('tgl_po'));
 				$session_data=$this->session->userdata('logged_in');
+				
+				if (!$this->input->post('rak')) {
+					$rak="Rak Belum Diisi!";
+				}else{
+					$rak=$this->input->post('rak');
+				}
 				$data=array(
 			      'no_dokumen'      	=> $this->input->post('no_dokumen'),
+			      'no_surat'	      	=> $this->input->post('no_surat'),
 			      'no_po'    			=> $this->input->post('no_po'),
 			      'tgl_po'				=> date("Y-m-d",$d),
 			      'deskripsi'			=> $this->input->post('deskripsi'),
 			      'jurubeli'			=> $this->input->post('jurubeli'),
 			      'proyek'				=> $this->input->post('proyek'),
 			      'vendor'				=> $this->input->post('vendor'),
-			      'rak_ke'					=> $this->input->post('rak'),
+			      'kd_rak'				=> $rak,
 			      'tgl_entry'			=> date("Y-m-d h:i:s"),
 			      'petugas'				=> $session_data['id_petugas'],
 			      'status_dokumen'		=> $this->input->post('status'),
@@ -139,20 +171,21 @@ class Arsip extends CI_Controller {
 			$kode=$this->input->post('no_dokumen');
 			$data=array(
 		      'no_dokumen'      	=> $kode,
+			  'no_surat'	      	=> $this->input->post('no_surat'),
 		      'no_po'    			=> $this->input->post('no_po'),
 		      'tgl_po'				=> date("Y-m-d",$d),
 		      'deskripsi'			=> $this->input->post('deskripsi'),
 		      'jurubeli'			=> $jurubeli,
 		      'proyek'				=> $proyek,
 		      'vendor'				=> $vendor,
-		      'rak_ke'				=> $this->input->post('rak'),
+		      'kd_rak'				=> $this->input->post('rak'),
 		      'tgl_entry'			=> $this->input->post('tgl_entry'),
 		      'petugas'				=> $this->input->post('petugas'),
 		      'status_dokumen'		=> $this->input->post('status'),
 		      'dokumen'				=> $dokumen
 		    );	
     		$this->db->where('no_dokumen',$kode);
-			 $this->db->update('arsip_dokumen', $data);
+			$this->db->update('arsip_dokumen', $data);
 			  redirect('Arsip/Data');
 			
 	}

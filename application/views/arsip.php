@@ -33,7 +33,13 @@
 							<label class=" form-control-label">Nomor Dokumen</label>
 							<div class="input-group">
 								<?php echo form_error('no_dokumen', ' <div class="alert alert-danger" role="alert">', '</div>'); ?>
-								<input class="form-control" name="no_dokumen" required>
+								<input class="form-control" name="no_dokumen" readonly value="<?php echo $no_dokumen ?>">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class=" form-control-label">Nomor Surat</label>
+							<div class="input-group">
+								<input class="form-control" name="no_surat" required>
 							</div>
 						</div>
 						<div class="form-group">

@@ -5,7 +5,7 @@ class Arsip_model extends CI_Model {
 
 	 function get_all() 
   {
-    $this->datatables->select('no_dokumen,no_po,tgl_po,deskripsi,jurubeli,proyek,vendor,jurubeli.nama_jurubeli as nm_jurubeli,proyek.nama_proyek as nm_proyek,vendor.nama_vendor as nm_vendor,kd_rak,petugas.nama_petugas as petugas,petugas.no_petugas as no_petugas,petugas.hak_akses as akses_petugas, tgl_entry, dokumen, status_dokumen');
+    $this->datatables->select('no_dokumen,no_po,tgl_po,deskripsi,jurubeli,proyek,vendor,jurubeli.nama_jurubeli as nm_jurubeli,proyek.nama_proyek as nm_proyek,vendor.nama_vendor as nm_vendor,kd_rak,petugas.nama_petugas as petugas,petugas.no_petugas as no_petugas,petugas.hak_akses as akses_petugas, tgl_entry, dokumen, status_dokumen, no_surat');
     $this->datatables->from('arsip_dokumen');
     $this->datatables->join('jurubeli', 'arsip_dokumen.jurubeli = jurubeli.kd_jurubeli');
     $this->datatables->join('proyek', 'arsip_dokumen.proyek = proyek.kd_proyek');

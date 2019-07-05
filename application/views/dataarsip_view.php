@@ -35,6 +35,7 @@
             <thead>
               <tr>
                 <th style="font-size: 8pt">NO. DOKUMEN</th>
+                <th style="font-size: 8pt">NO. SURAT</th>
                 <th style="font-size: 8pt">NO. PURCHASE ORDER</th>
                 <th style="font-size: 8pt">TANGGAL PO</th>
                 <th style="font-size: 8pt">DESKRIPSI</th>
@@ -76,6 +77,12 @@
           <label class=" form-control-label">Nomor Dokumen</label>
           <div class="input-group">
             <input class="form-control" name="no_dokumen" readonly>
+          </div>
+        </div>
+         <div class="form-group">
+          <label class=" form-control-label">Nomor Surat</label>
+          <div class="input-group">
+            <input class="form-control" name="no_surat">
           </div>
         </div>
         <div class="form-group">
@@ -143,7 +150,15 @@
       <div class="form-group">
         <label class=" form-control-label">Posisi Rak Dokumen</label>
         <div class="input-group">
-          <input type="text" class="form-control" name="rak">
+          <?php 
+            $session_data=$this->session->userdata('logged_in');
+            $akses=$session_data['hak_akses'];
+            if($akses==1){?>
+              <input class="form-control" name="rak" readonly>
+            <?php }else{ ?>
+              <input class="form-control" name="rak" required>
+
+          <?php } ?>
         </div>
       </div>
       <div class="form-group">
@@ -153,6 +168,7 @@
           <input class="form-control" type="File" name="dokumen">
         </div>
       </div>
+      <?php if($akses==2){?>
       <div class="form-group">
         <label class=" form-control-label">Status Purchase Order</label>
         <div class="input-group">
@@ -168,6 +184,7 @@
           </div>
         </div>
       </div>
+      <?php } else{} ?>
     </div>
     <input type="text" name="tgl_entry" hidden>
     <input type="text" name="petugas" hidden>
@@ -255,7 +272,7 @@
     } );
   
 
-    var table = $("#mytable").DataTable({
+    var table = $("#mytable").dataTable({
       orderCellsTop: true,
       // "bFilter": false,
       dom: 'lBfrtip',
@@ -267,6 +284,7 @@
       ajax: {"url": "<?php echo base_url().'index.php/arsip/get_guest_json'?>", "type": "POST"},
       columns: [
       {"data": "no_dokumen"},
+      {"data": "no_surat"},
       {"data": "no_po"},
       {"data": "tgl_po", render : function(data){ return moment(data).format('DD MMMM YYYY');}},
       {"data": "deskripsi"},
@@ -292,9 +310,9 @@
                       $akses=$session_data['hak_akses']; 
                       $no_petugas=$session_data['id_petugas'];?>
                 if (row.no_petugas==<?php echo $no_petugas ?> & row.akses_petugas==2 ) {
-                  return '<button class="btn btn-warning" data-toggle="modal" data-no_dokumen="'+row.no_dokumen+'" data-no_po="'+row.no_po+'" data-tgl_po="'+row.tgl_po+'" data-deskripsi="'+row.deskripsi+'"data-jurubeli="'+row.nm_jurubeli+'" data-kd_jurubeli="'+row.jurubeli+'"data-proyek="'+row.nm_proyek+'"data-kd_proyek="'+row.proyek+'" data-vendor="'+row.nm_vendor+'" data-kd_vendor="'+row.vendor+'" data-kd_rak="'+row.kd_rak+'" data-dokumen="'+row.dokumen+'" data-status="'+row.status_dokumen+'" data-petugas="'+row.no_petugas+'" data-entry="'+row.tgl_entry+'" data-target="#ModalUpdate" onclick="delrec()"><i class="icon fa fa-edit"></i> Edit</button>';
+                  return '<button class="btn btn-warning" data-toggle="modal" data-no_dokumen="'+row.no_dokumen+'" data-no_po="'+row.no_po+'" data-tgl_po="'+row.tgl_po+'" data-deskripsi="'+row.deskripsi+'"data-jurubeli="'+row.nm_jurubeli+'" data-kd_jurubeli="'+row.jurubeli+'"data-proyek="'+row.nm_proyek+'"data-kd_proyek="'+row.proyek+'" data-vendor="'+row.nm_vendor+'" data-kd_vendor="'+row.vendor+'" data-kd_rak="'+row.kd_rak+'" data-dokumen="'+row.dokumen+'" data-status="'+row.status_dokumen+'" data-petugas="'+row.no_petugas+'" data-entry="'+row.tgl_entry+'" data-no_surat="'+row.no_surat+'" data-target="#ModalUpdate" onclick="delrec()"><i class="icon fa fa-edit"></i> Edit</button>';
                    }else if(row.akses_petugas==1){
-                    return '<button class="btn btn-warning" data-toggle="modal" data-no_dokumen="'+row.no_dokumen+'" data-no_po="'+row.no_po+'" data-tgl_po="'+row.tgl_po+'" data-deskripsi="'+row.deskripsi+'"data-jurubeli="'+row.nm_jurubeli+'" data-kd_jurubeli="'+row.jurubeli+'"data-proyek="'+row.nm_proyek+'"data-kd_proyek="'+row.proyek+'" data-vendor="'+row.nm_vendor+'" data-kd_vendor="'+row.vendor+'" data-kd_rak="'+row.kd_rak+'" data-dokumen="'+row.dokumen+'" data-status="'+row.status_dokumen+'" data-petugas="'+row.no_petugas+'" data-entry="'+row.tgl_entry+'" data-target="#ModalUpdate" onclick="delrec()"><i class="icon fa fa-edit"></i> Edit</button>';
+                    return '<button class="btn btn-warning" data-toggle="modal" data-no_dokumen="'+row.no_dokumen+'" data-no_po="'+row.no_po+'" data-tgl_po="'+row.tgl_po+'" data-deskripsi="'+row.deskripsi+'"data-jurubeli="'+row.nm_jurubeli+'" data-kd_jurubeli="'+row.jurubeli+'"data-proyek="'+row.nm_proyek+'"data-kd_proyek="'+row.proyek+'" data-vendor="'+row.nm_vendor+'" data-kd_vendor="'+row.vendor+'" data-kd_rak="'+row.kd_rak+'" data-dokumen="'+row.dokumen+'" data-status="'+row.status_dokumen+'" data-petugas="'+row.no_petugas+'" data-entry="'+row.tgl_entry+'" data-no_surat="'+row.no_surat+'" data-target="#ModalUpdate" onclick="delrec()"><i class="icon fa fa-edit"></i> Edit</button>';
                    }else{
                     return ''
                    }               
@@ -302,13 +320,18 @@
 
       {"data": "pdf", "orderable":false}
       ],
-      order: [[1, 'asc']],
+      order: [[0, 'desc']],
       rowCallback: function(row, data, iDisplayIndex) {
         var info = this.fnPagingInfo();
         var page = info.iPage;
         var length = info.iLength;
         $('td:eq(0)', row).html();
+        if(data["kd_rak"] == ""){
+                $('td', row).css('background-color', '#a11313');
+                $('td', row).css('color', '#fff');
+            }
       },
+     
       initComplete: function() {
           var api = this.api();
           $('#mytable_filter input').off('.DT').on('input.DT', function() {
@@ -339,6 +362,7 @@ $(".filter-button").on("click", function () {
       $("#ModalUpdate").on('shown.bs.modal',function(e){
         var triggerLink = $(e.relatedTarget);
         var no_dokumen=triggerLink.data("no_dokumen");
+        var no_surat=triggerLink.data("no_surat");
         var no_po=triggerLink.data('no_po');
         var tgl_po=triggerLink.data('tgl_po');
         var deskripsi=triggerLink.data('deskripsi');
@@ -355,6 +379,7 @@ $(".filter-button").on("click", function () {
         var entry=triggerLink.data('entry');
 
         $('[name="no_dokumen"]').val(no_dokumen);
+        $('[name="no_surat"]').val(no_surat);
         $('[name="no_po"]').val(no_po);
         $('[name="tgl_po"]').val(tgl_po);
         $('[name="deskripsi"]').val(deskripsi);
