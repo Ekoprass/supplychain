@@ -31,7 +31,7 @@
     <link href="<?php echo base_url().'assets/css/bootstrap.css'?>" rel="stylesheet" type="text/css"/>
     <link href="<?php echo base_url().'assets/css/jquery.datatables.min.css'?>" rel="stylesheet" type="text/css"/>
   <link href="<?php echo base_url().'assets/css/dataTables.bootstrap.css'?>" rel="stylesheet" type="text/css"/>
-
+   <link href="<?php echo base_url().'assets/jquery-datatables/jquery.dataTables.yadcf.css'?>" rel="stylesheet" type="text/css"/>
 <div class="content">
 
 <!--pdf viewer-->

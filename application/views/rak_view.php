@@ -8,7 +8,7 @@
                    <h2 style="color: #fff">DATA RAK</h2>
               </div>
               <div class="card-body card-block">
-          		<button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">TAMBAH RAK</button>
+          		<button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd" onclick="delrec()">TAMBAH RAK</button>
               <h3 class="pull-right">Cari <i class="icon fa fa-search"></i></h3>
               <table class="table table-striped" id="mytable">
                 <thead>
@@ -33,11 +33,13 @@
 	                   <h4 class="modal-title" id="myModalLabel">TAMBAH DATA RAK</h4>
 	               </div>
 	               <div class="modal-body">
+                      <div class="alert alert-danger print-error-msg" style="display:none"></div>
+                      <div class="alert alert-primary print-success-msg" style="display:none"></div>
 	                   <div class="form-group">
-	                       <input type="text" name="Kode" disabled class="form-control" placeholder="Kode Rak" required>
+	                       <input type="text" name="Kode" id="kd_rak" class="form-control" placeholder="Kode Rak" required>
 	                   </div>
 										 <div class="form-group">
-	                       <input type="text" name="Nama" class="form-control" placeholder="Nama Rak" required>
+	                       <input type="text" name="Nama" id="nama_rak" class="form-control" placeholder="Nama Rak" required>
 	                   </div>
 	               </div>
 	               <div class="modal-footer">
@@ -85,7 +87,7 @@
  	                   <h4 class="modal-title" id="myModalLabel">Hapus</h4>
  	               </div>
  	               <div class="modal-body">
- 	                       <input type="hidden" name="Kode" class="form-control" placeholder="Kode Rak" required>
+ 	                       <input type="hidden" name="Kode" id="del-rak" class="form-control" placeholder="Kode Rak" required>
 												 <strong>Anda yakin mau menghapus record ini?</strong>
  	               </div>
  	               <div class="modal-footer">
@@ -143,9 +145,9 @@
               serverSide: true,
               ajax: {"url": "<?php echo base_url().'index.php/rak/get_guest_json'?>", "type": "POST"},
                 	columns: [
-												{"data": "no_rak"},
-												{"data": "rak_ke"},
-                        {"data": "view"}
+												{"data": "kd_rak"},
+												{"data": "nama_rak"},
+                        {"data": "view", "sortable":false}
                   ],
           		order: [[1, 'asc']],
           rowCallback: function(row, data, iDisplayIndex) {
@@ -159,8 +161,8 @@
 			// end setup datatables
 			// get Edit Records
 			$('#mytable').on('click','.edit_record',function(){
-            var Kode=$(this).data('no_rak');
-						var Nama=$(this).data('rak_ke');
+            var Kode=$(this).data('kd_rak');
+						var Nama=$(this).data('nama_rak');
             $('#ModalUpdate').modal('show');
             $('[name="Kode"]').val(Kode);
 						$('[name="Nama"]').val(Nama);
@@ -169,7 +171,7 @@
 			// End Edit Records
 			// get Hapus Records
 			$('#mytable').on('click','.hapus_record',function(){
-            var kode=$(this).data('no_rak');
+            var kode=$(this).data('kd_rak');
             $('#ModalHapus').modal('show');
             $('[name="Kode"]').val(kode);
       });
@@ -177,5 +179,59 @@
 
 	});
 </script>
-</body>
-</html>
+<script type="text/javascript">
+  $(document).ready(function() {
+      $("#add-row").click(function(e){
+        e.preventDefault();
+        var kd_rak = $("input[id='kd_rak']").val();
+        var nama_rak = $("input[id='nama_rak']").val();
+          $.ajax({
+              url: "<?php echo site_url() ?>/rak/simpan",
+              type:'POST',
+              dataType: "json",
+              data: {Kode:kd_rak, Nama:nama_rak},
+              success: function(data) {
+                  if($.isEmptyObject(data.error)){
+                    $(".print-success-msg").css('display','block');
+                    // alert(data.success);
+                    $(".print-success-msg").html(data.success);
+                    $(".print-error-msg").css('display','none');
+
+                    location.replace("<?php echo site_url() ?>/rak");
+                  }else{
+                    $(".print-error-msg").css('display','block');
+                    $(".print-error-msg").html(data.error);
+                  }
+              }
+          });
+      }); 
+  });
+</script>
+<script type="text/javascript">
+  $(document).ready(function() {
+      $("#dell-row").click(function(e){
+        e.preventDefault();
+        var kd_rak = $("input[id='del-rak']").val();
+          $.ajax({
+              url: "<?php echo site_url() ?>/rak/delete",
+              type:'POST',
+              dataType: "json",
+              data: {kd_rak:kd_rak},
+              success: function(data) {
+                  if($.isEmptyObject(data.error)){
+                    $(".print-success-msg").css('display','block');
+                    // alert(data.success);
+                    $(".print-success-msg").html(data.success);
+                    $(".print-error-msg").css('display','none');
+
+                    location.replace("<?php echo site_url() ?>/rak");
+                  }else{
+                    $(".print-error-msg").css('display','none');
+                    alert(data.error);
+                    // $(".print-error-msg").html(data.error);
+                  }
+              }
+          });
+      }); 
+  });
+</script>

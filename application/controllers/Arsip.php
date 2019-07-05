@@ -34,6 +34,7 @@ class Arsip extends CI_Controller {
 		{
 		   	$session_data=$this->session->userdata('logged_in');
 		    $akses=$session_data['hak_akses']; 
+		     
 		    $data['menus'] = $this->Menus->getMenuUser($akses);
 		    $data['jurubeli']=$this->Arsip_model->get_all_jb();
 		    $data['proyek']=$this->Arsip_model->get_all_py();
@@ -48,14 +49,7 @@ class Arsip extends CI_Controller {
 		                'field' => 'no_dokumen',
 		                'label' => 'Nomor Dokumen',
 		                'rules' => 'is_unique[arsip_dokumen.no_dokumen]',
-		                'errors'=> array('is_unique' =>'Nomor Dokumen Telah Terdaftar')
-		        ),
-		        array(
-		                'field' => 'no_po',
-		                'label' => 'Nomor Purchase Order',
-		                'rules' => 'is_unique[arsip_dokumen.no_po]',
-		                'errors'=> array('is_unique'=>'Nomor Purchase Order Telah Terdaftar')
-		                ),
+		                'errors'=> array('is_unique' =>'Nomor Dokumen Telah Terdaftar'))
 		        );
 		$this->form_validation->set_rules($config);
 		if ($this->form_validation->run() == FALSE) {
@@ -70,7 +64,7 @@ class Arsip extends CI_Controller {
 		}else{
 			$config['upload_path'] = realpath('./assets/dokument/');
 			$config['allowed_types'] = 'pdf';
-			$config['max_size']  = '10000';
+			$config['max_size']  = '11000';
 			
 			$this->load->library('upload', $config);
 			if ( ! $this->upload->do_upload('dokumen')){

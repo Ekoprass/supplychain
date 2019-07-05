@@ -88,13 +88,22 @@
 						<div class="form-group">
 							<label class=" form-control-label">Posisi Rak Dokumen</label>
 							<div class="input-group">
-								<input class="form-control" name="rak" required>
+								<?php 
+									$session_data=$this->session->userdata('logged_in');
+	    							$akses=$session_data['hak_akses'];
+									if($akses==1){?>
+										<input class="form-control" name="rak" readonly>
+									<?php }else{ ?>
+										<input class="form-control" name="rak" required>
+			
+								<?php } ?>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class=" form-control-label">Scan Dokumen (PDF File) <small>Ukuran Maks File 10MB</small></label>
 							<div class="input-group">
-								<input class="form-control" type="File"  name="dokumen" required>
+									
+										<input class="form-control" type="File"  name="dokumen" required>
 							</div>
 						</div>
 						<div class="form-group">
@@ -104,6 +113,7 @@
 								</textarea>
 							</div>
 						</div>
+						<?php if($akses==2){?>
 						<div class="form-group">
 							<label class=" form-control-label">Status Purchase Order</label>
 							<div class="input-group">
@@ -119,6 +129,7 @@
 								</div>
 							</div>
 						</div>
+					<?php }else{ }?>
 						<button class="btn btn-info">Simpan</button>
 					</div>
 				</div>

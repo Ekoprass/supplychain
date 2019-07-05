@@ -12,6 +12,24 @@
        <div class="card-body card-block">
         <!-- <button class="btn btn-success" data-toggle="modal" data-target="#myModalAdd">TAMBAH PETUGAS</button> -->
         <!-- <div class="table-responsive"> -->
+          <form class='filter-form'>
+    <h3>Filters</h3>
+    <div>
+        <label>Name :</label>
+        <input type='text' value='' class='filter' data-column-index='0'>
+    </div>
+     <div>
+        <label>Position :</label>
+        <input type='text' value='' class='filter' data-column-index='1'>
+    </div>
+     <div>
+        <label>Age :</label>
+        <input type='text' value='' class='filter' data-column-index='3'>
+    </div>
+    <button type="button" class="filter-button">
+    search
+    </button>
+</form>
           <h3 class="pull-right">Cari <i class="icon fa fa-search"></i></h3>
           <table class="table table-striped dt-responsive display wrap" id="mytable" cellspacing="0" width="100%">
             <thead>
@@ -28,6 +46,7 @@
                 <th style="font-size: 8pt">KODE VENDOR</th>
                 <th style="font-size: 8pt">POSISI RAK</th>
                 <th style="font-size: 8pt">PETUGAS ENTRY</th>
+                <th style="font-size: 8pt">PETUGAS </th>
                 <th style="font-size: 8pt">PETUGAS </th>
                 <th style="font-size: 8pt">TANGGAL ENTRY</th>
                 <th style="font-size: 8pt">DOKUMEN</th>
@@ -180,12 +199,11 @@
 </div>
 </div>
 <?php $this->view('footer.php'); ?>
-<script src="<?php echo base_url().'assets/js/jquery-2.1.4.min.js'?>"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="<?php echo base_url().'assets/js/bootstrap.js'?>"></script>
-<script src="<?php echo base_url().'assets/js/jquery.datatables.min.js'?>"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url().'assets/js/dataTables.bootstrap.js'?>"></script>
 <!-- Specific Page Vendor -->
-<script src="<?php echo base_url()?>assets/jquery-datatables/media/js/jquery.dataTables.js"></script>
 <script src="<?php echo base_url()?>assets/jquery-datatables-bs3/assets/js/datatables.js"></script>
 
 
@@ -220,15 +238,27 @@
       };
     };
 
-    var table = $("#mytable").dataTable({
-      initComplete: function() {
-        var api = this.api();
-        $('#mytable_filter input')
-        .off('.DT')
-        .on('input.DT', function() {
-          api.search(this.value).draw();
-        });
-      },
+
+    $('#mytable thead tr').clone(true).appendTo( '#mytable thead' );
+    $('#mytable thead tr:eq(1) th').each( function (i) {
+        var title = $(this).text();
+        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+ 
+        $( 'input', this ).on( 'keyup change', function () {
+            if ( table.column(i).search() !== this.value ) {
+                table
+                    .column(i)
+                    .search( this.value )
+                    .draw();
+            }
+        } );
+    } );
+  
+
+    var table = $("#mytable").DataTable({
+      orderCellsTop: true,
+      // "bFilter": false,
+      dom: 'lBfrtip',
       oLanguage: {
         sProcessing: "LOADING..."
       },
@@ -246,9 +276,10 @@
       {"data": "jurubeli", "searchable": false, "visible":false},
       {"data": "proyek" , "searchable": false, "visible":false},
       {"data": "vendor", "searchable": false, "visible":false},
-      {"data": "rak_ke"},
+      {"data": "kd_rak"},
       {"data": "petugas", "searchable": true},
       {"data": "no_petugas", "searchable": false, "visible":false},
+      {"data": "akses_petugas", "searchable": false, "visible":false},
       {"data": "tgl_entry", "searchable": false},
       {"data": "dokumen"},
       {"data": "status_dokumen", render : function(data) {
@@ -256,12 +287,18 @@
       },
       className: "text-center"
     },
-       {"data": "", <?php 
-                    $session_data=$this->session->userdata('logged_in');
-                    $akses=$session_data['hak_akses']; 
-                    if ($akses==1) {echo '"visible":false,';}
-                    else {echo '"visible":true,';}?>
-       "orderable":false, "searchable": false, "render": function (data, type, row) {return '<button class="btn btn-warning" data-toggle="modal" data-no_dokumen="'+row.no_dokumen+'" data-no_po="'+row.no_po+'" data-tgl_po="'+row.tgl_po+'" data-deskripsi="'+row.deskripsi+'"data-jurubeli="'+row.nm_jurubeli+'" data-kd_jurubeli="'+row.jurubeli+'"data-proyek="'+row.nm_proyek+'"data-kd_proyek="'+row.proyek+'" data-vendor="'+row.nm_vendor+'" data-kd_vendor="'+row.vendor+'" data-rak_ke="'+row.rak_ke+'" data-dokumen="'+row.dokumen+'" data-status="'+row.status_dokumen+'" data-petugas="'+row.no_petugas+'" data-entry="'+row.tgl_entry+'" data-target="#ModalUpdate" onclick="delrec()"><i class="icon fa fa-edit"></i> Edit</button>';}},
+       {"data": "", "visible":true,"orderable":false, "searchable": false, "render": function (data, type, row) {
+                <?php $session_data=$this->session->userdata('logged_in');
+                      $akses=$session_data['hak_akses']; 
+                      $no_petugas=$session_data['id_petugas'];?>
+                if (row.no_petugas==<?php echo $no_petugas ?> & row.akses_petugas==2 ) {
+                  return '<button class="btn btn-warning" data-toggle="modal" data-no_dokumen="'+row.no_dokumen+'" data-no_po="'+row.no_po+'" data-tgl_po="'+row.tgl_po+'" data-deskripsi="'+row.deskripsi+'"data-jurubeli="'+row.nm_jurubeli+'" data-kd_jurubeli="'+row.jurubeli+'"data-proyek="'+row.nm_proyek+'"data-kd_proyek="'+row.proyek+'" data-vendor="'+row.nm_vendor+'" data-kd_vendor="'+row.vendor+'" data-kd_rak="'+row.kd_rak+'" data-dokumen="'+row.dokumen+'" data-status="'+row.status_dokumen+'" data-petugas="'+row.no_petugas+'" data-entry="'+row.tgl_entry+'" data-target="#ModalUpdate" onclick="delrec()"><i class="icon fa fa-edit"></i> Edit</button>';
+                   }else if(row.akses_petugas==1){
+                    return '<button class="btn btn-warning" data-toggle="modal" data-no_dokumen="'+row.no_dokumen+'" data-no_po="'+row.no_po+'" data-tgl_po="'+row.tgl_po+'" data-deskripsi="'+row.deskripsi+'"data-jurubeli="'+row.nm_jurubeli+'" data-kd_jurubeli="'+row.jurubeli+'"data-proyek="'+row.nm_proyek+'"data-kd_proyek="'+row.proyek+'" data-vendor="'+row.nm_vendor+'" data-kd_vendor="'+row.vendor+'" data-kd_rak="'+row.kd_rak+'" data-dokumen="'+row.dokumen+'" data-status="'+row.status_dokumen+'" data-petugas="'+row.no_petugas+'" data-entry="'+row.tgl_entry+'" data-target="#ModalUpdate" onclick="delrec()"><i class="icon fa fa-edit"></i> Edit</button>';
+                   }else{
+                    return ''
+                   }               
+        }},
 
       {"data": "pdf", "orderable":false}
       ],
@@ -271,9 +308,32 @@
         var page = info.iPage;
         var length = info.iLength;
         $('td:eq(0)', row).html();
-      }
+      },
+      initComplete: function() {
+          var api = this.api();
+          $('#mytable_filter input').off('.DT').on('input.DT', function() {
+            api.search(this.value).draw();
+          });
+      },
 
     });
+$(".filter-button").on("click", function () {
+        //clear global search values
+        table.search('');
+        $('.filter').each(function(){ 
+        if(this.value.length){
+          table.column($(this).data('columnIndex')).search(this.value);
+        }
+        });
+        table.draw();
+    });
+    
+    $( ".dataTables_filter input" ).on( 'keyup change',function() {
+     //clear column search values
+        table.columns().search('');
+       //clear input values
+       $('.filter').val('');
+  });   
       // end setup datatables
       // get Edit Records
       $("#ModalUpdate").on('shown.bs.modal',function(e){
@@ -288,7 +348,7 @@
         var kd_jurubeli=triggerLink.data('kd_jurubeli');
         var kd_proyek=triggerLink.data('kd_proyek');
         var kd_vendor=triggerLink.data('kd_vendor');
-        var rak=triggerLink.data('rak_ke');
+        var rak=triggerLink.data('kd_rak');
         var dokumen=triggerLink.data('dokumen');
         var status=triggerLink.data('status');
         var petugas=triggerLink.data('petugas');
@@ -383,5 +443,5 @@
 
     });
 
-
+ 
   </script>

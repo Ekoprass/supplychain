@@ -207,7 +207,7 @@ function delrec() {
                         {"data": "no_petugas"},
                         {"data": "nama_petugas"},
                         {"data": "username"},
-                        {"data": "password"},
+                        {"data": "password", "visible":false, "searchable":false},
                         {"data": "hak_akses", render : function(data) {
                                 return data == '1' ? 'Petugas' : 'Administrator'},
                                  className: "text-center"
