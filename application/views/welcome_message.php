@@ -74,59 +74,58 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		box-shadow: 0 0 8px #D0D0D0;
 	}*/
 	</style>
+
 </head>
 <body>
+ 
 <?php $this->view('template.php'); ?>
 <div id="container">
+	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+    width: 92%;
+  }
+  </style>
 	<h1>Selamat Datang di PT.PAL Indonesia</h1>
 	<div class="container" style="padding-bottom:175px">
-  <div id="WJSlider" class="carousel slide" data-ride="carousel">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-      <li data-target="#WJSlider" data-slide-to="0" class="active"></li>
-      <li data-target="#WJSlider" data-slide-to="1"></li>
-      <li data-target="#WJSlider" data-slide-to="2"></li>
-      <li data-target="#WJSlider" data-slide-to="3"></li>
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
     </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
-
-      <div class="item active">
+		<div class="item active">
         <img src="https://www.pal.co.id/uploads/1507705634TOc-Harkan%20KRI-Slider%20palcoid-2017.jpg" alt="slide1" width="1056" height="860">
-        <div class="carousel-caption">
-          <!-- <h3>Judul Gambar 1</h3>
-          <p>Ini adalah deskripsi singkat dari judul gambar yang pertama.</p> -->
-        </div>
       </div>
 
       <div class="item">
         <img src="https://www.pal.co.id/uploads/1507707058vP1-Fasilitas-slider%20palcoid.jpg" alt="slide2" width="1056" height="860">
-        <div class="carousel-caption">
-          <!-- <h3>Judul Gambar 2</h3>
-          <p>Ini adalah deskripsi singkat dari judul gambar yang ke dua.</p> -->
-        </div>
       </div>
    
       <div class="item">
         <img src="https://www.pal.co.id/uploads/1507703805NYo-provider-slider%20palcoid.jpg" alt="slide3" width="1056" height="860">
-        <div class="carousel-caption">
-          <!-- <h3>Judul Gambar 3</h3>
-          <p>Ini adalah deskripsi singkat dari judul gambar yang ke tiga.</p> -->
-        </div>
       </div>
 
       <div class="item">
         <img src="https://www.pal.co.id/uploads/1508748377BcG-Desaign%20Tek-SLIDE%20palcoid%202017.jpg" alt="slide4" width="1056" height="860">
-        <div class="carousel-caption">
-          <!-- <h3>Judul Gambar 4</h3>
-          <p>Ini adalah deskripsi singkat dari judul gambar yang ke empat.</p> -->
-        </div>
       </div>
   
     </div>
 
 </div>
+<!-- <script type="text/javascript">
+    $('myCarousel').carousel({
+      interval: 10
+    });
+</script> -->
 
 	<!-- <div id="body">
 		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
