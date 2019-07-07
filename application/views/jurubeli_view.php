@@ -110,7 +110,6 @@
 <script src="<?php echo base_url().'assets/js/jquery.datatables.min.js'?>"></script>
 <script src="<?php echo base_url().'assets/js/dataTables.bootstrap.js'?>"></script>
 <!-- Specific Page Vendor -->
-<script src="<?php echo base_url()?>assets/select2/select2.js"></script>
 <script src="<?php echo base_url()?>assets/jquery-datatables/media/js/jquery.dataTables.js"></script>
 <script src="<?php echo base_url()?>assets/jquery-datatables-bs3/assets/js/datatables.js"></script>
 
@@ -139,8 +138,17 @@ function delrec() {
               "iTotalPages": Math.ceil(oSettings.fnRecordsDisplay() / oSettings._iDisplayLength)
           };
       };
+    $('#mytable thead tr').clone(true).appendTo( '#mytable thead' );
+    $( 'input', this ).on( 'keyup change', function () {
+            if ( table.column(i).search() !== this.value ) {
+                table
+                    .column(i)
+                    .search( this.value )
+                    .draw();
+            }
+        } );
 
-      var table = $("#mytable").dataTable({
+      var table = $("#mytable").DataTable({
           initComplete: function() {
               var api = this.api();
               $('#mytable_filter input')
@@ -148,6 +156,7 @@ function delrec() {
                   .on('input.DT', function() {
                       api.search(this.value).draw();
               });
+
           },
               oLanguage: {
               sProcessing: "LOADING..."

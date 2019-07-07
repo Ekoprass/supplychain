@@ -28,6 +28,7 @@
                 <th style="font-size: 8pt">KODE JURUBELI</th>
                 <th style="font-size: 8pt">KODE PROYEK</th>
                 <th style="font-size: 8pt">KODE VENDOR</th>
+                <th style="font-size: 8pt">KODE RAK</th>
                 <th style="font-size: 8pt">POSISI RAK</th>
                 <th style="font-size: 8pt">PETUGAS ENTRY</th>
                 <th style="font-size: 8pt">PETUGAS </th>
@@ -130,20 +131,25 @@
           </select>
         </div>
       </div>
-      <div class="form-group">
-        <label class=" form-control-label">Posisi Rak Dokumen</label>
-        <div class="input-group">
-          <?php 
-            $session_data=$this->session->userdata('logged_in');
-            $akses=$session_data['hak_akses'];
-            if($akses==1){?>
-              <input class="form-control" name="rak" readonly>
-            <?php }else{ ?>
-              <input class="form-control" name="rak" required>
-
-          <?php } ?>
-        </div>
-      </div>
+      <?php 
+              $session_data=$this->session->userdata('logged_in');
+              $akses=$session_data['hak_akses'];
+              if($akses==2){?>
+            <div class="form-group">
+              <label class=" form-control-label">Kode Rak</label>
+              <label class=" form-control-label pull-right" id="rk"  hidden></label>
+              <div class="input-group">
+              <input type="text" name="rk" class="rk" hidden>
+              <?php echo form_error('rak', ' <div class="alert alert-danger" role="alert">', '</div>'); ?>
+                <select class="standardSelect" name="rak" tabindex="-1" style="display: none;" required id="rak">
+                  <option value="" label="default"></option>
+                  <?php foreach ($rak_ke as $key) {?>
+                    <option value="<?php echo $key['kd_rak']; ?>"><?php echo $key['kd_rak']." | ".$key['nama_rak']; ?></option>
+                  <?php } ?>
+                </select>
+              </div>
+            </div>
+          <?php }else{ }?>
       <div class="form-group">
         <input type="text" name="dokumena" hidden>
         <label class=" form-control-label">Scan Dokumen (PDF File)</label>
@@ -240,30 +246,20 @@
 
 
     $('#mytable thead tr').clone(true).appendTo( '#mytable thead' );
-    $('#mytable thead tr:eq(1) th').each( function (i) {
-        var title = $(this).text();
-        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
- 
-        $( 'input', this ).on( 'keyup change', function () {
-            if ( table.column(i).search() !== this.value ) {
-                table
-                    .column(i)
-                    .search( this.value )
-                    .draw();
-            }
-        } );
-    } );
+   
   
 
-    var table = $("#mytable").dataTable({
+    var table = $("#mytable").DataTable({
       orderCellsTop: true,
-      // "bFilter": false,
-      dom: 'lBfrtip',
+      // bFilter: true,
+      // dom: 'lBfrtip',
+      "dom": "BWlfrtip",
       oLanguage: {
         sProcessing: "LOADING..."
       },
+      "bJQueryUI": true,
       processing: true,
-      serverSide: true,
+      // serverSide: true,
       ajax: {"url": "<?php echo base_url().'index.php/arsip/get_guest_json'?>", "type": "POST"},
       columns: [
       {"data": "no_dokumen"},
@@ -277,14 +273,15 @@
       {"data": "jurubeli", "searchable": false, "visible":false},
       {"data": "proyek" , "searchable": false, "visible":false},
       {"data": "vendor", "searchable": false, "visible":false},
-      {"data": "kd_rak"},
+      {"data": "no_rak", "searchable": false, "visible":false},
+      {"data": "rak"},
       {"data": "petugas", "searchable": true},
       {"data": "no_petugas", "searchable": false, "visible":false},
       {"data": "akses_petugas", "searchable": false, "visible":false},
       {"data": "tgl_entry", "searchable": false},
       {"data": "dokumen"},
       {"data": "status_dokumen", render : function(data) {
-         return data == '1' ? '<div class="label label-success"><strong style="color:white; font-size:10pt"><i class="icon fa fa-check"></i> SELESAI</strong></div>' : '<div class="label label-danger"><strong style="color:white; font-size:10pt"><i class="icon fa fa-close"></i> BELUM SELESAI</strong></div>' ;
+         return data == '1' ? '<div class="label label-success"><strong style="color:white; font-size:10pt"><i class="icon fa fa-check"></i> SELESAI</strong></div>' : '<div class="label label-danger" style="background-color:#9c0808;padding-top:6px"><strong style="color:white; font-size:10pt"><i class="icon fa fa-close"></i> BELUM SELESAI</strong></div>' ;
       },
       className: "text-center"
     },
@@ -293,9 +290,9 @@
                       $akses=$session_data['hak_akses']; 
                       $no_petugas=$session_data['id_petugas'];?>
                 if (row.no_petugas==<?php echo $no_petugas ?> & row.akses_petugas==2 ) {
-                  return '<button class="btn btn-warning" data-toggle="modal" data-no_dokumen="'+row.no_dokumen+'" data-no_po="'+row.no_po+'" data-tgl_po="'+row.tgl_po+'" data-deskripsi="'+row.deskripsi+'"data-jurubeli="'+row.nm_jurubeli+'" data-kd_jurubeli="'+row.jurubeli+'"data-proyek="'+row.nm_proyek+'"data-kd_proyek="'+row.proyek+'" data-vendor="'+row.nm_vendor+'" data-kd_vendor="'+row.vendor+'" data-kd_rak="'+row.kd_rak+'" data-dokumen="'+row.dokumen+'" data-status="'+row.status_dokumen+'" data-petugas="'+row.no_petugas+'" data-entry="'+row.tgl_entry+'" data-no_surat="'+row.no_surat+'" data-target="#ModalUpdate" onclick="delrec()"><i class="icon fa fa-edit"></i> Edit</button>';
+                  return '<button class="btn btn-warning" data-toggle="modal" data-no_dokumen="'+row.no_dokumen+'" data-no_po="'+row.no_po+'" data-tgl_po="'+row.tgl_po+'" data-deskripsi="'+row.deskripsi+'"data-jurubeli="'+row.nm_jurubeli+'" data-kd_jurubeli="'+row.jurubeli+'"data-proyek="'+row.nm_proyek+'"data-kd_proyek="'+row.proyek+'" data-vendor="'+row.nm_vendor+'" data-kd_vendor="'+row.vendor+'" data-kd_rak="'+row.no_rak+'" data-dokumen="'+row.dokumen+'" data-rak="'+row.rak+'" data-status="'+row.status_dokumen+'" data-petugas="'+row.no_petugas+'" data-entry="'+row.tgl_entry+'" data-no_surat="'+row.no_surat+'" data-target="#ModalUpdate" onclick="delrec()"><i class="icon fa fa-edit"></i> Edit</button>';
                    }else if(row.akses_petugas==1){
-                    return '<button class="btn btn-warning" data-toggle="modal" data-no_dokumen="'+row.no_dokumen+'" data-no_po="'+row.no_po+'" data-tgl_po="'+row.tgl_po+'" data-deskripsi="'+row.deskripsi+'"data-jurubeli="'+row.nm_jurubeli+'" data-kd_jurubeli="'+row.jurubeli+'"data-proyek="'+row.nm_proyek+'"data-kd_proyek="'+row.proyek+'" data-vendor="'+row.nm_vendor+'" data-kd_vendor="'+row.vendor+'" data-kd_rak="'+row.kd_rak+'" data-dokumen="'+row.dokumen+'" data-status="'+row.status_dokumen+'" data-petugas="'+row.no_petugas+'" data-entry="'+row.tgl_entry+'" data-no_surat="'+row.no_surat+'" data-target="#ModalUpdate" onclick="delrec()"><i class="icon fa fa-edit"></i> Edit</button>';
+                    return '<button class="btn btn-warning" data-toggle="modal" data-no_dokumen="'+row.no_dokumen+'" data-no_po="'+row.no_po+'" data-tgl_po="'+row.tgl_po+'" data-deskripsi="'+row.deskripsi+'"data-jurubeli="'+row.nm_jurubeli+'" data-kd_jurubeli="'+row.jurubeli+'"data-proyek="'+row.nm_proyek+'"data-kd_proyek="'+row.proyek+'" data-vendor="'+row.nm_vendor+'" data-kd_vendor="'+row.vendor+'" data-kd_rak="'+row.no_rak+'" data-rak="'+row.rak+'" data-dokumen="'+row.dokumen+'" data-status="'+row.status_dokumen+'" data-petugas="'+row.no_petugas+'" data-entry="'+row.tgl_entry+'" data-no_surat="'+row.no_surat+'" data-target="#ModalUpdate" onclick="delrec()"><i class="icon fa fa-edit"></i> Edit</button>';
                    }else{
                     return ''
                    }               
@@ -309,8 +306,8 @@
         var page = info.iPage;
         var length = info.iLength;
         $('td:eq(0)', row).html();
-        if(data["kd_rak"] == "Kosong"){
-                $('td', row).css('background-color', '#a11313');
+        if(data["rak"] == "Kosong"){
+                $('td', row).css('background-color', '#f21f1f');
                 $('td', row).css('color', '#fff');
             }
       },
@@ -320,26 +317,23 @@
           $('#mytable_filter input').off('.DT').on('input.DT', function() {
             api.search(this.value).draw();
           });
+
+           $('#mytable thead tr:eq(1) th').each( function (i) {
+        var title = $(this).text();
+        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+ 
+        $( 'input', this ).on( 'keyup change', function () {
+            if ( table.column(i).search() !== this.value ) {
+                table
+                    .column(i)
+                    .search( this.value )
+                    .draw();
+            }
+        } );
+    } );
       },
 
     });
-$(".filter-button").on("click", function () {
-        //clear global search values
-        table.search('');
-        $('.filter').each(function(){ 
-        if(this.value.length){
-          table.column($(this).data('columnIndex')).search(this.value);
-        }
-        });
-        table.draw();
-    });
-    
-    $( ".dataTables_filter input" ).on( 'keyup change',function() {
-     //clear column search values
-        table.columns().search('');
-       //clear input values
-       $('.filter').val('');
-  });   
       // end setup datatables
       // get Edit Records
       $("#ModalUpdate").on('shown.bs.modal',function(e){
@@ -355,7 +349,8 @@ $(".filter-button").on("click", function () {
         var kd_jurubeli=triggerLink.data('kd_jurubeli');
         var kd_proyek=triggerLink.data('kd_proyek');
         var kd_vendor=triggerLink.data('kd_vendor');
-        var rak=triggerLink.data('kd_rak');
+        var kd_rak=triggerLink.data('kd_rak');
+        var rak=triggerLink.data('rak');
         var dokumen=triggerLink.data('dokumen');
         var status=triggerLink.data('status');
         var petugas=triggerLink.data('petugas');
@@ -369,10 +364,12 @@ $(".filter-button").on("click", function () {
         $('[name="jb"]').val(kd_jurubeli);
         $('[name="pk"]').val(kd_proyek);
         $('[name="vn"]').val(kd_vendor);
+        $('[name="rk"]').val(kd_rak);
         $('[name="jurubeli"]').val(jurubeli);
         $('[id="jb"]').text(jurubeli);
         $('[id="pk"]').text(proyek);
         $('[id="vn"]').text(vendor);
+        $('[id="rk"]').text(rak);
         $('[name="proyek"]').val(proyek);
         $('[name="vendor"]').val(vendor);
         $('[name="rak"]').val(rak);
@@ -405,6 +402,12 @@ $(".filter-button").on("click", function () {
           });
           jQuery("#vendor").chosen({
             placeholder_text:$(".vn").val()+" | "+$("#vn").text(),
+            disable_search_threshold: 10,
+            no_results_text: "Maaf, Tidak bisa ditemukan!",
+            width: "100%"
+          });
+          jQuery("#rak").chosen({
+            placeholder_text:$(".rk").val()+" | "+$("#rk").text(),
             disable_search_threshold: 10,
             no_results_text: "Maaf, Tidak bisa ditemukan!",
             width: "100%"

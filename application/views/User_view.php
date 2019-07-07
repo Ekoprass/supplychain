@@ -51,36 +51,6 @@
                            <div class="form-group">
                                <input type="password" id="Password" name="Password" class="form-control" placeholder="Masukkan Password" required>
                            </div>
-                           <!-- <div class="form-group">
-                               <input type="text" name="hak_akses" class="form-control" placeholder="Ketik : 1 untuk user, 2 untuk admin" required>
-                           </div> -->
-                       <!--      <div class="form-check-inline form-check">
-                                                <label for="inline-checkbox1" class="form-check-label ">
-                                                    <input type="radio" id="inline-checkbox1" name="hak_akses" value="1" class="form-check-input">Petugas
-                                                </label> &nbsp; &nbsp;
-                                                <label for="inline-checkbox2" class="form-check-label ">
-                                                    <input type="checkbox" id="inline-checkbox2" name="hak_akses" value="2" class="form-check-input">Admin
-                                                </label>
-                            </div> -->
-                            <!--  <div class="radio">
-                                                    <label for="radio1" class="form-check-label ">
-                                                        <input type="radio" id="Radio" name="hak_akses" value="1" class="form-check-input">Petugas
-                                                    </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label for="radio2" class="form-check-label ">
-                                                        <input type="radio" id="Radio" name="hak_akses" value="2" class="form-check-input">Admin
-                                                    </label>
-                                                </div> -->
-                       </div>
-                       <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-                            <button type="submit" id="add-row" class="btn btn-info">Simpan</button>
-                       </div>
-                    </div>
-                </div>
-             </div>
-         </form>
 
        <!-- Modal Update Produk-->
         <form id="add-row-form" action="<?php echo base_url().'index.php/User/update'?>" method="post">
@@ -104,9 +74,6 @@
                            <div class="form-group">
                                <input type="password" name="Password" class="form-control" placeholder="Masukkan Password" required>
                            </div>
-                          <!--  <div class="form-group">
-                               <input type="text" name="hak_akses" class="form-control" placeholder="Ketik : 1 untuk user, 2 untuk admin" required>
-                           </div> -->
                             <div class="radio">
                                <label for="radio1" class="form-check-label ">
                                <input type="radio" id="radio1" name="hak_akses" value="1" class="form-check-input">PETUGAS
@@ -158,7 +125,6 @@
 <script src="<?php echo base_url().'assets/js/jquery.datatables.min.js'?>"></script>
 <script src="<?php echo base_url().'assets/js/dataTables.bootstrap.js'?>"></script>
 <!-- Specific Page Vendor -->
-<script src="<?php echo base_url()?>assets/select2/select2.js"></script>
 <script src="<?php echo base_url()?>assets/jquery-datatables/media/js/jquery.dataTables.js"></script>
 <script src="<?php echo base_url()?>assets/jquery-datatables-bs3/assets/js/datatables.js"></script>
 

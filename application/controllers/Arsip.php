@@ -25,29 +25,30 @@ class Arsip extends CI_Controller {
 
 
 	    $this->db->select("no_dokumen");
-				$this->db->from("arsip_dokumen");
-				$this->db->limit(1);
-				$this->db->order_by('no_dokumen',"DESC");
-				$query = $this->db->get();
-				$result = $query->result();
-				if ($result==null) {
-					$th=date("y");
-					$n="0000";
-					$n2 = str_pad($n + 1, 4, 0, STR_PAD_LEFT);
-					$no_dokumen=$th."".$n2;
-				}else{
-				foreach ($result as $id) {				
-					$th=date("y");
-					$n=$id->no_dokumen;
-					$th_db=substr($n, 0,2);
-					if ($th>$th_db) {
-						$n="0000";	
-					}
-					$n2 = str_pad($n + 1, 4, 0, STR_PAD_LEFT);
-					$no_dokumen=$n2;
-				}
-				}
-				$data['no_dokumen']=$no_dokumen;
+		$this->db->from("arsip_dokumen");
+		$this->db->limit(1);
+		$this->db->order_by('no_dokumen',"DESC");
+		$query = $this->db->get();
+		$result = $query->result();
+		if ($result==null) {
+			$th=date("y");
+			$n="0000";
+			$n2 = str_pad($n + 1, 4, 0, STR_PAD_LEFT);
+			$no_dokumen=$th."".$n2;
+		}
+		else{
+		foreach ($result as $id) {				
+			$th=date("y");
+			$n=$id->no_dokumen;
+			$th_db=substr($n, 0,2);
+			if ($th>$th_db) {
+				$n="0000";	
+			}
+			$n2 = str_pad($n + 1, 4, 0, STR_PAD_LEFT);
+			$no_dokumen=$n2;
+		}
+		}
+		$data['no_dokumen']=$no_dokumen;
 
 	    $data['rak_ke']=$this->Arsip_model->get_all_rak();
 		$this->load->view('arsip',$data);
@@ -75,10 +76,32 @@ class Arsip extends CI_Controller {
 	{
 		$config = array(
 		        array(
-		                'field' => 'no_dokumen',
-		                'label' => 'Nomor Dokumen',
-		                'rules' => 'is_unique[arsip_dokumen.no_dokumen]',
-		                'errors'=> array('is_unique' =>'Nomor Dokumen Telah Terdaftar'))
+		                'field' => 'no_surat',
+		                'label' => 'Nomor Surat',
+		                'rules' => 'is_unique[arsip_dokumen.no_surat]',
+		                'errors'=> array('is_unique' =>'Nomor Surat Telah Terdaftar')
+		            ),
+		        array(
+		                'field' => 'jurubeli',
+		                'label' => 'Kode Juru Beli',
+		                'rules' => 'required',
+		                'errors'=> array('required' =>'Kode Tidak Boleh Kosong')
+	            ),array(
+	                'field' => 'proyek',
+	                'label' => 'Nomor Surat',
+	                'rules' => 'required',
+	                'errors'=> array('required' =>'Kode Tidak Boleh Kosong')
+	            ),array(
+	                'field' => 'vendor',
+	                'label' => 'Nomor Surat',
+	                'rules' => 'required',
+	                'errors'=> array('required' =>'Kode Tidak Boleh Kosong')
+	            ),array(
+	                'field' => 'rak',
+	                'label' => 'Nomor Surat',
+	                'rules' => 'required',
+	                'errors'=> array('required' =>'Kode Tidak Boleh Kosong')
+	            )
 		        );
 		$this->form_validation->set_rules($config);
 		if ($this->form_validation->run() == FALSE) {
@@ -105,13 +128,23 @@ class Arsip extends CI_Controller {
 				$d=strtotime($this->input->post('tgl_po'));
 				$session_data=$this->session->userdata('logged_in');
 				
-				if (!$this->input->post('rak')) {
-					$rak="Kosong";
+				if (!$this->input->post('rak_ke')) {
+					$rak="0";
 				}else{
-					$rak=$this->input->post('rak');
+					$rak=$this->input->post('rak_ke');
 				}
+				  	$this->db->select("no_dokumen");
+					$this->db->from("arsip_dokumen");
+					$this->db->limit(1);
+					$this->db->order_by('no_dokumen',"DESC");
+					$query = $this->db->get();
+					$result = $query->result();
+					foreach ($result as $id) {
+						$n2 = str_pad($id->no_dokumen + 1, 4, 0, STR_PAD_LEFT);
+					}
+					
 				$data=array(
-			      'no_dokumen'      	=> $this->input->post('no_dokumen'),
+			      'no_dokumen'      	=> $n2,
 			      'no_surat'	      	=> $this->input->post('no_surat'),
 			      'no_po'    			=> $this->input->post('no_po'),
 			      'tgl_po'				=> date("Y-m-d",$d),
@@ -119,12 +152,13 @@ class Arsip extends CI_Controller {
 			      'jurubeli'			=> $this->input->post('jurubeli'),
 			      'proyek'				=> $this->input->post('proyek'),
 			      'vendor'				=> $this->input->post('vendor'),
-			      'kd_rak'				=> $rak,
+			      'rak'					=> $rak,
 			      'tgl_entry'			=> date("Y-m-d h:i:s"),
 			      'petugas'				=> $session_data['id_petugas'],
 			      'status_dokumen'		=> $this->input->post('status'),
 			      'dokumen'				=> $this ->upload->data('file_name'),
 			    );
+
 				 $this->db->insert('arsip_dokumen', $data);
 				  redirect('Arsip/Data');
 			}
@@ -169,6 +203,10 @@ class Arsip extends CI_Controller {
 				$vendor=$this->input->post('vn');
 			}else {
 				$vendor=$this->input->post('vendor');
+			}if ($this->input->post('rak')==null) {
+				$rak=$this->input->post('rk');
+			}else {
+				$rak=$this->input->post('rak');
 			}
 
 			date_default_timezone_set('Asia/Jakarta');
@@ -183,7 +221,7 @@ class Arsip extends CI_Controller {
 		      'jurubeli'			=> $jurubeli,
 		      'proyek'				=> $proyek,
 		      'vendor'				=> $vendor,
-		      'kd_rak'				=> $this->input->post('rak'),
+		      'rak'					=> $rak,
 		      'tgl_entry'			=> $this->input->post('tgl_entry'),
 		      'petugas'				=> $this->input->post('petugas'),
 		      'status_dokumen'		=> $this->input->post('status'),

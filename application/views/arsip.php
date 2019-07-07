@@ -32,13 +32,13 @@
 						<div class="form-group">
 							<label class=" form-control-label">Nomor Dokumen</label>
 							<div class="input-group">
-								<?php echo form_error('no_dokumen', ' <div class="alert alert-danger" role="alert">', '</div>'); ?>
 								<input class="form-control" name="no_dokumen" readonly value="<?php echo $no_dokumen ?>">
 							</div>
 						</div>
 						<div class="form-group">
 							<label class=" form-control-label">Nomor Surat</label>
 							<div class="input-group">
+								<?php echo form_error('no_surat', ' <div class="alert alert-danger" role="alert">', '</div>'); ?>
 								<input class="form-control" name="no_surat" required>
 							</div>
 						</div>
@@ -61,6 +61,7 @@
 						<div class="form-group">
 							<label class=" form-control-label">Kode Juru Beli</label>
 							<div class="input-group">
+								<?php echo form_error('jurubeli', ' <div class="alert alert-danger" role="alert">', '</div>'); ?>
 								<select class="standardSelect" name="jurubeli" tabindex="-1" style="display: none;" required>
 									<option value="" label="default"></option>
 									<?php foreach ($jurubeli as $key) {?>
@@ -72,6 +73,7 @@
 						<div class="form-group">
 							<label class=" form-control-label">Kode Proyek</label>
 							<div class="input-group">
+								<?php echo form_error('proyek', ' <div class="alert alert-danger" role="alert">', '</div>'); ?>
 								<select class="standardSelect" name="proyek" tabindex="-1" style="display: none;" required>
 									<option value="" label="default"></option>
 									<?php foreach ($proyek as $key) {?>
@@ -83,6 +85,7 @@
 						<div class="form-group">
 							<label class=" form-control-label">Kode Vendor</label>
 							<div class="input-group">
+								<?php echo form_error('vendor', ' <div class="alert alert-danger" role="alert">', '</div>'); ?>
 								<select class="standardSelect" name="vendor" tabindex="-1" style="display: none;" required>
 									<option value="" label="default"></option>
 									<?php foreach ($vendor as $key) {?>
@@ -98,6 +101,7 @@
 						<div class="form-group">
 							<label class=" form-control-label">Kode Rak</label>
 							<div class="input-group">
+								<?php echo form_error('rak_ke', ' <div class="alert alert-danger" role="alert">', '</div>'); ?>
 								<select class="standardSelect" name="rak_ke" tabindex="-1" style="display: none;" required>
 									<option value="" label="default"></option>
 									<?php foreach ($rak_ke as $key) {?>
@@ -157,6 +161,7 @@
 
 <script>
 	jQuery(document).ready(function() {
+		
 		jQuery(".standardSelect").chosen({
 			disable_search_threshold: 10,
 			no_results_text: "Oops, nothing found!",

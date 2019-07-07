@@ -108,7 +108,6 @@
 <script src="<?php echo base_url().'assets/js/jquery.datatables.min.js'?>"></script>
 <script src="<?php echo base_url().'assets/js/dataTables.bootstrap.js'?>"></script>
 <!-- Specific Page Vendor -->
-<script src="<?php echo base_url()?>assets/select2/select2.js"></script>
 <script src="<?php echo base_url()?>assets/jquery-datatables/media/js/jquery.dataTables.js"></script>
 <script src="<?php echo base_url()?>assets/jquery-datatables-bs3/assets/js/datatables.js"></script>
 
@@ -233,7 +232,7 @@ function delrec() {
                     $(".print-success-msg").html(data.success);
                     $(".print-error-msg").css('display','none');
 
-                    location.replace("<?php echo site_url() ?>/jurubeli");
+                    location.replace("<?php echo site_url() ?>/proyek");
                   }else{
                     $(".print-error-msg").css('display','none');
                     alert(data.error);
