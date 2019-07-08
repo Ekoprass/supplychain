@@ -206,19 +206,24 @@
 </div>
 <?php $this->view('footer.php'); ?>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="<?php echo base_url('') ?>assets/js/lib/chosen/chosen.jquery.min.js"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+ <!-- <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script> -->
+
+
 <script src="<?php echo base_url().'assets/js/bootstrap.js'?>"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url().'assets/js/dataTables.bootstrap.js'?>"></script>
 <!-- Specific Page Vendor -->
 <script src="<?php echo base_url()?>assets/jquery-datatables-bs3/assets/js/datatables.js"></script>
-
+<script src="<?php echo base_url()?>assets/jquery-datatables/jquery.dataTables.yadcf.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
 <script src="<?php echo base_url('') ?>assets/js/main.js"></script>
-<script src="<?php echo base_url('') ?>assets/js/lib/chosen/chosen.jquery.min.js"></script>
 
 
 <script src="<?php echo base_url() ?>assets/pdfobject/pdfobject.min.js"></script>
@@ -245,11 +250,12 @@
     };
 
 
-    $('#mytable thead tr').clone(true).appendTo( '#mytable thead' );
+    // $('#mytable thead tr').clone(true).appendTo( '#mytable thead' );
    
+      "use strict";
   
 
-    var table = $("#mytable").DataTable({
+    var table = $("#mytable").dataTable({
       orderCellsTop: true,
       // bFilter: true,
       // dom: 'lBfrtip',
@@ -318,22 +324,64 @@
             api.search(this.value).draw();
           });
 
-           $('#mytable thead tr:eq(1) th').each( function (i) {
-        var title = $(this).text();
-        $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+    //        $('#mytable thead tr:eq(1) th').each( function (i) {
+    //     var title = $(this).text();
+    //     $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
  
-        $( 'input', this ).on( 'keyup change', function () {
-            if ( table.column(i).search() !== this.value ) {
-                table
-                    .column(i)
-                    .search( this.value )
-                    .draw();
-            }
-        } );
-    } );
+    //     $( 'input', this ).on( 'keyup change', function () {
+    //         if ( table.column(i).search() !== this.value ) {
+    //             table
+    //                 .column(i)
+    //                 .search( this.value )
+    //                 .draw();
+    //         }
+    //     } );
+    // } );
       },
-
-    });
+responsive: true
+    }).yadcf([
+            {
+                column_number: 0,
+                filter_type: "text",
+            },{
+                 column_number: 1,
+                 filter_type: "text",
+            },{
+                column_number: 2,
+                filter_type: "text"
+            },{
+                column_number: 3,
+                filter_type: "date",
+                date_format:"dd MM yy"
+            },{
+                column_number: 4,
+                filter_type: "text",
+            },{
+                column_number: 5,
+                filter_type: "text",
+            },{
+                column_number: 6,
+                filter_type: "text",
+            },{
+                column_number: 7,
+                filter_type: "text",
+            },{
+                column_number: 12,
+                select_type: "chosen",
+                select_type_options: {
+            no_results_text: 'Can\'t find ->',
+            search_contains: true
+        }
+            },{
+                column_number: 13,
+                filter_type: "text",
+                filter_delay: 500
+            },{
+                column_number: 14,
+                filter_type: "text",
+                filter_delay: 500
+            },
+        ]);
       // end setup datatables
       // get Edit Records
       $("#ModalUpdate").on('shown.bs.modal',function(e){
