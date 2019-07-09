@@ -64,6 +64,7 @@
           </div>
         </div>
          <div class="form-group">
+          <?php echo form_error('no_surat', '<div class="error">', '</div>'); ?>
           <label class=" form-control-label">Nomor Surat</label>
           <div class="input-group">
             <input class="form-control" name="no_surat">

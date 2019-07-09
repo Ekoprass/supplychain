@@ -74,6 +74,32 @@ class Arsip extends CI_Controller {
 
 	public function tambah()
 	{
+
+	    $this->db->select("no_dokumen");
+		$this->db->from("arsip_dokumen");
+		$this->db->limit(1);
+		$this->db->order_by('no_dokumen',"DESC");
+		$query = $this->db->get();
+		$result = $query->result();
+		if ($result==null) {
+			$th=date("y");
+			$n="0000";
+			$n2 = str_pad($n + 1, 4, 0, STR_PAD_LEFT);
+			$no_dokumen=$th."".$n2;
+		}
+		else{
+		foreach ($result as $id) {				
+			$th=date("y");
+			$n=$id->no_dokumen;
+			$th_db=substr($n, 0,2);
+			if ($th>$th_db) {
+				$n="0000";	
+			}
+			$n2 = str_pad($n + 1, 4, 0, STR_PAD_LEFT);
+			$no_dokumen=$n2;
+		}
+		}
+		$data['no_dokumen']=$no_dokumen;
 		$config = array(
 		        array(
 		                'field' => 'no_surat',
@@ -107,8 +133,8 @@ class Arsip extends CI_Controller {
 		if ($this->form_validation->run() == FALSE) {
 			$session_data=$this->session->userdata('logged_in');
 		    $akses=$session_data['hak_akses'];
+		    $this->form_validation->set_message('is_unique', 'no_surat sudah ada.');
 		    $data['menus'] = $this->Menus->getMenuUser($akses);
-
 		    $data['jurubeli']=$this->Arsip_model->get_all_jb();
 		    $data['proyek']=$this->Arsip_model->get_all_py();
 		    $data['vendor']=$this->Arsip_model->get_all_vn();

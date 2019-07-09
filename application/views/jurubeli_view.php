@@ -138,15 +138,6 @@ function delrec() {
               "iTotalPages": Math.ceil(oSettings.fnRecordsDisplay() / oSettings._iDisplayLength)
           };
       };
-    $('#mytable thead tr').clone(true).appendTo( '#mytable thead' );
-    $( 'input', this ).on( 'keyup change', function () {
-            if ( table.column(i).search() !== this.value ) {
-                table
-                    .column(i)
-                    .search( this.value )
-                    .draw();
-            }
-        } );
 
       var table = $("#mytable").DataTable({
           initComplete: function() {
