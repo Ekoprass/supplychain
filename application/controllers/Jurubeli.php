@@ -68,7 +68,7 @@ class Jurubeli extends CI_Controller{
     $kode=$this->input->post('kd_jurubeli');
     $this->db->where('jurubeli', $kode);
     $query=$this->db->get('arsip_dokumen');
-    if ($query->num_rows()==1) {
+    if ($query->num_rows()>=1) {
         $errors = "Delete Gagal! \nKode Juru Beli Terelasi Dengan Data Arsip";
         echo json_encode(['error'=>$errors]);
     }else{

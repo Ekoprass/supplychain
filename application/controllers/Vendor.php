@@ -68,7 +68,7 @@ class Vendor extends CI_Controller{
   $kode=$this->input->post('kd_vendor');
   $this->db->where('vendor', $kode);
   $query=$this->db->get('arsip_dokumen');
-  if ($query->num_rows()==1) {
+  if ($query->num_rows()>=1) {
       $errors = "Delete Gagal! \nKode Vendor Terelasi Dengan Data Arsip";
       echo json_encode(['error'=>$errors]);
   }else{

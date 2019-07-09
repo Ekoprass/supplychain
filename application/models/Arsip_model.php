@@ -44,6 +44,7 @@ class Arsip_model extends CI_Model {
   function get_all_rak()
   {
     $this->db->select('kd_rak,nama_rak');
+    $this->db->where('kd_rak !=', 0);
     $get=$this->db->get('rak_ke');
     return $get->result_array();
   }

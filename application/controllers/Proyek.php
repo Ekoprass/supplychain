@@ -68,7 +68,7 @@ class Proyek extends CI_Controller{
   $kode=$this->input->post('kd_proyek');
   $this->db->where('proyek', $kode);
   $query=$this->db->get('arsip_dokumen');
-  if ($query->num_rows()==1) {
+  if ($query->num_rows()>=1) {
       $errors = "Delete Gagal! \nKode Proyek Terelasi Dengan Data Arsip";
       echo json_encode(['error'=>$errors]);
   }else{

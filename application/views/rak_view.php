@@ -78,7 +78,7 @@
  	 </form>
 
 	 <!-- Modal Hapus Produk-->
- 	  <form id="add-row-form" action="<?php echo base_url().'index.php/rak/delete'?>" method="post">
+ 	  <form id="dell-row-form" action="<?php echo base_url().'index.php/rak/delete'?>" method="post">
  	     <div class="modal fade" id="ModalHapus" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
  	        <div class="modal-dialog">
  	           <div class="modal-content">
@@ -87,12 +87,12 @@
  	                   <h4 class="modal-title" id="myModalLabel">Hapus</h4>
  	               </div>
  	               <div class="modal-body">
- 	                       <input type="hidden" name="Kode" id="del-rak" class="form-control" placeholder="Kode Rak" required>
+ 	                       <input type="hiden" name="kd_rak" id="del-rak" class="form-control" placeholder="Kode Rak" required>
 												 <strong>Anda yakin mau menghapus record ini?</strong>
  	               </div>
  	               <div class="modal-footer">
  	                   	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
- 	                  	<button type="submit" id="add-row" class="btn btn-success">Hapus</button>
+ 	                  	<button type="submit" id="dell-row" class="btn btn-success">Hapus</button>
  	               </div>
  	      			</div>
  	        </div>
@@ -172,7 +172,7 @@
 			$('#mytable').on('click','.hapus_record',function(){
             var kode=$(this).data('kd_rak');
             $('#ModalHapus').modal('show');
-            $('[name="Kode"]').val(kode);
+            $('[name="kd_rak"]').val(kode);
       });
 			// End Hapus Records
 
@@ -225,7 +225,7 @@
 
                     location.replace("<?php echo site_url() ?>/rak");
                   }else{
-                    $(".print-error-msg").css('display','none');
+                    $(".print-error-msg").css('display','block');
                     alert(data.error);
                     // $(".print-error-msg").html(data.error);
                   }

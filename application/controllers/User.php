@@ -93,7 +93,7 @@ class User extends CI_Controller{
     $Nomer=$this->input->post('Nomer');
     $this->db->where('petugas', $Nomer);
     $query=$this->db->get('arsip_dokumen');
-    if ($query->num_rows()==1) {
+    if ($query->num_rows()>=1) {
         $errors = "Delete Gagal! \nNomor Petugas Terelasi Dengan Data Arsip";
         echo json_encode(['error'=>$errors]);
     }else{
