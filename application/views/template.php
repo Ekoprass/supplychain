@@ -36,6 +36,10 @@
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
 <div class="content">
 
+<!-- gawe button exel -->
+<link type="text/css" rel="stylesheet" href="<?php echo base_url().'assets/buttons/1.4.1/buttons.dataTables.css'?>">
+
+
 <!--pdf viewer-->
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker3.min.css">
 
