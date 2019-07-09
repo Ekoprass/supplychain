@@ -11,7 +11,7 @@
  Target Server Version : 100134
  File Encoding         : 65001
 
- Date: 05/07/2019 09:32:10
+ Date: 09/07/2019 07:26:41
 */
 
 SET NAMES utf8mb4;
@@ -30,13 +30,23 @@ CREATE TABLE `arsip_dokumen`  (
   `jurubeli` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `proyek` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `vendor` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-  `kd_rak` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `rak` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `petugas` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `tgl_entry` datetime(0) NULL DEFAULT NULL,
   `dokumen` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `status_dokumen` int(10) NULL DEFAULT NULL,
   PRIMARY KEY (`no_dokumen`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of arsip_dokumen
+-- ----------------------------
+INSERT INTO `arsip_dokumen` VALUES (190001, '23', '234', '2019-07-18', 'uy', '1', '10', '100', '1', '1', '2019-07-06 10:53:08', 'course-note-numerical-method.pdf', 1);
+INSERT INTO `arsip_dokumen` VALUES (190002, '23', '123', '2019-07-30', '123', '100', '10', '100', '0', '3', '2019-07-06 10:53:37', 'BAb-_03_Solusi_Persamaan_Nirlanjar_22.pdf', NULL);
+INSERT INTO `arsip_dokumen` VALUES (190003, '234', '234', '2019-07-25', '234', '10', '10', '100', '1', '1', '2019-07-06 10:54:36', 'BAb-_03_Solusi_Persamaan_Nirlanjar_13.pdf', 1);
+INSERT INTO `arsip_dokumen` VALUES (190004, '234', '234', '2019-07-25', '234', '10', '10', '100', '2', '1', '2019-07-06 10:54:48', 'BAb-_03_Solusi_Persamaan_Nirlanjar_14.pdf', 1);
+INSERT INTO `arsip_dokumen` VALUES (190005, '234', '234', '2019-07-25', '234', '10', '10', '100', '1', '1', '2019-07-06 10:55:05', 'BAb-_03_Solusi_Persamaan_Nirlanjar_15.pdf', 1);
+INSERT INTO `arsip_dokumen` VALUES (190006, '234', '234', '2019-08-07', '34', '11', '100', '11', '0', '3', '2019-07-06 11:08:48', 'BAb-_03_Solusi_Persamaan_Nirlanjar_28.pdf', NULL);
 
 -- ----------------------------
 -- Table structure for jurubeli
@@ -325,7 +335,9 @@ CREATE TABLE `rak_ke`  (
 -- ----------------------------
 -- Records of rak_ke
 -- ----------------------------
+INSERT INTO `rak_ke` VALUES ('0', 'Kosong');
 INSERT INTO `rak_ke` VALUES ('1', 'Peralatan');
+INSERT INTO `rak_ke` VALUES ('2', 'Kayu Balok');
 
 -- ----------------------------
 -- Table structure for vendor
