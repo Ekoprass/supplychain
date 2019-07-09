@@ -165,8 +165,7 @@
               <label class=" form-control-label pull-right" id="rk"  hidden></label>
               <div class="input-group">
               <input type="text" name="rk" class="rk" hidden>
-              <?php echo form_error('rak', ' <div class="alert alert-danger" role="alert">', '</div>'); ?>
-                <select class="standardSelect" name="rak" tabindex="-1" style="display: none;" required id="rak">
+                <select class="standardSelect" name="rak" tabindex="-1" style="display: none;" id="rak">
                   <option value="" label="default"></option>
                   <?php foreach ($rak_ke as $key) {?>
                     <option value="<?php echo $key['kd_rak']; ?>"><?php echo $key['kd_rak']." | ".$key['nama_rak']; ?></option>
@@ -174,7 +173,8 @@
                 </select>
               </div>
             </div>
-          <?php }else{ }?>
+             
+          <?php }else{?> <input type="text" name="rk" class="rk" hidden><?php }?>
       <div class="form-group">
         <input type="text" name="dokumena" hidden>
         <label class=" form-control-label">Scan Dokumen (PDF File)</label>
