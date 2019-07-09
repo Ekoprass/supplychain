@@ -283,18 +283,12 @@
         "iTotalPages": Math.ceil(oSettings.fnRecordsDisplay() / oSettings._iDisplayLength)
       };
     };
-
-
-    // $('#mytable thead tr').clone(true).appendTo( '#mytable thead' );
    
       "use strict";
   
 
     var table = $("#mytable").dataTable({
       orderCellsTop: true,
-      // bFilter: true,
-      // dom: 'lBfrtip',
-      dom: "BWlfrtip",
       oLanguage: {
         sProcessing: "LOADING..."
       },
@@ -348,16 +342,17 @@
       {
         extend: 'excel',
         exportOptions: {
-          columns: [0,1,2,3,4,5,6,7,13,14,17,18,19]
+          columns: [0,1,2,3,4,5,6,7,12,13,16,17,18]
         }
       },
       {
-        extend: 'print',
+        extend: 'pdfHtml5',
+        orientation: 'landscape',
+        pageSize: 'LEGAL',
         exportOptions: {
-          columns: ':visible'
+          columns: [0,1,2,3,4,5,6,7,12,13,16,17,18]
         }
-      },
-      'colvis'
+      }
       ],
       lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
       rowCallback: function(row, data, iDisplayIndex) {
@@ -531,14 +526,6 @@ responsive: true
         el.innerHTML = (myPDF) ? "PDFObject successfully added an &lt;embed> element to the page!" : "Uh-oh, the embed didn't work.";
         
       });
-      // End Edit Records
-      // get Hapus Records
-      // $('#mytable').on('click','.hapus_record',function(){
-      //       var kode=$(this).data('kd_jurubeli');
-      //       $('#ModalHapus').modal('show');
-      //       $('[name="Kode"]').val(kode);
-      // });
-      // End Hapus Records
 
     });
 
