@@ -51,6 +51,16 @@
                            <div class="form-group">
                                <input type="password" id="Password" name="Password" class="form-control" placeholder="Masukkan Password" required>
                            </div>
+                      </div>
+                     <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                          <button type="submit" id="add-row" class="btn btn-info">PERBARUI</button>
+                     </div>
+                  </div>
+              </div>
+           </div>
+       </form>
+
 
        <!-- Modal Update Produk-->
         <form id="add-row-form" action="<?php echo base_url().'index.php/User/update'?>" method="post">
