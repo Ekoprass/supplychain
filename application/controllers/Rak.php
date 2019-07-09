@@ -69,7 +69,7 @@
 
 		  function delete(){ //function hapus data
 		    $kode=$this->input->post('Kode');
-		    $this->db->where('kd_rak', $kode);
+		    $this->db->where('rak', $kode);
 		    $query=$this->db->get('arsip_dokumen');
 		    if ($query->num_rows()==1) {
 		        $errors = "Delete Gagal! \nKode Rak Terelasi Dengan Data Arsip";
