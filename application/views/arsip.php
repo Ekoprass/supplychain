@@ -27,7 +27,9 @@
 					<div class="card-header" style="background-color: #03428b">
 						<h2 style="color: #fff">INPUT ARSIP</h2>
 					</div>
-					<?php echo form_open_multipart('Arsip/tambah'); ?>
+					<?php
+						$attributes = array('id' => 'myform'); 
+						echo form_open_multipart('Arsip/tambah'); ?>
 					<div class="card-body card-block">
 						<div class="form-group">
 							<label class=" form-control-label">Nomor Dokumen</label>
@@ -61,7 +63,6 @@
 						<div class="form-group">
 							<label class=" form-control-label">Kode Juru Beli</label>
 							<div class="input-group">
-								<?php echo form_error('jurubeli', ' <div class="alert alert-danger" role="alert">', '</div>'); ?>
 								<select class="standardSelect" name="jurubeli" tabindex="-1" style="display: none;" required>
 									<option value="" label="default"></option>
 									<?php foreach ($jurubeli as $key) {?>
@@ -73,7 +74,6 @@
 						<div class="form-group">
 							<label class=" form-control-label">Kode Proyek</label>
 							<div class="input-group">
-								<?php echo form_error('proyek', ' <div class="alert alert-danger" role="alert">', '</div>'); ?>
 								<select class="standardSelect" name="proyek" tabindex="-1" style="display: none;" required>
 									<option value="" label="default"></option>
 									<?php foreach ($proyek as $key) {?>
@@ -153,6 +153,7 @@
 <?php $this->view('footer.php'); ?>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.4/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
@@ -165,8 +166,35 @@
 		jQuery(".standardSelect").chosen({
 			disable_search_threshold: 10,
 			no_results_text: "Oops, nothing found!",
-			width: "100%"
+			width: "100%",
 		});
+			jQuery.validator.setDefaults({ ignore: ":hidden:not(select)" });
+
+// validation of chosen on change
+if ($("select.chosen-select").length > 0) {
+    $("select.chosen-select").each(function() {
+        if ($(this).attr('required') !== undefined) {
+            $(this).on("change", function() {
+                $(this).valid();
+            });
+        }
+    });
+}
+
+// validation
+jQuery('#myform').validate({
+    errorPlacement: function (error, element) {
+        console.log("placement");
+        if (element.is("select.chosen-select")) {
+            console.log("placement for chosen");
+            // placement for chosen
+            element.next("div.chzn-container").append(error);
+        } else {
+            // standard placement
+            error.insertAfter(element);
+        }
+    }
+});
 	});
 </script>
 <script>

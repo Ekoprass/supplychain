@@ -39,6 +39,29 @@
                 <th style="font-size: 8pt">AKSI</th>
                 <th></th>
               </tr>
+              <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
             </thead>
           </table>
         </div>
@@ -64,7 +87,6 @@
           </div>
         </div>
          <div class="form-group">
-          <?php echo form_error('no_surat', '<div class="error">', '</div>'); ?>
           <label class=" form-control-label">Nomor Surat</label>
           <div class="input-group">
             <input class="form-control" name="no_surat">
@@ -94,6 +116,8 @@
         </div>
 
         <div class="form-group">
+          <?php echo form_error('jurubeli', ' <div class="alert alert-danger" role="alert">', '</div>'); ?>
+
           <label class=" form-control-label">Kode Juru Beli</label>
           <label class=" form-control-label pull-right" id="jb" hidden></label>
           <div class="input-group">
@@ -207,7 +231,6 @@
 </div>
 <?php $this->view('footer.php'); ?>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script src="<?php echo base_url('') ?>assets/js/lib/chosen/chosen.jquery.min.js"></script>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
  <!-- <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script> -->
@@ -215,6 +238,17 @@
 
 <script src="<?php echo base_url().'assets/js/bootstrap.js'?>"></script>
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url('') ?>assets/js/lib/chosen/chosen.jquery.min.js"></script>
+
+<!-- gawe button exel -->
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.4.1/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.4.1/js/buttons.flash.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.4.1/js/buttons.html5.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.4.1/js/buttons.print.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.57/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.57/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.colVis.min.js"></script>
 <script src="<?php echo base_url().'assets/js/dataTables.bootstrap.js'?>"></script>
 <!-- Specific Page Vendor -->
 <script src="<?php echo base_url()?>assets/jquery-datatables-bs3/assets/js/datatables.js"></script>
@@ -226,15 +260,6 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js"></script>
 <script src="<?php echo base_url('') ?>assets/js/main.js"></script>
 
-<!-- gawe button exel -->
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.4.1/js/dataTables.buttons.min.js"></script>
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.4.1/js/buttons.flash.min.js"></script>
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.4.1/js/buttons.html5.min.js"></script>
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/buttons/1.4.1/js/buttons.print.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.57/pdfmake.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.57/vfs_fonts.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.colVis.min.js"></script>
 
 <script src="<?php echo base_url() ?>assets/pdfobject/pdfobject.min.js"></script>
 
@@ -269,11 +294,11 @@
       orderCellsTop: true,
       // bFilter: true,
       // dom: 'lBfrtip',
-      "dom": "BWlfrtip",
+      dom: "BWlfrtip",
       oLanguage: {
         sProcessing: "LOADING..."
       },
-      "bJQueryUI": true,
+      bJQueryUI: true,
       processing: true,
       // serverSide: true,
       ajax: {"url": "<?php echo base_url().'index.php/arsip/get_guest_json'?>", "type": "POST"},
@@ -323,7 +348,7 @@
       {
         extend: 'excel',
         exportOptions: {
-          columns: ':visible'
+          columns: [0,1,2,3,4,5,6,7,13,14,17,18,19]
         }
       },
       {
@@ -352,19 +377,6 @@
             api.search(this.value).draw();
           });
 
-    //        $('#mytable thead tr:eq(1) th').each( function (i) {
-    //     var title = $(this).text();
-    //     $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
- 
-    //     $( 'input', this ).on( 'keyup change', function () {
-    //         if ( table.column(i).search() !== this.value ) {
-    //             table
-    //                 .column(i)
-    //                 .search( this.value )
-    //                 .draw();
-    //         }
-    //     } );
-    // } );
       },
 responsive: true
     }).yadcf([
@@ -409,7 +421,7 @@ responsive: true
                 filter_type: "text",
                 filter_delay: 500
             },
-        ]);
+        ],{ filters_tr_index: 1});
       // end setup datatables
       // get Edit Records
       $("#ModalUpdate").on('shown.bs.modal',function(e){
@@ -461,28 +473,28 @@ responsive: true
       });
 
 
-      jQuery(document).ready(function() {
+      $(document).ready(function() {
         $("#ModalUpdate").on('shown.bs.modal',function(){
-          jQuery("#jurubeli").chosen({
+          $("#jurubeli").chosen({
             placeholder_text:$(".jb").val()+" | "+$("#jb").text(),
             disable_search_threshold: 10,
             no_results_text: "Maaf, Tidak bisa ditemukan!",
             width: "100%"
           });
 
-          jQuery("#proyek").chosen({
+          $("#proyek").chosen({
             placeholder_text:$(".pk").val()+" | "+$("#pk").text(),
             disable_search_threshold: 10,
             no_results_text: "Maaf, Tidak bisa ditemukan!",
             width: "100%"
           });
-          jQuery("#vendor").chosen({
+          $("#vendor").chosen({
             placeholder_text:$(".vn").val()+" | "+$("#vn").text(),
             disable_search_threshold: 10,
             no_results_text: "Maaf, Tidak bisa ditemukan!",
             width: "100%"
           });
-          jQuery("#rak").chosen({
+          $("#rak").chosen({
             placeholder_text:$(".rk").val()+" | "+$("#rk").text(),
             disable_search_threshold: 10,
             no_results_text: "Maaf, Tidak bisa ditemukan!",

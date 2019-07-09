@@ -107,33 +107,12 @@ class Arsip extends CI_Controller {
 		                'rules' => 'is_unique[arsip_dokumen.no_surat]',
 		                'errors'=> array('is_unique' =>'Nomor Surat Telah Terdaftar')
 		            ),
-		        array(
-		                'field' => 'jurubeli',
-		                'label' => 'Kode Juru Beli',
-		                'rules' => 'required',
-		                'errors'=> array('required' =>'Kode Tidak Boleh Kosong')
-	            ),array(
-	                'field' => 'proyek',
-	                'label' => 'Nomor Surat',
-	                'rules' => 'required',
-	                'errors'=> array('required' =>'Kode Tidak Boleh Kosong')
-	            ),array(
-	                'field' => 'vendor',
-	                'label' => 'Nomor Surat',
-	                'rules' => 'required',
-	                'errors'=> array('required' =>'Kode Tidak Boleh Kosong')
-	            ),array(
-	                'field' => 'rak',
-	                'label' => 'Nomor Surat',
-	                'rules' => 'required',
-	                'errors'=> array('required' =>'Kode Tidak Boleh Kosong')
-	            )
+		       
 		        );
 		$this->form_validation->set_rules($config);
 		if ($this->form_validation->run() == FALSE) {
 			$session_data=$this->session->userdata('logged_in');
 		    $akses=$session_data['hak_akses'];
-		    $this->form_validation->set_message('is_unique', 'no_surat sudah ada.');
 		    $data['menus'] = $this->Menus->getMenuUser($akses);
 		    $data['jurubeli']=$this->Arsip_model->get_all_jb();
 		    $data['proyek']=$this->Arsip_model->get_all_py();
