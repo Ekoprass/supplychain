@@ -71,7 +71,9 @@
 
 
   <!-- Modal Update Produk-->
-  <form id="add-row-form" action="<?php echo site_url()?>/Arsip/update" method="post" enctype="multipart/form-data">
+<?php
+            $attributes = array('id' => 'add-row-form'); 
+            echo form_open_multipart('Arsip/update', $attributes); ?>
    <div class="modal fade" id="ModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="width:1000px; max-width: unset">
      <div class="modal-content">
@@ -80,6 +82,8 @@
          <h4 class="modal-title" id="myModalLabel">UPDATE DATA ARSIP</h4>
        </div>
        <div class="modal-body">
+         <div class="alert alert-danger print-error-msg" style="display:none"></div>
+          <div class="alert alert-primary print-success-msg" style="display:none"></div>
          <div class="form-group">
           <label class=" form-control-label">Nomor Dokumen</label>
           <div class="input-group">
@@ -176,7 +180,7 @@
              
           <?php }else{?> <input type="text" name="rk" class="rk" hidden><?php }?>
       <div class="form-group">
-        <input type="text" name="dokumena" hidden>
+        <input type="text" name="dokumena" hdden>
         <label class=" form-control-label">Scan Dokumen (PDF File)</label>
         <div class="input-group">
           <input class="form-control" type="File" name="dokumen">
@@ -204,7 +208,7 @@
     <input type="text" name="petugas" hidden>
     <div class="modal-footer">
       <button type="reset" class="btn btn-default" id="reset_me" data-dismiss="modal" onClick="history.go(0);">Tutup</button>
-      <button type="submit" id="add-row" class="btn btn-success">Perbarui</button>
+      <button type="submit" id="update-row" class="btn btn-success">Perbarui</button>
     </div>
   </div>
 </div>
@@ -300,7 +304,7 @@
       {"data": "no_dokumen"},
       {"data": "no_surat"},
       {"data": "no_po"},
-      {"data": "tgl_po", render : function(data){ return moment(data).format('DD MMMM YYYY');}},
+      {"data": "tgl_po", render : function(data){ return moment(data).format('DD-MM-YYYY');}},
       {"data": "deskripsi"},
       {"data": "nm_jurubeli"},
       {"data": "nm_proyek"},
@@ -360,10 +364,14 @@
         var page = info.iPage;
         var length = info.iLength;
         $('td:eq(0)', row).html();
-        if(data["rak"] == "Kosong"){
-                $('td', row).css('background-color', '#f21f1f');
-                $('td', row).css('color', '#fff');
+        if(data["rak"] == "Kosong" ){
+                $('td', row).css('background-color', '#ffc3c8');
+                $('td', row).css('color', '#000');
             }
+        if(data["status_dokumen"] == "2" ){
+            $('td', row).css('background-color', '#ffc3c8');
+            $('td', row).css('color', '#000');
+        }
       },
      
       initComplete: function() {
@@ -386,8 +394,9 @@ responsive: true
                 filter_type: "text"
             },{
                 column_number: 3,
-                filter_type: "date",
-                date_format:"dd MM yy"
+                filter_type: "range_date",
+                date_format:"dd-mm-yy",
+                // column_data_type: "text",
             },{
                 column_number: 4,
                 filter_type: "text",

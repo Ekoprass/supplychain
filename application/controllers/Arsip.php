@@ -180,62 +180,67 @@ class Arsip extends CI_Controller {
 	function update()
 	{
 
-			$config['upload_path'] = realpath('./assets/dokument/');
-			$config['allowed_types'] = 'pdf';
-			$config['max_size']  = '11000';
-			
-			$this->load->library('upload', $config);
-			if ($this->upload->do_upload('dokumen')){
-			$dokumen=$this->upload->data('file_name');
-				
-				// $error = array('error' => $this->upload->display_errors());
-				// echo $error['error'];
-			}else{
-				$dokumen=$this->input->post('dokumena');
+		$kode=$this->input->post('no_dokumen');
+		$config['upload_path'] = realpath('./assets/dokument/');
+		$config['allowed_types'] = 'pdf';
+		$config['max_size']  = '11000';
+		$config['overwite']  = TRUE;
+		
+		$this->load->library('upload', $config);
 
-			}
-			if ($this->input->post('jurubeli')==null) {
-				$jurubeli=$this->input->post('jb');
-			}else {
-				$jurubeli=$this->input->post('jurubeli');
-			}	
-			if ($this->input->post('proyek')==null) {
-				$proyek=$this->input->post('pk');
-			}else {
-				$proyek=$this->input->post('proyek');
-			}	
-			if ($this->input->post('vendor')==null) {
-				$vendor=$this->input->post('vn');
-			}else {
-				$vendor=$this->input->post('vendor');
-			}if ($this->input->post('rak')==null) {
-				$rak=$this->input->post('rk');
-			}else {
-				$rak=$this->input->post('rak');
-			}
-
-			date_default_timezone_set('Asia/Jakarta');
-			$d=strtotime($this->input->post('tgl_po'));
-			$kode=$this->input->post('no_dokumen');
-			$data=array(
-		      'no_dokumen'      	=> $kode,
-			  'no_surat'	      	=> $this->input->post('no_surat'),
-		      'no_po'    			=> $this->input->post('no_po'),
-		      'tgl_po'				=> date("Y-m-d",$d),
-		      'deskripsi'			=> $this->input->post('deskripsi'),
-		      'jurubeli'			=> $jurubeli,
-		      'proyek'				=> $proyek,
-		      'vendor'				=> $vendor,
-		      'rak'					=> $rak,
-		      'tgl_entry'			=> $this->input->post('tgl_entry'),
-		      'petugas'				=> $this->input->post('petugas'),
-		      'status_dokumen'		=> $this->input->post('status'),
-		      'dokumen'				=> $dokumen
-		    );	
-    		$this->db->where('no_dokumen',$kode);
-			$this->db->update('arsip_dokumen', $data);
-			  redirect('Arsip/Data');
+		if ($this->upload->do_upload('dokumen')){
+		unlink('./assets/dokument/'.$this->input->post('dokumena'));
+		$dokumen=$this->upload->data('file_name');
 			
+			// $error = array('error' => $this->upload->display_errors());
+			// echo $error['error'];
+		}else{
+
+			$dokumen=$this->input->post('dokumena');
+
+		}
+		if ($this->input->post('jurubeli')==null) {
+			$jurubeli=$this->input->post('jb');
+		}else {
+			$jurubeli=$this->input->post('jurubeli');
+		}	
+		if ($this->input->post('proyek')==null) {
+			$proyek=$this->input->post('pk');
+		}else {
+			$proyek=$this->input->post('proyek');
+		}	
+		if ($this->input->post('vendor')==null) {
+			$vendor=$this->input->post('vn');
+		}else {
+			$vendor=$this->input->post('vendor');
+		}if ($this->input->post('rak')==null) {
+			$rak=$this->input->post('rk');
+		}else {
+			$rak=$this->input->post('rak');
+		}
+
+		date_default_timezone_set('Asia/Jakarta');
+		$d=strtotime($this->input->post('tgl_po'));
+		
+		$data=array(
+	      'no_dokumen'      	=> $kode,
+		  'no_surat'	      	=> $this->input->post('no_surat'),
+	      'no_po'    			=> $this->input->post('no_po'),
+	      'tgl_po'				=> date("Y-m-d",$d),
+	      'deskripsi'			=> $this->input->post('deskripsi'),
+	      'jurubeli'			=> $jurubeli,
+	      'proyek'				=> $proyek,
+	      'vendor'				=> $vendor,
+	      'rak'					=> $rak,
+	      'tgl_entry'			=> $this->input->post('tgl_entry'),
+	      'petugas'				=> $this->input->post('petugas'),
+	      'status_dokumen'		=> $this->input->post('status'),
+	      'dokumen'				=> $dokumen
+	    );	
+		$this->db->where('no_dokumen',$kode);
+		$this->db->update('arsip_dokumen', $data);
+		  redirect('Arsip/Data');
+		
 	}
 
 
