@@ -54,7 +54,7 @@
                       </div>
                      <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
-                          <button type="submit" id="add-row" class="btn btn-info">PERBARUI</button>
+                          <button type="submit" id="add-row" class="btn btn-info">SIMPAN</button>
                      </div>
                   </div>
               </div>
