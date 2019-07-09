@@ -215,7 +215,7 @@
   <div class="modal-dialog" style="max-width: unset; width: 1000px;">
    <div class="modal-content" style="height: 700px">
      <div class="modal-header">
-       <button type="reset" class="close"  data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+       <button type="button" class="close"  data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
        <h4 class="modal-title" id="myModalLabel">Lihat Dokumen PDF</h4>
      </div>
      <div class="modal-body">
