@@ -345,12 +345,15 @@
       
       {
         extend: 'excelHtml5',
+        extend: 'excel',
+        text:      'Excel &nbsp<i class="fas fa-file-excel"></i>',
         exportOptions: {
           columns: [0,1,2,3,4,5,6,7,12,13,16,17,18]
         }
       },
       {
         extend: 'pdfHtml5',
+        text:      'PDF &nbsp<i class="fas fa-file-pdf"></i>',
         orientation: 'landscape',
         pageSize: 'LEGAL',
         exportOptions: {
