@@ -344,7 +344,7 @@
       buttons: [
       
       {
-        extend: 'excel',
+        extend: 'excelHtml5',
         exportOptions: {
           columns: [0,1,2,3,4,5,6,7,12,13,16,17,18]
         }
