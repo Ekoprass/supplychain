@@ -180,7 +180,7 @@
              
           <?php }else{?> <input type="text" name="rk" class="rk" hidden><?php }?>
       <div class="form-group">
-        <input type="text" name="dokumena" hdden>
+        <input type="text" name="dokumena" hidden>
         <label class=" form-control-label">Scan Dokumen (PDF File)</label>
         <div class="input-group">
           <input class="form-control" type="File" name="dokumen">

@@ -11,7 +11,7 @@
  Target Server Version : 100134
  File Encoding         : 65001
 
- Date: 09/07/2019 07:26:41
+ Date: 10/07/2019 09:12:49
 */
 
 SET NAMES utf8mb4;
@@ -46,7 +46,13 @@ INSERT INTO `arsip_dokumen` VALUES (190002, '23', '123', '2019-07-30', '123', '1
 INSERT INTO `arsip_dokumen` VALUES (190003, '234', '234', '2019-07-25', '234', '10', '10', '100', '1', '1', '2019-07-06 10:54:36', 'BAb-_03_Solusi_Persamaan_Nirlanjar_13.pdf', 1);
 INSERT INTO `arsip_dokumen` VALUES (190004, '234', '234', '2019-07-25', '234', '10', '10', '100', '2', '1', '2019-07-06 10:54:48', 'BAb-_03_Solusi_Persamaan_Nirlanjar_14.pdf', 1);
 INSERT INTO `arsip_dokumen` VALUES (190005, '234', '234', '2019-07-25', '234', '10', '10', '100', '1', '1', '2019-07-06 10:55:05', 'BAb-_03_Solusi_Persamaan_Nirlanjar_15.pdf', 1);
-INSERT INTO `arsip_dokumen` VALUES (190006, '234', '234', '2019-08-07', '34', '11', '100', '11', '0', '3', '2019-07-06 11:08:48', 'BAb-_03_Solusi_Persamaan_Nirlanjar_28.pdf', NULL);
+INSERT INTO `arsip_dokumen` VALUES (190006, '23498', '234', '2019-08-07', '3487 tes', '11', '100', '11', '0', '3', '2019-07-06 11:08:48', 'BAb-_03_Solusi_Persamaan_Nirlanjar_28.pdf', NULL);
+INSERT INTO `arsip_dokumen` VALUES (190007, '89', '23489', '2019-07-30', 'sad', '100', '100', '10', '2', '1', '2019-07-09 08:52:19', 'course-note-numerical-method1.pdf', 1);
+INSERT INTO `arsip_dokumen` VALUES (190008, '678', '56', '2019-07-20', 'fdh', '10', '1', '100', '2', '1', '2019-07-09 10:48:21', 'BAb-_03_Solusi_Persamaan_Nirlanjar_16.pdf', 1);
+INSERT INTO `arsip_dokumen` VALUES (190009, '9769976', '678798', '2019-07-30', 'fdb', '10', '10', '100', '0', '3', '2019-07-09 10:48:44', 'BAb-_03_Solusi_Persamaan_Nirlanjar_211.pdf', 1);
+INSERT INTO `arsip_dokumen` VALUES (190010, '45467', '567', '2019-07-26', '', '100', '10', '11', '2', '1', '2019-07-09 02:22:32', 'answer_1a1.pdf', NULL);
+INSERT INTO `arsip_dokumen` VALUES (190011, '234', '678', '2019-07-01', '', '10', '10', '11', '2', '3', '2019-07-09 02:22:56', 'answer_1a11.pdf', 2);
+INSERT INTO `arsip_dokumen` VALUES (190012, '2025', 'pc 19 slp 2025', '2019-06-24', 'Steel Plate BRS', 'mhd', '12', '17', '1', '103', '2019-07-10 08:26:18', '1209312092.pdf', 1);
 
 -- ----------------------------
 -- Table structure for jurubeli
@@ -86,7 +92,6 @@ INSERT INTO `jurubeli` VALUES ('28', 'Jaylan Hahn');
 INSERT INTO `jurubeli` VALUES ('29', 'Alvena Boehm');
 INSERT INTO `jurubeli` VALUES ('3', 'Miss Aurore Padberg');
 INSERT INTO `jurubeli` VALUES ('30', 'Ezekiel Thompson');
-INSERT INTO `jurubeli` VALUES ('31', 'Adeline Von');
 INSERT INTO `jurubeli` VALUES ('32', 'Betsy Rohan');
 INSERT INTO `jurubeli` VALUES ('33', 'Mr. Ellsworth Little');
 INSERT INTO `jurubeli` VALUES ('34', 'Ocie Romaguera');
@@ -161,6 +166,7 @@ INSERT INTO `jurubeli` VALUES ('96', 'Casey Medhurst');
 INSERT INTO `jurubeli` VALUES ('97', 'Miss Emelia Walter');
 INSERT INTO `jurubeli` VALUES ('98', 'Delia Brekke');
 INSERT INTO `jurubeli` VALUES ('99', 'Georgette Gaylord');
+INSERT INTO `jurubeli` VALUES ('mhd', 'muhadi');
 
 -- ----------------------------
 -- Table structure for menus
@@ -207,8 +213,8 @@ CREATE TABLE `petugas`  (
 -- Records of petugas
 -- ----------------------------
 INSERT INTO `petugas` VALUES (1, 'Bambang P', 'bambangp', '21232f297a57a5a743894a0e4a801fc3', '2');
-INSERT INTO `petugas` VALUES (2, 'Yusril K', 'ysk', '21232f297a57a5a743894a0e4a801fc3', '1');
 INSERT INTO `petugas` VALUES (3, 'M Yudha', 'yudha', '21232f297a57a5a743894a0e4a801fc3', '1');
+INSERT INTO `petugas` VALUES (103, 'selvi', 'slf', '6969458a143230c308ac0749db4e36ae', '1');
 
 -- ----------------------------
 -- Table structure for proyek
@@ -352,7 +358,6 @@ CREATE TABLE `vendor`  (
 -- ----------------------------
 -- Records of vendor
 -- ----------------------------
-INSERT INTO `vendor` VALUES ('1', 'Turner and Sons');
 INSERT INTO `vendor` VALUES ('10', 'Kerluke Group');
 INSERT INTO `vendor` VALUES ('100', 'Goyette-Runolfsdottir');
 INSERT INTO `vendor` VALUES ('11', 'Pacocha-Beier');
