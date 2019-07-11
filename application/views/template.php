@@ -15,8 +15,8 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
- <!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/fontawesome.min.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
@@ -55,7 +55,7 @@
     <!-- Left Panel -->
     <aside id="left-panel" class="left-panel" >
         <nav class="navbar navbar-expand-lg navbar-default" >
-            <div id="main-menu" class="main-menu collapse navbar-collapse" style="margin-bottom: 100px">
+            <div id="main-menu" class="main-menu collapse navbar-collapse" style="margin-bottom: 100%">
                 <ul class="nav navbar-nav">
                    
                <?php foreach ($menus as $key ) { 
@@ -64,7 +64,7 @@
                     <?php }
                         if ($key['parent']>0) {?>
                      <li>
-                        <a style="color:#9e9c9c" onMouseOver="this.style.color='#03428b'"   onMouseOut="this.style.color='#9e9c9c'" href="<?php echo site_url('')."/".$key['url'] ?>"> <i style="color:#9e9c9c" onMouseOver="this.style.color='#03428b'"   onMouseOut="this.style.color='#9e9c9c'" class="menu-icon fa <?php echo $key['icon']; ?>"></i><?php echo $key['menu']; ?></a>
+                        <a style="color:#9e9c9c; font-size:15px; line-height:50px;padding-top:5px;padding-bottom:5px" onMouseOver="this.style.color='#03428b'"   onMouseOut="this.style.color='#9e9c9c'" href="<?php echo site_url('')."/".$key['url'] ?>"><b> <i style="color:#9e9c9c; font-size: 25px" onMouseOver="this.style.color='#03428b'"  onMouseOut="this.style.color='#9e9c9c'" class="menu-icon <?php echo $key['icon']; ?>"></i><?php echo $key['menu']; ?></b></a>
                     </li>
                 <?php }} ?>
                   
@@ -79,7 +79,7 @@
         <header id="header" class="header">
             <div class="top-left">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="<?php echo site_url() ?>/home"><img src="<?php echo base_url() ?>assets/images/LOGOPAL.png" alt="Logo"></a>
+                    <a class="navbar-brand" href="<?php echo site_url() ?>/home"><img src="<?php echo base_url() ?>assets/images/logopal.png" alt="Logo"></a>
                   <!--   <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a> -->
                 </div>
             </div>

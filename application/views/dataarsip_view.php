@@ -93,7 +93,7 @@
          <div class="form-group">
           <label class=" form-control-label">Nomor Surat</label>
           <div class="input-group">
-            <input class="form-control" name="no_surat">
+            <input class="form-control" name="no_surat" readonly>
           </div>
         </div>
         <div class="form-group">
@@ -329,9 +329,9 @@
                       $akses=$session_data['hak_akses']; 
                       $no_petugas=$session_data['id_petugas'];?>
                 if (row.no_petugas==<?php echo $no_petugas ?> & row.akses_petugas==2 ) {
-                  return '<button class="btn btn-warning" data-toggle="modal" data-no_dokumen="'+row.no_dokumen+'" data-no_po="'+row.no_po+'" data-tgl_po="'+row.tgl_po+'" data-deskripsi="'+row.deskripsi+'"data-jurubeli="'+row.nm_jurubeli+'" data-kd_jurubeli="'+row.jurubeli+'"data-proyek="'+row.nm_proyek+'"data-kd_proyek="'+row.proyek+'" data-vendor="'+row.nm_vendor+'" data-kd_vendor="'+row.vendor+'" data-kd_rak="'+row.no_rak+'" data-dokumen="'+row.dokumen+'" data-rak="'+row.rak+'" data-status="'+row.status_dokumen+'" data-petugas="'+row.no_petugas+'" data-entry="'+row.tgl_entry+'" data-no_surat="'+row.no_surat+'" data-target="#ModalUpdate" onclick="delrec()"><i class="icon fa fa-edit"></i> Edit</button>';
+                  return '<button class="btn btn-warning" data-toggle="modal" data-no_dokumen="'+row.no_dokumen+'" data-no_po="'+row.no_po+'" data-tgl_po="'+row.tgl_po+'" data-deskripsi="'+row.deskripsi+'"data-jurubeli="'+row.nm_jurubeli+'" data-kd_jurubeli="'+row.jurubeli+'"data-proyek="'+row.nm_proyek+'"data-kd_proyek="'+row.proyek+'" data-vendor="'+row.nm_vendor+'" data-kd_vendor="'+row.vendor+'" data-kd_rak="'+row.no_rak+'" data-dokumen="'+row.dokumen+'" data-rak="'+row.rak+'" data-status="'+row.status_dokumen+'" data-petugas="'+row.no_petugas+'" data-entry="'+row.tgl_entry+'" data-no_surat="'+row.no_surat+'" data-target="#ModalUpdate" onclick="delrec()"><i style="font-size:20px" class="icon fa fa-edit"></i> EDIT</button>';
                    }else if(row.akses_petugas==1){
-                    return '<button class="btn btn-warning" data-toggle="modal" data-no_dokumen="'+row.no_dokumen+'" data-no_po="'+row.no_po+'" data-tgl_po="'+row.tgl_po+'" data-deskripsi="'+row.deskripsi+'"data-jurubeli="'+row.nm_jurubeli+'" data-kd_jurubeli="'+row.jurubeli+'"data-proyek="'+row.nm_proyek+'"data-kd_proyek="'+row.proyek+'" data-vendor="'+row.nm_vendor+'" data-kd_vendor="'+row.vendor+'" data-kd_rak="'+row.no_rak+'" data-rak="'+row.rak+'" data-dokumen="'+row.dokumen+'" data-status="'+row.status_dokumen+'" data-petugas="'+row.no_petugas+'" data-entry="'+row.tgl_entry+'" data-no_surat="'+row.no_surat+'" data-target="#ModalUpdate" onclick="delrec()"><i class="icon fa fa-edit"></i> Edit</button>';
+                    return '<button class="btn btn-warning" data-toggle="modal" data-no_dokumen="'+row.no_dokumen+'" data-no_po="'+row.no_po+'" data-tgl_po="'+row.tgl_po+'" data-deskripsi="'+row.deskripsi+'"data-jurubeli="'+row.nm_jurubeli+'" data-kd_jurubeli="'+row.jurubeli+'"data-proyek="'+row.nm_proyek+'"data-kd_proyek="'+row.proyek+'" data-vendor="'+row.nm_vendor+'" data-kd_vendor="'+row.vendor+'" data-kd_rak="'+row.no_rak+'" data-rak="'+row.rak+'" data-dokumen="'+row.dokumen+'" data-status="'+row.status_dokumen+'" data-petugas="'+row.no_petugas+'" data-entry="'+row.tgl_entry+'" data-no_surat="'+row.no_surat+'" data-target="#ModalUpdate" onclick="delrec()"><i  style="font-size:20px" class="icon fa fa-edit"></i> EDIT</button>';
                    }else{
                     return ''
                    }               

@@ -16,7 +16,7 @@ class Arsip_model extends CI_Model {
     // '<a href="javascript:void(0);" class="edit_record btn btn-info btn-s" data-no_dokumen="$1" data-no_po="$2" data-tgl_po="$3" data-deskripsi="$4" data-jurubeli="$5" data-proyek="$6" data-vendor="$7" data-rak_ke="$8" data-status_dokumen="$9"><i class="fa fa-edit"></i> EDIT</a>',
     // 'no_dokumen,no_po,tgl_po,deskripsi,jurubeli,proyek,vendor,rak_ke,status_dokumen,');
 
-    $this->datatables->add_column('pdf','  <a href="javascript:void(0);" class="view_pdf btn btn-primary btn-s" data-dokumen="$1"><i class ="fa fa-file-text-o"></i> Dokumen PDF</a>','dokumen');
+    $this->datatables->add_column('pdf','  <a href="javascript:void(0);" class="view_pdf btn btn-primary btn-md" data-dokumen="$1"><i style="font-size:20px" class ="fas fa-file-pdf"></i>&nbsp PDF</a>','dokumen');
         
     return $this->datatables->generate();
   }
