@@ -85,9 +85,15 @@
             </div>
             <div class="top-right">
                 <div class="header-menu">
-                    <h2>
-                        <div class="pull-right" style="margin-top: -15px;">
-                            <a class="nav-link" style="color:#03428b" onMouseOver="this.style.color='#c2c1c1'"   onMouseOut="this.style.color='#03428b'" href="<?php echo site_url() ?>/login/logout"><i class="fa fa-power-off"></i>
+
+                    <h2>                      
+                        <div class="pull-right" style="margin-top: -18px;">
+                            <a class="nav-link" style="color:#03428b" onMouseOver="this.style.color='#c2c1c1'"   onMouseOut="this.style.color='#03428b'" href="<?php echo site_url() ?>/login/logout">
+                            <?php  
+                                $session_data=$this->session->userdata('logged_in');
+                                echo $akses=$session_data['nama_petugas'];
+                            ?>
+                                <i class="fa fa-power-off"></i>
                             </a>
                         </div>
                     </h2>
