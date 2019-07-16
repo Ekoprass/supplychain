@@ -77,7 +77,7 @@ a.dt-button {
   /* IE10 */
   background-image: -o-linear-gradient(top, white 0%, #03428b 100%);
   /* Opera 11.10+ */
-  background-image: linear-gradient(to bottom, #c2c1c1 0%, #03428b 100%);
+  background-image: linear-gradient(to bottom, #03428b 0%, #03428b 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='white', EndColorStr='#03428b');
   -webkit-user-select: none;
   -moz-user-select: none;
